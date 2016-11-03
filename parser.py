@@ -29,11 +29,13 @@ def initVariables(logger):
     # initialisation du argparse
     PARSER = argparse.ArgumentParser(description='Dossier miroir avec "rsyncFTP"')
     # obligatoire
-    PARSER.add_argument("ftp", type=str, help="donnees pour le site FTP distant")
-    PARSER.add_argument("dp", type=str, help="path to the directory")
-    PARSER.add_argument("lp", type=str, help="path where to generate log")
-    PARSER.add_argument("logConf", type=str, help="path to the configuration file of the logger")
+    PARSER.add_argument("ftp", type=tuple, help="(hote, identifiant, mot_de_passe, port) donnees pour le site FTP distant")
+    PARSER.add_argument("dp", type=str, help="chemin vers le dossier local")
+    PARSER.add_argument("lp", type=str, help="chemin pour generer le log")
+    PARSER.add_argument("inEx", type=list, help="liste de fichiers à inclure (les extensions)")
+    PARSER.add_argument("exEx", type=list, help="liste de fichiers à exclure (les extensions)")
     # optionnel
+    PARSER.add_argument("-lc", "--logConf", default="rsyncFTP.conf", help="chemin vers le fichier conf du log (gestion des handler")
     PARSER.add_argument("-d", "--depth", default=2, help="depth of the surpervision directory, default = 2")
     PARSER.add_argument("-f", "--frequence", default=1, help="add supervision frequency in hz, default = 1 hz")
     PARSER.add_argument("-st", "--supervisionTime", default=60, help="add supervision time (in sec), default = 60 sec")
