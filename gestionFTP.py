@@ -93,7 +93,7 @@ def afficheArgument():
 # Fonctions principales
 
 def loop():
-
+    return None
 
 
 # ____________________________________________________________________________________________________
