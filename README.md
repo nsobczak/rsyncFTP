@@ -1,6 +1,6 @@
 # git
 
-## Programme qui synchronise un dossier local de notre machine vers un site mirroir ftp distant
+## Programme qui synchronise un dossier local de notre machine vers un site miroir ftp distant
 Python course - TP03
 
 rendu le 18 au soir au plus tard
@@ -45,6 +45,14 @@ En lignes de commande
 
 
 ## Architecture
+
+### TODO
+ 
+analyser un dossier sur une certaine profondeur => on utilise DirectorySupervisor
+
+Se connecteur au serveur
+
+push juste les trucs qui sont modifiés
 
 ### liste de fonctions
 
