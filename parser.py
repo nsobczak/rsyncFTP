@@ -36,9 +36,9 @@ def initVariables(logger):
     PARSER.add_argument("exEx", type=list, help="liste de fichiers à exclure (les extensions)")
     # optionnel
     PARSER.add_argument("-lc", "--logConf", default="rsyncFTP.conf", help="chemin vers le fichier conf du log (gestion des handler")
-    PARSER.add_argument("-d", "--depth", default=2, help="depth of the surpervision directory, default = 2")
-    PARSER.add_argument("-f", "--frequence", default=1, help="add supervision frequency in hz, default = 1 hz")
-    PARSER.add_argument("-st", "--supervisionTime", default=60, help="add supervision time (in sec), default = 60 sec")
+    PARSER.add_argument("-p", "--profondeur", default=2, help="profondeur de la suppervision du dossier, default = 2")
+    PARSER.add_argument("-f", "--frequence", default=60, help="frequence de suppervision du dossier et de refraichissement du site ftp en secondes, default = 60 sec")
+    PARSER.add_argument("-st", "--supervisionTime", default=-1, help="ajoute un temps de suppervision (in sec), default = -1 (infinit time)")
 
     # affichage des arguments rentres dans le log
     ARGS = PARSER.parse_args()
