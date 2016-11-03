@@ -7,12 +7,14 @@
 # Config
 
 # Import
+import logger
 import parser
-import directorysupervisor
+import directorySupervisor
 import gestionFTP
 import sys
 import os
 import time
+
 
 # ____________________________________________________________________________________________________
 # ____________________________________________________________________________________________________
@@ -25,25 +27,10 @@ def init(logPath):
     """
 
 
-
-
-def afficheArgument():
-    """affichage des arguments rentres"""
-    logger.info(
-        ":\npath to the directory : %s \npath where to generate log : %s \ndepth of the directory : %s \nfrequency : %s hz \nsupervision time : %s sec\n",
-        dp, lp, depth, frequence, supervisionTime)
-
-
-# ___________________________________________________________________________________________________
-# Fonctions de creation de l'arbre du dossier et de comparaison
-
-
-
 # ___________________________________________________________________________________________________
 # Fonctions principales
 
 def loop():
-
 
 
 # ____________________________________________________________________________________________________
