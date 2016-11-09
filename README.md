@@ -6,7 +6,6 @@ Python course - TP03
 rendu le 18 au soir au plus tard
 pdf + zip
 
-test julien 3
 ## parametres
 
 |Paramètre|Type|Variable|
