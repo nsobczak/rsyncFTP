@@ -126,7 +126,7 @@ def logTheMADLists(logger, M, A, D):
 # ___________________________________________________________________________________________________
 # Fonctions principales
 
-def loop(logger, frequence, supervisionTime, arbrePrecedent):
+def loop(logger, frequence, supervisionTime, arbrePrecedent, dp):
     """
     Fonction: si stop() => arret, sinon compareArbre()
     :param logger: logger
@@ -137,6 +137,8 @@ def loop(logger, frequence, supervisionTime, arbrePrecedent):
     :type supervisionTime: int
     :param arbrePrecedent: tree arbre precedent
     :type arbrePrecedent: tree ???
+    :param dp:
+    :type dp: int
     :return listOfModifFiles: list for he deleted files
     :rtype listOfModifFiles: list
     """
