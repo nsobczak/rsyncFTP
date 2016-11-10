@@ -2,7 +2,7 @@
 # rsyncFTP #
 ############
 
-# TODO : Ajouter valeur infini si supervisionTime = -1
+# TODO : Ajouter valeur infini si supervisionTime = -1 | completer les commentaires | supprimer les variables globales commentees
 # ____________________________________________________________________________________________________
 # Config
 
@@ -13,26 +13,32 @@ import time
 
 # ____________________________________________________________________________________________________
 # ____________________________________________________________________________________________________
-# Variables globales
 
 
-dp = None #path to the directory
-depth = None
-frequence = None
-arbrePrecedent = None
-startinglevel = None
-logger = None
-supervisionTime = None
+# Variables globales <= a supprimer par la suite
+
+
+# dp = None #path to the directory
+# depth = None
+# frequence = None
+# arbrePrecedent = None
+# startinglevel = None
+# logger = None
+# supervisionTime = None
 
 
 # ___________________________________________________________________________________________________
 # Fonctions de creation de l'arbre du dossier et de comparaison
 
-def createSurveyList(tree):
+def createSurveyList(tree, startinglevel, depth):
     """
     Function which create a list of tupples form by (fileName, dateOfLastModif) corresponding to the files in the tree
     :param tree: tree
     :type tree: ???
+    :param startinglevel:
+    :type startinglevel: int
+    :param depth:
+    :type depth: int
     :return listOfModifFiles: list for he deleted files
     :rtype listOfModifFiles: list
     """
