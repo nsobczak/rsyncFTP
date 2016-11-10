@@ -139,6 +139,10 @@
 %--- Begin generated contents ---
 \chapter{Choix technique}
 \input{technical}
+\begin{tabular}{lll}
+   1.1 & 1.2 & 1.3 \\
+   2.1 & 2.2 & 2.3 \\
+\end{tabular}
 
 \chapter{Choix d'organisation}
 %

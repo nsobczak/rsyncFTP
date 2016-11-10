@@ -1,0 +1,25 @@
+\section{Technical choices}
+
+
+
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+
+Nous avons choisi de passer en ligne de commande les paramètres suivants:
+
+\begin{tabular}{|R{8cm}|C{3cm}|L{3cm}|}
+\hline \rowcolor{lightgray} Paramètre & Type &  Variable  \\
+\hline  site ftp distant & obligatoire & ftp  \\
+\hline  chemin vers le dossier local (directory path) & obligatoire & dp  \\
+\hline  chemin pour generer le fichier log (log path) & obligatoire & lp  \\
+\hline  2-uple contenant les extensions de la liste de fichiers a inclure et de la liste de fichiers a exclure & obligatoire & ie  \\
+\hline  chemin vers le fichier conf du log (gestion des handler) & optionnel & "-lc", "--logConf"  \\
+\hline  profondeur de la supervision du dossier, default = 2 & optionnel & "-p", "--profondeur"  \\
+\hline  taille maximale des fichiers transferes en Mo, default = 500 Mo & optionnel & "-sf","--sizeFile"  \\
+\hline  frequence de supervision en s, default = 1 s & optionnel & "-f", "--frequence"  \\
+\hline  temps de supervision en s, default = 60 sec & optionnel & "-st", "--supervisionTime"  \\
+
+\hline 
+\end{tabular}
+

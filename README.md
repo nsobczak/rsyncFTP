@@ -10,11 +10,16 @@ pdf + zip
 
 |Paramètre|Type|Variable|
 |---|---|---|
-|site ftp distant|obligatoire||
-|dossier local|obligatoire||
-|liste de fichiers à inclure (les extensions)|obligatoire||
-|liste de fichiers à exclure (les extensions)|obligatoire||
-|fréquence de rafraichissement|obligatoire||
+|site ftp distant|obligatoire|ftp|
+|chemin vers le dossier local (directory path)|obligatoire|dp|
+|chemin pour generer le fichier log (log path)|obligatoire|lp|
+|2-uple contenant les extensions de la liste de fichiers a inclure et de la liste de fichiers a exclure|obligatoire|ie|
+|chemin vers le fichier conf du log (gestion des handler)|optionnel|"-lc", "--logConf"|
+|profondeur de la supervision du dossier, default = 2|optionnel|"-p", "--profondeur"|
+|taille maximale des fichiers transferes en Mo, default = 500 Mo|optionnel|"-sf","--sizeFile"|
+|frequence de supervision en s, default = 1 s|optionnel|"-f", "--frequence"|
+|temps de supervision en s, default = 60 sec|optionnel|"-st", "--supervisionTime"|
+
 
 commande linux = rsync
 
@@ -48,9 +53,7 @@ En lignes de commande
 
 ### TODO
  
-analyser un dossier sur une certaine profondeur => on utilise DirectorySupervisor
-
-Se connecteur au serveur
+finir d'adapter DirectorySupervisor
 
 push juste les trucs qui sont modifiés
 

@@ -30,11 +30,11 @@ def initVariables():
                              "donnees pour le site FTP distant",
                         )
     PARSER.add_argument("dp", type=str, help="chemin vers le dossier local")
-    PARSER.add_argument("lp", type=str, help="chemin pour generer le log")
+    PARSER.add_argument("lp", type=str, help="chemin pour generer le fichier log")
     PARSER.add_argument("ie", type=str, nargs=2,
                         help="2-uple contenant :\n" +
                              "-la liste de fichiers a inclure (les extensions)\n" + \
-                             "-la liste de fichiers a inclure (les extensions)\n" + \
+                             "-la liste de fichiers a exclure (les extensions)\n" + \
                              "sous la forme . " + \
                              "ex : ([],['txt']) pour dire de tout inclure sauf les txt")
     # optionnel
