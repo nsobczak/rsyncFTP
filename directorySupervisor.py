@@ -2,7 +2,7 @@
 # rsyncFTP #
 ############
 
-# TODO : Ajouter valeur infini si supervisionTime = -1 | completer les commentaires | supprimer les variables globales commentees
+# TODO : completer les commentaires | supprimer les variables globales commentees
 # ____________________________________________________________________________________________________
 # Config
 
