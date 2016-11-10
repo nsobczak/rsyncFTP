@@ -14,36 +14,37 @@ import argparse
 # ____________________________________________________________________________________________________
 # ____________________________________________________________________________________________________
 # Fonctions d'initialisation
-def initVariables(logger):
+def initVariables(log):
     """
     Fonction qui initialise le logger et les variables en fonction de ce que
     l'utilisateur a entre.
     La fonction genere une info recapitulant la liste des parametres entres.
-    :param logger: logger
-    :type logger: log
+    :param log: logger
+    :type log: Logger
     :return: ARGS
     :rtype: dict
     """
-    # initialisation du logger
-    logger.initLog()
-
     # initialisation du argparse
     PARSER = argparse.ArgumentParser(description='Dossier miroir avec "rsyncFTP"')
     # obligatoire
     PARSER.add_argument("ftp", type=tuple,
-                        help="(hote, identifiant, mot_de_passe, port) :\n" + \
+                        help="(hote, identifiant, mot_de_passe, (port)) :\n" + \
                              "donnees pour le site FTP distant")
     PARSER.add_argument("dp", type=str, help="chemin vers le dossier local")
     PARSER.add_argument("lp", type=str, help="chemin pour generer le log")
-    PARSER.add_argument("-ie", "--includeOrExcludeExtension", type=tuple,
+    PARSER.add_argument("ie", type=tuple,
                         help="2-uple contenant :\n" +
                              "-la liste de fichiers à inclure (les extensions)\n" + \
-                             "-la liste de fichiers à inclure (les extensions)")
+                             "-la liste de fichiers à inclure (les extensions)\n" + \
+                             "sous la forme ([],[]). " + \
+                             "ex : ([],['txt']) pour dire de tout inclure sauf les txt")
     # optionnel
     PARSER.add_argument("-lc", "--logConf", default="rsyncFTP.conf",
-                        help="chemin vers le fichier conf du log (gestion des handler")
+                        help="chemin vers le fichier conf du log (gestion des handler)")
     PARSER.add_argument("-p", "--profondeur", default=2,
                         help="profondeur de la supervision du dossier, default = 2")
+    PARSER.add_argument("-sf","--sizeFile",default=500,
+                        help="taille maximale des fichiers transferes en Mo, default = 500 Mo")
     PARSER.add_argument("-f", "--frequence", default=1,
                         help="frequence de supervision en s, default = 1 s")
     PARSER.add_argument("-st", "--supervisionTime", default=60,
@@ -51,14 +52,22 @@ def initVariables(logger):
 
     # affichage des arguments rentres dans le log
     ARGS = PARSER.parse_args()
-    logger.info(
-        ":\npath to the directory where to save the downloaded website: %s\n" + \
-        "url of the website to download: %s \n" + \
-        "path to the configuration file of the logger: %s\n" + \
-        "depth of the tree: %d\nmax size of a downloadable file: %d\n" + \
-        "size max of the directory where to download the website: %d\n",
-        ARGS.savePath, ARGS.url, ARGS.logConf, ARGS.depth, ARGS.sizeFile, ARGS.sizeDirectory)
-
+    log.info(
+        ":\n(hote, identifiant, mot_de_passe, (port)) " +\
+        "donnees pour le site FTP distant: %s \n" + \
+        "chemin vers le dossier local: %s \n" + \
+        "chemin pour generer le log: %s \n" + \
+        "2-uple contenant :\n" +
+        "-la liste de fichiers à inclure (les extensions): %s \n" + \
+        "-la liste de fichiers à inclure (les extensions): %s \n" +\
+        "chemin vers le fichier conf du log (gestion des handler): %s \n" + \
+        "profondeur de la supervision du dossier: %d \n" + \
+        "taille maximale des fichiers transferes en Mo: %d \n" + \
+        "frequence de supervision en s: %d \n" + \
+        "temps de supervision en s: %d \n",
+        ARGS.ftp, ARGS.dp, ARGS.lp, str(ARGS.ie[0]), str(ARGS.ie[1]),
+        ARGS.logConf, ARGS.profondeur, ARGS.sizeFile, ARGS.frequence,
+        ARGS.supervisionTime)
     return ARGS
 
 
