@@ -39,7 +39,7 @@ def init(logger, args):
 # Fonctions principales
 
 def loop(logger, args):
-    return 1
+
 
     return 1
 

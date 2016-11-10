@@ -137,20 +137,22 @@ def loop(logger, frequence, supervisionTime, arbrePrecedent, dp):
     :type supervisionTime: int
     :param arbrePrecedent: tree arbre precedent
     :type arbrePrecedent: tree ???
-    :param dp:
-    :type dp: int
-    :return listOfModifFiles: list for he deleted files
-    :rtype listOfModifFiles: list
+    :param dp: chemin du dossier
+    :type dp: str
+    :return: 1
+    :rtype: int
     """
-
+    # si supervision time est a -1 on fait une boucle infinie
+    infinite = False
     if (supervisionTime==-1):
         logger.info("supervisionTime = -1 => supervision en continue")
+        infinite = True
 
     totalTime = 0
     oldTime = time.time()
     newTime = time.time()
 
-    while totalTime < (supervisionTime * frequence):
+    while totalTime < (supervisionTime * frequence) or infinite:
         newTime = time.time()
         if (newTime - oldTime) > (1 / frequence):
             # logger.info(str(totalTime / frequence) + " sec depuis lancement du programme")
@@ -172,4 +174,6 @@ def monMain():
 
 
 if __name__ == "__main__":
+    print('')
+    print(type(os._isdir('C:\\Users\\vvinc_000\\Documents\\Cours\\ISEN\\M1\\Python')))
     monMain()
