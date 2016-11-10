@@ -14,29 +14,28 @@ import argparse
 # ____________________________________________________________________________________________________
 # ____________________________________________________________________________________________________
 # Fonctions d'initialisation
-def initVariables(log):
+def initVariables():
     """
     Fonction qui initialise le logger et les variables en fonction de ce que
     l'utilisateur a entre.
     La fonction genere une info recapitulant la liste des parametres entres.
-    :param log: logger
-    :type log: Logger
     :return: ARGS
     :rtype: dict
     """
     # initialisation du argparse
     PARSER = argparse.ArgumentParser(description='Dossier miroir avec "rsyncFTP"')
     # obligatoire
-    PARSER.add_argument("ftp", type=tuple,
-                        help="(hote, identifiant, mot_de_passe, (port)) :\n" + \
-                             "donnees pour le site FTP distant")
+    PARSER.add_argument("ftp", type=str, nargs=3,
+                        help="(hote, identifiant, mot_de_passe) :\n" + \
+                             "donnees pour le site FTP distant",
+                        )
     PARSER.add_argument("dp", type=str, help="chemin vers le dossier local")
     PARSER.add_argument("lp", type=str, help="chemin pour generer le log")
-    PARSER.add_argument("ie", type=tuple,
+    PARSER.add_argument("ie", type=str, nargs=2,
                         help="2-uple contenant :\n" +
-                             "-la liste de fichiers à inclure (les extensions)\n" + \
-                             "-la liste de fichiers à inclure (les extensions)\n" + \
-                             "sous la forme ([],[]). " + \
+                             "-la liste de fichiers a inclure (les extensions)\n" + \
+                             "-la liste de fichiers a inclure (les extensions)\n" + \
+                             "sous la forme . " + \
                              "ex : ([],['txt']) pour dire de tout inclure sauf les txt")
     # optionnel
     PARSER.add_argument("-lc", "--logConf", default="rsyncFTP.conf",
@@ -52,22 +51,22 @@ def initVariables(log):
 
     # affichage des arguments rentres dans le log
     ARGS = PARSER.parse_args()
-    log.info(
-        ":\n(hote, identifiant, mot_de_passe, (port)) " +\
-        "donnees pour le site FTP distant: %s \n" + \
-        "chemin vers le dossier local: %s \n" + \
-        "chemin pour generer le log: %s \n" + \
-        "2-uple contenant :\n" +
-        "-la liste de fichiers à inclure (les extensions): %s \n" + \
-        "-la liste de fichiers à inclure (les extensions): %s \n" +\
-        "chemin vers le fichier conf du log (gestion des handler): %s \n" + \
-        "profondeur de la supervision du dossier: %d \n" + \
-        "taille maximale des fichiers transferes en Mo: %d \n" + \
-        "frequence de supervision en s: %d \n" + \
-        "temps de supervision en s: %d \n",
-        ARGS.ftp, ARGS.dp, ARGS.lp, str(ARGS.ie[0]), str(ARGS.ie[1]),
-        ARGS.logConf, ARGS.profondeur, ARGS.sizeFile, ARGS.frequence,
-        ARGS.supervisionTime)
+    # log.info(
+    #     ":\n(hote, identifiant, mot_de_passe, (port)) " +\
+    #     "donnees pour le site FTP distant: %s \n" + \
+    #     "chemin vers le dossier local: %s \n" + \
+    #     "chemin pour generer le log: %s \n" + \
+    #     "2-uple contenant :\n" +
+    #     "-la liste de fichiers a inclure (les extensions): %s \n" + \
+    #     "-la liste de fichiers a inclure (les extensions): %s \n" +\
+    #     "chemin vers le fichier conf du log (gestion des handler): %s \n" + \
+    #     "profondeur de la supervision du dossier: %d \n" + \
+    #     "taille maximale des fichiers transferes en Mo: %d \n" + \
+    #     "frequence de supervision en s: %d \n" + \
+    #     "temps de supervision en s: %d \n",
+    #     ARGS.ftp, ARGS.dp, ARGS.lp, str(ARGS.ie[0]), str(ARGS.ie[1]),
+    #     ARGS.logConf, ARGS.profondeur, ARGS.sizeFile, ARGS.frequence,
+    #     ARGS.supervisionTime)
     return ARGS
 
 
@@ -76,7 +75,7 @@ def initVariables(log):
 # Test unitaire
 def monMain():
     MAIN_LOGGER = logger.initLog()
-    ARGS = initVariables(MAIN_LOGGER)
+    ARGS = initVariables()
     print(ARGS)
 
 if __name__ == "__main__":
