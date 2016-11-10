@@ -49,3 +49,16 @@ def initVariables(logger):
         ARGS.savePath, ARGS.url, ARGS.logConf, ARGS.depth, ARGS.sizeFile, ARGS.sizeDirectory)
 
     return ARGS
+
+
+# ____________________________________________________________________________________________________
+# ____________________________________________________________________________________________________
+# Test unitaire
+def monMain():
+    MAIN_LOGGER = logger.initLog()
+    ARGS = initVariables(MAIN_LOGGER)
+
+if __name__ == "__main__":
+    monMain()
+
+

@@ -8,6 +8,7 @@
 
 # Import
 import logging
+import logging.config
 
 
 # ____________________________________________________________________________________________________
@@ -29,4 +30,13 @@ def initLog():
     # MAIN_LOGGER.warning("Ceci est un message de debogage !")
     return MAIN_LOGGER
 
+
 # ____________________________________________________________________________________________________
+# ____________________________________________________________________________________________________
+# Test unitaire
+def monMain():
+    MAIN_LOGGER = initLog()
+
+if __name__ == "__main__":
+    monMain()
+
