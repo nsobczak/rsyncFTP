@@ -2,14 +2,12 @@
 # rsyncFTP #
 ############
 
-# TODO : Remplacer les noms des fonctions arbre par des noms francais + creer fonction loop
+# TODO : Ajouter valeur infini si supervisionTime = -1
 # ____________________________________________________________________________________________________
 # Config
 
 # Import
-import logging
-import sys
-import argparse
+import logger
 import os
 import time
 
@@ -18,8 +16,7 @@ import time
 # Variables globales
 
 
-dp = None
-lp = None
+dp = None #path to the directory
 depth = None
 frequence = None
 arbrePrecedent = None
@@ -28,68 +25,16 @@ logger = None
 supervisionTime = None
 
 
-# ____________________________________________________________________________________________________
-# Fonctions d'initialisation
-
-def initLog(logPath):
-    """
-    log format
-    logging.basicConfig(datefmt='', format='%asctime', level=logging.INFO)
-    """
-    logging.basicConfig(
-        filename=logPath + "/DirectorySupervisor.log", \
-        datefmt="%d/%m/%Y-%H:%M:%S", \
-        format="%(asctime)s %(levelname)s %(funcName)s %(message)s", \
-        level=logging.INFO)     # 'filename': '/path/to/DirectorySupervisor.debug.log',
-    logging.info("Programme lance")
-
-
-def initVariablesGlobales():
-    """
-    Fonction qui initialise les variables globales en fonction de ce que l'utilisateur a entre.
-    La fonction genere une info recapitulant la liste des parametres entres.
-    """
-    global dp
-    global lp
-    global depth
-    global frequence
-    global supervisionTime
-    global startinglevel
-    global arbrePrecedent
-
-    parser = argparse.ArgumentParser(description='Supervision de dossier with DirectorySupervisor')
-    # obligatoire
-    parser.add_argument("dp", type=str, help="path to the directory")
-    parser.add_argument("lp", type=str, help="path where to generate log")
-    # optionnel
-    parser.add_argument("-d", "--depth", default=2, help="depth of the surpervision directory, default = 2")
-    parser.add_argument("-f", "--frequence", default=1, help="add supervision frequency in hz, default = 1 hz")
-    parser.add_argument("-st", "--supervisionTime", default=60, help="add supervision time (in sec), default = 60 sec")
-
-    # initialisation des parametres globaux
-    args = parser.parse_args()
-    dp = args.dp
-    lp = args.lp
-    depth = int(args.depth)
-    frequence = int(args.frequence)
-    supervisionTime = int(args.supervisionTime)
-    startinglevel = dp.count(os.sep)        # indique le niveau de profondeur initiale
-    arbrePrecedent = createSurveyList(list(os.walk(dp)))
-
-
-def afficheArgument():
-    """affichage des arguments rentres"""
-    logging.info(
-        ":\npath to the directory : %s \npath where to generate log : %s \ndepth of the directory : %s \nfrequency : %s hz \nsupervision time : %s sec\n",
-        dp, lp, depth, frequence, supervisionTime)
-
-
 # ___________________________________________________________________________________________________
 # Fonctions de creation de l'arbre du dossier et de comparaison
 
 def createSurveyList(tree):
     """
-    create a list of tupples form by (fileName, dateOfLastModif) corresponding to the files in the tree
+    Function which create a list of tupples form by (fileName, dateOfLastModif) corresponding to the files in the tree
+    :param tree: tree
+    :type tree: ???
+    :return listOfModifFiles: list for he deleted files
+    :rtype listOfModifFiles: list
     """
     listOfModifFiles = []
     i = 0
@@ -97,9 +42,6 @@ def createSurveyList(tree):
         path, dirs, files = tree[i]
         level = path.count(os.sep) - startinglevel
         if (level <= depth):
-            # logging.info('### depth ' + str(level) + ' ### ' + str(path) + ' #####')
-            # logging.info("Sous dossiers : %s" % dirs)
-            # logging.info("Fichiers : %s" % files)
             for dir in dirs:
                 modifTime = os.path.getmtime(os.path.join(path, dir))
                 listOfModifFiles += [(path + '/' + dir, modifTime)]
@@ -112,12 +54,14 @@ def createSurveyList(tree):
 
 def comparateSurveyList(oldListe, newListe):
     """
-	args 2 lists which will be compared
-	return 3 lists :
-		- for the modified files
-		- for the added files
-		- for the deleted files
-	"""
+    Fonction qui compare 2 listes :
+    :param oldListe: old list
+    :type oldListe: list
+    :param newListe:new list
+    :type newListe: list
+    :return: tuple of list for the modified files, list for the added files, list for the deleted files
+    :rtype: tuple
+    """
     if oldListe == newListe:
         return [], [], []
     else:
@@ -145,46 +89,63 @@ def comparateSurveyList(oldListe, newListe):
         return (listOfModifFiles, listOfAddFiles, listOfSupprFiles)
 
 
-def logTheMADLists(M, A, D):
+def logTheMADLists(logger, M, A, D):
     """
-    	log the informations contained in the 3 lists :
-    		-M = modified files
-    		-A = added files
-    		-D = deleted files
+    Function that log information contained in the 3 lists :
+    :param M: modified files
+    :type M: list
+    :param A: added files
+    :type A: list
+    :param D: deleted files
+    :type D: list
+    :param logger: logger
+    :type logger: log
     """
     if len(M):
-        logging.info("M")
+        logger.info("M")
         for (mFile, mTime) in M:
-            logging.info(
+            logger.info(
                 time.strftime("%a, %d %b %Y %H:%M:%S", time.localtime(mTime)) + " " + str(mFile) + " is modified")
     if len(A):
-        logging.info("A")
+        logger.info("A")
         for (aFile, aTime) in A:
-            logging.info(time.strftime("%a, %d %b %Y %H:%M:%S", time.localtime(aTime)) + " " + str(aFile) + " is added")
+            logger.info(time.strftime("%a, %d %b %Y %H:%M:%S", time.localtime(aTime)) + " " + str(aFile) + " is added")
     if len(D):
-        logging.info("D")
+        logger.info("D")
         for (dFile, dTime) in D:
-            logging.info(time.strftime("%a, %d %b %Y %H:%M:%S", time.localtime(dTime)) + " last time " + str(
+            logger.info(time.strftime("%a, %d %b %Y %H:%M:%S", time.localtime(dTime)) + " last time " + str(
                 dFile) + " is viewed before delete")
 
 
 # ___________________________________________________________________________________________________
 # Fonctions principales
 
-def loop():
+def loop(logger, frequence, supervisionTime, arbrePrecedent):
     """
-    si stop() => arret
-	sinon
-		compareArbre()
+    Fonction: si stop() => arret, sinon compareArbre()
+    :param logger: logger
+    :type logger: log
+    :param frequence: frequence de supervision
+    :type frequence: int
+    :param supervisionTime: temps de supervision, si -1 alors infini
+    :type supervisionTime: int
+    :param arbrePrecedent: tree arbre precedent
+    :type arbrePrecedent: tree ???
+    :return listOfModifFiles: list for he deleted files
+    :rtype listOfModifFiles: list
     """
-    global arbrePrecedent
+
+    if (supervisionTime==-1):
+        logger.info("supervisionTime = -1 => supervision en continue")
+
     totalTime = 0
     oldTime = time.time()
     newTime = time.time()
-    while totalTime < (supervisionTime*frequence):
+
+    while totalTime < (supervisionTime * frequence):
         newTime = time.time()
         if (newTime - oldTime) > (1 / frequence):
-            # logging.info(str(totalTime / frequence) + " sec depuis lancement du programme")
+            # logger.info(str(totalTime / frequence) + " sec depuis lancement du programme")
             oldTime = time.time()
             nouvelArbre = createSurveyList(list(os.walk(dp)))
             M, A, D = comparateSurveyList(arbrePrecedent, nouvelArbre)
@@ -197,11 +158,9 @@ def loop():
 
 # ____________________________________________________________________________________________________
 # ____________________________________________________________________________________________________
+# Test unitaire
 def monMain():
-    initVariablesGlobales()
-    initLog(lp)
-    afficheArgument()
-    loop()
+    MAIN_LOGGER = logger.initLog()
 
 
 if __name__ == "__main__":

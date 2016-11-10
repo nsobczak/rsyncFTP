@@ -20,11 +20,19 @@ import time
 # ____________________________________________________________________________________________________
 # Fonctions d'initialisation
 
-def init(logPath):
+def init(logger, args):
     """
     log format
     logging.basicConfig(datefmt='', format='%asctime', level=logging.INFO)
     """
+    dp = args.dp
+    lp = args.lp
+    depth = int(args.depth)
+    frequence = int(args.frequence)
+    supervisionTime = int(args.supervisionTime)
+    arbrePrecedent = directorySupervisor.createSurveyList(list(os.walk(dp)))
+    startinglevel = dp.count(os.sep)  # indique le niveau de profondeur initiale
+    return arbrePrecedent
 
 
 # ___________________________________________________________________________________________________
