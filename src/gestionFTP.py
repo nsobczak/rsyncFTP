@@ -82,16 +82,17 @@ def effacerFichier(ftp, fichier):
     ftp.delete(fichier)
 
 
-def creerDossier(ftp, dossier):
+def creerDossier(ftp, nom_dossier, chemin_dossier):
     """
-    Fonction qui cree un dossier
+    Fonction qui cree un dossier spécifié par chemin dans le ftp
     :param ftp: ???
     :type ftp: ???
     :param dossier: ???
     :type dossier: ???
     """
-    ftp.mkd(dossier)
-
+    ftp.cwd(chemin_dossier)
+    ftp.mkd(nom_dossier)
+    ftp.cwd('..')
 
 def supprimerDossier(ftp, dossier):
     """
@@ -113,18 +114,29 @@ def lister(ftp):
     rep = ftp.dir()  # on récupère le listing
     print(rep)  # on l'affiche dans la console
 
+def listerFichiers(ftp):
+    ret = []
+    ftp.dir("", ret.append)
+    ret = [x.split()[-1] for x in ret if x.startswith("d")]
+    return ret
 
 def copierContenuDossier(ftp, chemin, nom_dossier):
     """
-    Fonction qui ???
-    :param ftp: ???
-    :type ftp: ???
-    :param chemin: ???
+    Fonction qui copie les fichiers d'un dossier spécifié
+    :param ftp: serveur ftp
+    :type ftp:
+    :param chemin: chemin complet du dossier
     :type chemin: str
-    :param nom_dossier: ???
+    :param nom_dossier: nom du dossier
     :type nom_dossier: str
     """
-    creerDossier(ftp, nom_dossier)
+    liste = listerFichiers(ftp)
+    print(liste)
+    for i in liste:
+        if (nom_dossier == i):
+            return 1
+    chemin_ftp = "/"
+    creerDossier(ftp, nom_dossier, chemin_ftp)
     ftp.cwd(nom_dossier)
     l = os.listdir(chemin)
     print(l)
@@ -134,7 +146,7 @@ def copierContenuDossier(ftp, chemin, nom_dossier):
         # dossierFTP  = os.path.join(ftp,nom_dossier)
         envoyerUnFichier(fichier, i, ftp)
     ftp.cwd('..')
-    envoyerUnFichier(fichier, i, ftp)
+    #envoyerUnFichier(fichier, i, ftp)
 
 
 def pushAuServeurFTP():
@@ -158,24 +170,24 @@ def monMain():
     directory = os.getcwd()  # "C:\Users\ISEN\Desktop\COURS\M1\Python\PycharmProjects\Projects\rsyncFTP"
     filename1 = "texte.txt"
     fichier1 = os.path.join(directory, filename1)
-    print(fichier1)
 
-    dossier = "test"
-    chemin = os.path.join(directory, dossier)
-    print(chemin)
-    print(dossier)
+    nom_dossier = "test"
+    chemin = os.path.join(directory, nom_dossier)
 
     ### Tests des Fonctions
 
     ftp = connectionAuServeurFTP(host, user, password)
+    chemin1 = "test"
+    nom_dossier1 = "test2.1"
     # affichageFTP(ftp)
     # envoyerUnFichier(fichier1, filename1, ftp)
     # etatConnexion(ftp)
-    # effacerFichier(ftp, filename2)
-    # creerDossier(ftp, dossier)
-    # supprimerDossier(ftp, dossier)
-    # lister(ftp)
-    # copierContenuDossier(ftp, chemin, dossier)
+    #effacerFichier(ftp, filename2)
+    #creerDossier(ftp, nom_dossier1, chemin1)
+    #supprimerDossier(ftp, dossier)
+    #lister(ftp)
+    copierContenuDossier(ftp, chemin, nom_dossier)
+    print(listerFichiers(ftp))
     deconnexionAuServeur(ftp)
 
 
