@@ -31,9 +31,11 @@ paramètre en lignes de commande ou dans un fichier ini
 
 Un pdf qui permet d'expliquer notre projet, pourquoi on a choisi de faire le truc comme ça. Faut vendre le projet.
 
-- Auteurs
+- auteurs
 - Si librairie supplémentaire => installable par pip
-- Choix techniques
-- Choix d'organisation
+- choix techniques
+- choix d'organisation
+
+En lignes de commande
 
 
