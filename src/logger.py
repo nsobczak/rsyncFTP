@@ -14,10 +14,13 @@ import logging.config
 # ____________________________________________________________________________________________________
 # ____________________________________________________________________________________________________
 # Fonctions d'initialisation
-def initLog():
+def initLog(logPath, logConf):
     """
     log format
     logging.basicConfig(datefmt='', format='%asctime', level=logging.INFO)    :param fileName: nom du fichier dans lequel remplacer les liens
+
+    :param logPath: chemin où enregistrer le logger
+    :param logConf: chemin où trouver le .conf
     :return: MAIN_LOGGER
     :rtype: log
     """

@@ -67,8 +67,8 @@ def monMain():
     FTP, DP, LP, INCLUDES, EXCLUDES, LOGCONF, \
     PROFONDEUR, SIZEFILE, FREQUENCE, SUPERVISIONTIME, \
     arbrePrecedent, STRATINGLEVEL = init(ARGS)
-    MAIN_LOGGER = logger.initLog()
-    loop(MAIN_LOGGER, LP, LOGCONF)
+    MAIN_LOGGER = logger.initLog(LP, LOGCONF)
+    loop(MAIN_LOGGER)
 
 
 if __name__ == "__main__":
