@@ -25,11 +25,20 @@ def init(logger, args):
     log format
     logging.basicConfig(datefmt='', format='%asctime', level=logging.INFO)
     """
+    # initialisation des constantes entrees en arguments
+    ftp = {'hote':args.ftp[0], 'idt':args.ftp[1], 'mdp':args.ftp[2]}
     dp = args.dp
     lp = args.lp
-    depth = int(args.depth)
-    frequence = int(args.frequence)
-    supervisionTime = int(args.supervisionTime)
+    includes = args.ie[0].split(',')
+    excludes = args.ie[1].split(',')
+
+    logconf = args.logConf
+    profondeur = args.profondeur
+    sizeFile = args.sizeFile
+    frequence = args.frequence
+    supervisionTime = args.supervisionTime
+
+    # initialisation des variable utiles pour la supervision
     arbrePrecedent = directorySupervisor.createSurveyList(list(os.walk(dp)))
     startinglevel = dp.count(os.sep)  # indique le niveau de profondeur initiale
     return arbrePrecedent
