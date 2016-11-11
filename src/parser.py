@@ -30,7 +30,6 @@ def initVariables():
                              "donnees pour le site FTP distant",
                         )
     PARSER.add_argument("dp", type=str, help="chemin vers le dossier local")
-    PARSER.add_argument("lp", type=str, help="chemin pour generer le fichier log")
     PARSER.add_argument("ie", type=str, nargs=2,
                         help="2-uple contenant :\n" +
                              "-la liste de fichiers a inclure (les extensions)\n" + \
@@ -38,6 +37,9 @@ def initVariables():
                              "sous la forme . " + \
                              "ex : ([],['txt']) pour dire de tout inclure sauf les txt")
     # optionnel
+
+    PARSER.add_argument("-lp", "--logPath", default="",
+                        help="chemin pour generer le fichier log")
     PARSER.add_argument("-lc", "--logConf", default="rsyncFTP.conf",
                         help="chemin vers le fichier conf du log (gestion des handler)")
     PARSER.add_argument("-p", "--profondeur", default=2,
@@ -75,8 +77,8 @@ def initVariables():
 # ____________________________________________________________________________________________________
 # Test unitaire
 def monMain():
-    MAIN_LOGGER = logger.initLog()
     ARGS = initVariables()
+    MAIN_LOGGER = logger.initLog(ARGS.lp,ARGS.logConf)
     print(ARGS)
 
 if __name__ == "__main__":

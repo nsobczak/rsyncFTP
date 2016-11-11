@@ -33,11 +33,12 @@ def init(args):
     # initialisation des constantes entrees en arguments
     ftp = {'hote':args.ftp[0], 'idt':args.ftp[1], 'mdp':args.ftp[2]}
     dp = args.dp
-    lp = args.lp
     includes = args.ie[0].split(',')
     excludes = args.ie[1].split(',')
 
-    logconf = args.logConf
+
+    logPath = args.logPath
+    logConf = args.logConf
     profondeur = args.profondeur
     sizeFile = args.sizeFile
     frequence = args.frequence
@@ -47,7 +48,7 @@ def init(args):
     arbrePrecedent = directorySupervisor.createSurveyList(list(os.walk(dp)))
     startinglevel = dp.count(os.sep)  # indique le niveau de profondeur initiale
 
-    return ftp, dp, lp, includes, excludes, logconf, \
+    return ftp, dp, includes, excludes, logPath, logConf, \
            profondeur, sizeFile, frequence, supervisionTime, \
            arbrePrecedent, startinglevel
 
