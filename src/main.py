@@ -20,10 +20,15 @@ import time
 # ____________________________________________________________________________________________________
 # Fonctions d'initialisation
 
-def init(logger, args):
+def init(args):
     """
-    log format
-    logging.basicConfig(datefmt='', format='%asctime', level=logging.INFO)
+    Initialise les variables et constantes utiles
+    :param args:
+    :type args: dict
+    :return:    ftp, dp, lp, includes, excludes, logconf, \
+                profondeur, sizeFile, frequence, supervisionTime, \
+                arbrePrecedent, startinglevel
+    :rtype: tuple
     """
     # initialisation des constantes entrees en arguments
     ftp = {'hote':args.ftp[0], 'idt':args.ftp[1], 'mdp':args.ftp[2]}
@@ -41,7 +46,10 @@ def init(logger, args):
     # initialisation des variable utiles pour la supervision
     arbrePrecedent = directorySupervisor.createSurveyList(list(os.walk(dp)))
     startinglevel = dp.count(os.sep)  # indique le niveau de profondeur initiale
-    return arbrePrecedent
+
+    return ftp, dp, lp, includes, excludes, logconf, \
+           profondeur, sizeFile, frequence, supervisionTime, \
+           arbrePrecedent, startinglevel
 
 
 # ___________________________________________________________________________________________________
@@ -55,9 +63,12 @@ def loop(logger, args):
 # ____________________________________________________________________________________________________
 # ____________________________________________________________________________________________________
 def monMain():
+    ARGS = parser.initVariables()
+    FTP, DP, LP, INCLUDES, EXCLUDES, LOGCONF, \
+    PROFONDEUR, SIZEFILE, FREQUENCE, SUPERVISIONTIME, \
+    arbrePrecedent, STRATINGLEVEL = init(ARGS)
     MAIN_LOGGER = logger.initLog()
-    ARGS = parser.initVariables(MAIN_LOGGER)
-    loop(MAIN_LOGGER, ARGS)
+    loop(MAIN_LOGGER, LP, LOGCONF)
 
 
 if __name__ == "__main__":
