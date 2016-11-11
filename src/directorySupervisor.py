@@ -2,7 +2,7 @@
 # rsyncFTP #
 ############
 
-# TODO : completer les commentaires | supprimer les variables globales commentees
+# TODO : completer les commentaires
 # ____________________________________________________________________________________________________
 # Config
 
@@ -10,21 +10,6 @@
 import logger
 import os
 import time
-
-# ____________________________________________________________________________________________________
-# ____________________________________________________________________________________________________
-
-
-# Variables globales <= a supprimer par la suite
-
-
-# dp = None #path to the directory
-# depth = None
-# frequence = None
-# arbrePrecedent = None
-# startinglevel = None
-# logger = None
-# supervisionTime = None
 
 
 # ___________________________________________________________________________________________________
@@ -34,10 +19,10 @@ def createSurveyList(tree, startinglevel, depth):
     """
     Function which create a list of tupples form by (fileName, dateOfLastModif) corresponding to the files in the tree
     :param tree: tree
-    :type tree: ???
-    :param startinglevel:
+    :type tree: list
+    :param startinglevel: starting level to compute the current depth
     :type startinglevel: int
-    :param depth:
+    :param depth: depth of supervision
     :type depth: int
     :return listOfModifFiles: list for he deleted files
     :rtype listOfModifFiles: list
@@ -63,7 +48,7 @@ def comparateSurveyList(oldListe, newListe):
     Fonction qui compare 2 listes :
     :param oldListe: old list
     :type oldListe: list
-    :param newListe:new list
+    :param newListe: new list
     :type newListe: list
     :return: tuple of list for the modified files, list for the added files, list for the deleted files
     :rtype: tuple
@@ -136,7 +121,7 @@ def loop(logger, frequence, supervisionTime, arbrePrecedent, dp):
     :param supervisionTime: temps de supervision, si -1 alors infini
     :type supervisionTime: int
     :param arbrePrecedent: tree arbre precedent
-    :type arbrePrecedent: tree ???
+    :type arbrePrecedent: list
     :param dp: chemin du dossier
     :type dp: str
     :return: 1
