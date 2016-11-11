@@ -2,13 +2,14 @@
 # rsyncFTP #
 ############
 
-# TODO : /
+# TODO : Faire en sorte de pouvoir indiquer le chemin d'enregistrement du fichier log genere
 # ____________________________________________________________________________________________________
 # Config
 
 # Import
 import logging
 import logging.config
+import os
 
 
 # ____________________________________________________________________________________________________
@@ -17,20 +18,22 @@ import logging.config
 def initLog(logPath, logConf):
     """
     log format
-    logging.basicConfig(datefmt='', format='%asctime', level=logging.INFO)    :param fileName: nom du fichier dans lequel remplacer les liens
-
-    :param logPath: chemin où enregistrer le logger
-    :param logConf: chemin où trouver le .conf
+    logging.basicConfig(datefmt='', format='%asctime', level=logging.INFO)
+    :param logPath: chemin ou enregistrer le logger
+    :param logConf: chemin ou trouver le .conf
     :return: MAIN_LOGGER
     :rtype: log
     """
     logging.config.fileConfig("rsyncFTP.conf")
+    # logging.basicConfig(filename=os.path.join(logPath, "pioupiou.log"))
+
     # definition du handler
-    MAIN_LOGGER = logging.getLogger("test_log")
+    MAIN_LOGGER = logging.getLogger("rsyncLocal")
+    log2 = logging.getLogger("rsyncFile")
 
     MAIN_LOGGER.info("Programme lance")
-    # MAIN_LOGGER.critical("Ceci est une erreur critique !")
-    # MAIN_LOGGER.warning("Ceci est un message de debogage !")
+    log2.info("Programme lance test file")
+
     return MAIN_LOGGER
 
 
@@ -38,8 +41,9 @@ def initLog(logPath, logConf):
 # ____________________________________________________________________________________________________
 # Test unitaire
 def monMain():
-    MAIN_LOGGER = initLog()
+    MAIN_LOGGER = initLog("/media/nicolas/DE581D27581CFFC7/Users/Nicolas/Documents/Ecole/ISEN/Python",
+                          "/media/nicolas/DE581D27581CFFC7/Users/Nicolas/Documents/Ecole/ISEN/Python")
+
 
 if __name__ == "__main__":
     monMain()
-
