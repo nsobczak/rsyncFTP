@@ -1,0 +1,13 @@
+Nous avons voulu séparer le plus possible les fonctionnalités en créant des fichier différents: <liste des fichiers>
+
+\section{logger.py}	
+
+\section{parser.py}
+
+\section{main.py}
+
+\section{gestionFTP.py}
+
+\section{directorySupervisor.py}
+
+

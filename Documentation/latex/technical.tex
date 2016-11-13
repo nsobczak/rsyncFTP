@@ -1,10 +1,11 @@
-\section{Technical choices}
-
+\section{Paramètres}	
 
 
 \newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
 \newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
 \newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+
+
 
 Nous avons choisi de passer en ligne de commande les paramètres suivants:
 
@@ -22,4 +23,10 @@ Nous avons choisi de passer en ligne de commande les paramètres suivants:
 
 \hline 
 \end{tabular}
+
+\section{Fichier log}
+
+Concernant le fichier de log, si aucun chemin pour enregistrer le fichier n'est précisé, nous utilisons le fichier .conf qui nous définit des handlers proprement et enregistre le fichier log dans le répertoire du projet.
+Si un chemin est précisé, nous n'utilisons pas le fichier log. Nous créons le logger dans le code du fichier logger.py. Le fichier rsyncFTP.log est alors enregistré dans le répertoire précisé par le chemin entré en ligne de commande.
+
 

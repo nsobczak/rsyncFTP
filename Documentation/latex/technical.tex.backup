@@ -1,9 +1,29 @@
-\section{Packages}
-Here are the packages with brief descriptions (if available)\+:\begin{DoxyCompactList}
-\item\contentsline{section}{\hyperlink{namespacedirectory_supervisor}{directory\+Supervisor} }{\pageref{namespacedirectory_supervisor}}{}
-\item\contentsline{section}{\hyperlink{namespacegestion_f_t_p}{gestion\+F\+TP} }{\pageref{namespacegestion_f_t_p}}{}
-\item\contentsline{section}{\hyperlink{namespacelogger}{logger} }{\pageref{namespacelogger}}{}
-\item\contentsline{section}{\hyperlink{namespacemain}{main} }{\pageref{namespacemain}}{}
-\item\contentsline{section}{\hyperlink{namespaceparser}{parser} }{\pageref{namespaceparser}}{}
-\end{DoxyCompactList}
--
+\section{Technical choices}
+
+
+
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+
+Nous avons choisi de passer en ligne de commande les paramètres suivants:
+
+\begin{tabular}{|R{8cm}|C{3cm}|L{3cm}|}
+\hline \rowcolor{lightgray} Paramètre & Type &  Variable  \\
+\hline  site ftp distant & obligatoire & ftp  \\
+\hline  chemin vers le dossier local (directory path) & obligatoire & dp  \\
+\hline  chemin pour generer le fichier log (log path) & obligatoire & lp  \\
+\hline  2-uple contenant les extensions de la liste de fichiers a inclure et de la liste de fichiers a exclure & obligatoire & ie  \\
+\hline  chemin vers le fichier conf du log (gestion des handler) & optionnel & "-lc", "--logConf"  \\
+\hline  profondeur de la supervision du dossier, default = 2 & optionnel & "-p", "--profondeur"  \\
+\hline  taille maximale des fichiers transferes en Mo, default = 500 Mo & optionnel & "-sf","--sizeFile"  \\
+\hline  frequence de supervision en s, default = 1 s & optionnel & "-f", "--frequence"  \\
+\hline  temps de supervision en s, default = 60 sec & optionnel & "-st", "--supervisionTime"  \\
+
+\hline 
+\end{tabular}
+
+Concernant le fichier de log, si aucun chemin pour enregistrer le fichier n'est précisé, nous utilisons le fichier .conf qui nous définit des handlers proprement et enregistre le fichier log dans le répertoire du projet.
+Si un chemin est précisé, nous n'utilisons pas le fichier log. Nous créons le logger dans le code du fichier logger.py. Le fichier rsyncFTP.log est alors enregistré dans le répertoire précisé par le chemin entré en ligne de commande.
+
+

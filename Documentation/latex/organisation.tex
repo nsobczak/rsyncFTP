@@ -1,0 +1,26 @@
+Nous avons voulu séparer le plus possible les fonctionnalités en créant des fichier différents: <liste des fichiers>
+
+\section{logger.py}	
+
+Le package logger contient la gestion du logger.
+
+\section{parser.py}
+
+Le package parser contient la fonction de définition de gestion du parser. C'est ici que nous définissons les paramètres que nous passons en lignes de commandes.
+
+\section{gestionFTP.py}
+
+Le package gestionFTP contient toutes les fonctions utiles pour gérer les actions avec le serveur FTP.
+
+\section{directorySupervisor.py}
+
+Le package directorySupervisor correspond à la supervision des dossiers. Il s'agit des fonctions du tp1 que nous avons adaptées pour rsyncFTP.
+
+\section{main.py}
+
+Le package main contient les fonctions principales. Les quelques étapes que nous réalisons sont les suivantes :
+\begin{itemize}
+\item Nous définissons notre parser.
+\item Nous initialisons le logger.
+\item Nous lançons ensuite notre boucle principale.
+\end{itemize}
