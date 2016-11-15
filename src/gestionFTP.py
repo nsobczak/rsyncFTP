@@ -137,46 +137,51 @@ def copierContenuDossier(ftp, chemin_ftp, chemin_local, nom_dossier, profondeure
     if profondeure_copie_autorisee<=0:
         return 1
     liste = listerFichiers(ftp)
-    print(liste)
+    print("1 : {}".format(liste))
     chemin_ftp += "/"
-    print("chemin ftp = {}".format(chemin_ftp))
+    print("2 : chemin ftp = {}".format(chemin_ftp))
+    print("2.1 : {}".format(ftp.pwd()))
     # On cree le dossier s'il n'existe pas deja
     dossierExiste = False
     for i in liste:
         if (nom_dossier == i):
             dossierExiste = True
-    print(dossierExiste)
+    print("3 : {}".format(dossierExiste))
     if not dossierExiste:
-        print(nom_dossier)
-        for i in chemin_ftp.split("/"):
-            if i != '':
-                ftp.cwd(i)
+        print("4 : on cree le dossier = "+nom_dossier)
+        print("4.1 : {}".format(ftp.pwd()))
         creerDossier(ftp, nom_dossier, chemin_ftp)
+        print("4.2 : {}".format(ftp.pwd()))
+        i = chemin_ftp.split("/")[-2]
+        if i != '':
+            print("4.3 : {}".format(ftp.pwd()))
+            ftp.cwd(i)
+            print("4.4 : {}".format(ftp.pwd()))
 
-    print(ftp.pwd())
+    print("5 : {}".format(ftp.pwd()))
     ftp.cwd(nom_dossier)
     chemin_ftp += nom_dossier
-    print("chemin ftp = {}".format(chemin_ftp))
-    print(ftp.pwd())
+    print("6 : chemin ftp = {}".format(chemin_ftp))
+    print("7 : {}".format(ftp.pwd()))
 
     l = os.listdir(chemin_local)
-    print(l)
+    print("8 : {}".format(l))
     for i in l:
         element = os.path.join(chemin_local, i)
-        print(element)
+        print("9 : "+element)
         if os.path.isdir(element):
-            print("copie d'un dossier")
-            print(ftp.pwd())
+            print("10 : copie d'un dossier")
+            print("11 : {}".format(ftp.pwd()))
             copierContenuDossier(ftp, chemin_ftp, element, i, profondeure_copie_autorisee-1)
         elif os.path.isfile(element):
-            print("copie d'un fichier")
-            print(ftp.pwd())
+            print("12 : copie d'un fichier")
+            print("13 : {}".format(ftp.pwd()))
             envoyerUnFichier(element, i, ftp)
     l = listerFichiers(ftp)
-    print(l)
+    print("14 : {}".format(l))
     ftp.cwd('..')
     l = listerFichiers(ftp)
-    print(l)
+    print("15 : {}".format(l))
 
 
 def pushAuServeurFTP():
