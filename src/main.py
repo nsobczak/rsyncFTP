@@ -31,11 +31,10 @@ def init(args):
     :rtype: tuple
     """
     # initialisation des constantes entrees en arguments
-    ftp = {'hote':args.ftp[0], 'idt':args.ftp[1], 'mdp':args.ftp[2]}
+    ftp = {'hote': args.ftp[0], 'idt': args.ftp[1], 'mdp': args.ftp[2]}
     dp = args.dp
     includes = args.ie[0].split(',')
     excludes = args.ie[1].split(',')
-
 
     logPath = args.logPath
     logConf = args.logConf
@@ -56,20 +55,24 @@ def init(args):
 # ___________________________________________________________________________________________________
 # Fonctions principales
 
-def loop(logger, args):
-
-
+def loop(args, logger):
     return 1
+
 
 # ____________________________________________________________________________________________________
 # ____________________________________________________________________________________________________
 def monMain():
+    # === Initialisation des variables ===
     ARGS = parser.initVariables()
     FTP, DP, LP, INCLUDES, EXCLUDES, LOGCONF, \
     PROFONDEUR, SIZEFILE, FREQUENCE, SUPERVISIONTIME, \
     arbrePrecedent, STRATINGLEVEL = init(ARGS)
+    # === Initialisation du logger ===
     MAIN_LOGGER = logger.initLog(LP, LOGCONF)
-    loop(MAIN_LOGGER)
+    # ecriture des parametres initiaux dans le logger
+    parser.logArgs(ARGS, MAIN_LOGGER)
+    # === Boucle principale ===
+    loop(ARGS, MAIN_LOGGER)
 
 
 if __name__ == "__main__":

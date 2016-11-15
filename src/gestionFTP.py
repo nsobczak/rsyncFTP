@@ -2,7 +2,7 @@
 # rsyncFTP #
 ############
 
-# TODO : se connecter au serveur, synchroniser le serveur
+# TODO : se connecter au serveur, synchroniser le serveur, completer les commentaires
 # ____________________________________________________________________________________________________
 # Config
 
