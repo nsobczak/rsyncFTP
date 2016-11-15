@@ -2,7 +2,7 @@
 # rsyncFTP #
 ############
 
-# TODO : Faire en sorte de pouvoir indiquer le chemin d'enregistrement du fichier log genere
+# TODO : /
 # ____________________________________________________________________________________________________
 # Config
 
@@ -18,17 +18,21 @@ import os.path
 # Fonctions d'initialisation
 def creeLog(logPath):
     """
-
-    :param logPath:
+    Fonction qui cree le logger.
+    Soit elle cree un fichier avec le nom qu'on lui indique,
+    soit elle crée un fichier dans le répertoire qu'on lui indique,
+    soit elle utilise le fichier .conf que nous avons cree.
+    :param logPath: chemin ou enregistrer le logger ou nom du fichier que l'on veut creer.
     :return: MAIN_LOGGER
-    :rtype: log
+    :rtype: logger
     """
     if os.path.isdir(logPath):
         nameFile = os.path.join(logPath, "rsyncFTP.log")
     elif os.path.isfile(logPath):
         nameFile = logPath
-    else :
+    else:
         nameFile = "rsyncFTP.log"
+
     logging.basicConfig( \
         filename=nameFile, \
         datefmt="%d/%m/%Y-%H:%M:%S", \
@@ -36,30 +40,25 @@ def creeLog(logPath):
         level=logging.INFO)  # 'filename': '/path/to/rsyncFTP.debug.log',
     MAIN_LOGGER = logging.getLogger("rsyncFTP")
     MAIN_LOGGER.info("Programme lance")
+
     return MAIN_LOGGER
 
 
 def initLog(logPath, logConf):
     """
-    log format
-    logging.basicConfig(datefmt='', format='%asctime', level=logging.INFO)
+    Fonction qui initialise le logger.
     :param logPath: chemin ou enregistrer le logger
-    :param logConf: chemin ou trouver le .conf
+    :param logConf: chemin ou trouver le fichier .conf
     :return: MAIN_LOGGER
-    :rtype: log
+    :rtype: logger
     """
     if logPath == "":
-
         logging.config.fileConfig(logConf)
-        # logging.basicConfig(filename=os.path.join(logPath, "pioupiou.log"))
-
         # definition du handler
         MAIN_LOGGER = logging.getLogger("rsyncLocal")
-        log2 = logging.getLogger("rsyncFile")
-
         MAIN_LOGGER.info("Programme lance")
-        log2.info("Programme lance test file")
-    else :
+
+    else:
         MAIN_LOGGER = creeLog(logPath)
 
     return MAIN_LOGGER
@@ -69,7 +68,8 @@ def initLog(logPath, logConf):
 # ____________________________________________________________________________________________________
 # Test unitaire
 def monMain():
-    MAIN_LOGGER = initLog("C:\\Users\\vvinc_000\\Desktop","")
+    # MAIN_LOGGER = initLog("C:\\Users\\vvinc_000\\Desktop", "")
+    return 1
 
 
 if __name__ == "__main__":
