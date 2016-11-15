@@ -1,6 +1,8 @@
 ############
 # rsyncFTP #
 ############
+# parser   #
+############
 
 # TODO : Tester la fonction logArgs, ajouter un exemple d'ecriture pour la commande ftp
 # ____________________________________________________________________________________________________

@@ -1,6 +1,8 @@
 ############
 # rsyncFTP #
-############
+##############
+# gestionFTP #
+##############
 
 # TODO : se connecter au serveur, synchroniser le serveur, completer les commentaires
 # ____________________________________________________________________________________________________

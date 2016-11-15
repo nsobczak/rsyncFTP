@@ -1,8 +1,10 @@
 ############
 # rsyncFTP #
-############
+#######################
+# directorySupervisor #
+#######################
 
-# TODO : completer les commentaires
+# TODO : Completer les commentaires
 # ____________________________________________________________________________________________________
 # Config
 
