@@ -4,7 +4,7 @@
 # main     #
 ############
 
-# TODO : Completer le programme
+# TODO : Faire la boucle principale
 # ____________________________________________________________________________________________________
 # Config
 
@@ -13,9 +13,7 @@ import logger
 import parser
 import directorySupervisor
 import gestionFTP
-import sys
 import os
-import time
 
 
 # ____________________________________________________________________________________________________
@@ -24,7 +22,7 @@ import time
 
 def init(args):
     """
-    Initialise les variables et constantes utiles
+    Initialise les variables, constantes utiles, et se connecte au serveur ftp
     :param args:
     :type args: dict
     :return:    ftp, dp, lp, includes, excludes, logconf, \
@@ -49,6 +47,9 @@ def init(args):
     arbrePrecedent = directorySupervisor.createSurveyList(list(os.walk(dp)))
     startinglevel = dp.count(os.sep)  # indique le niveau de profondeur initiale
 
+    # connexion au serveur FTP
+    gestionFTP.connectionAuServeurFTP(ftp['hote'], ftp['idt'], args.ftp['mdp'])
+
     return ftp, dp, includes, excludes, logPath, logConf, \
            profondeur, sizeFile, frequence, supervisionTime, \
            arbrePrecedent, startinglevel
@@ -56,8 +57,40 @@ def init(args):
 
 # ___________________________________________________________________________________________________
 # Fonctions principales
+def updateFTP():
+    """
+    Fonction qui gere la mise a jour du dossier distant
+    :return:
+    """
+    #Si ajout d'un fichier
+
+    #Si suppression d'un fichier
+
+    #Si ajout d'un dossier
+
+    #Si suppression d'un dossier
+
+    #Si modification d'un fichier => remplacement
+
+    #Si modification d'un dossier
+
+    return 1
+
 
 def loop(args, logger):
+    """
+    Fonction de boucle principale
+    :param args:
+    :param logger:
+    :type args: dict
+    :type logger: log
+    :return: 1
+    """
+    # Sureveiller
+    #directorySupervisor.loop(logger, args.frequence, args.supervisionTime, args.arbrePrecedent, args.dp)
+    # Si modif, mettre a jour le serveur FTP
+    #updateFTP()
+
     return 1
 
 
