@@ -30,3 +30,36 @@ Concernant le fichier de log, si aucun chemin pour enregistrer le fichier n'est 
 Si un chemin est précisé, nous n'utilisons pas le fichier log. Nous créons le logger dans le code du fichier logger.py. Le fichier rsyncFTP.log est alors enregistré dans le répertoire précisé par le chemin entré en ligne de commande.
 
 
+\section{Librairie gestionFTP}
+
+Dans la librairie \textit{gestionFTP}, nous avons choisi de définir des fonctions permettant de réaliser des actions basiques telles que : 
+\begin{itemize}
+\item créer un fichier sur le seveur ftp
+\item transferer un fichier vers le seveur ftp
+\item effacer un fichier sur le seveur ftp
+\item créer un dossier sur le seveur ftp
+\item transferer un dossier vers le seveur ftp
+\item effacer un dossier sur le seveur ftp
+\end{itemize}
+
+Nous pouvons alors executer ces actions pour réaliser des fonctions plus complexes.\\
+\\
+Nous avons rencontré une difficulté concernant la fonction qui supprime un dossier. 
+Elle est un peu similaire à celle qui copie un dossier à ceci près qu'elle est un peu plus chiante encore car quand 
+on veut supprimer un dossier ou un fichier c'est qu'il n'existe plus en local donc on ne peut pas vérifier si ce 
+qu'on veut supprimer sur le serveur ftp est un fichier ou un dossier. Nous avons donc du...
+
+
+\section{Librairie directorySupervisor}
+
+Pour pouvoir superviser un dossier, nous utilisons l'organisation des répertoire en ``arbre``.
+Nous avons choisi de ne pas créer de classe arbre mais plutôt de matérialiser un arbre avec une liste.\\
+\\
+Nous créons donc d'abord l'arbre du dossier à chaque fois qu'il s'écoule une période correspondant à la fréquence de supervision. 
+Puis nous comparons cette arbre avec l'arbre précédemment créé. 
+Si on observe une modification, on l'écrit dans le fichier de log et on va signaler le type de modification effectuée afin de pouvoir mettre à jour le dossier situé sur le serveur distant.\\
+\\
+
+
+
+
