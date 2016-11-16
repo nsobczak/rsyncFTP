@@ -62,18 +62,21 @@ def updateFTP():
     Fonction qui gere la mise a jour du dossier distant
     :return:
     """
+    """
     #Si ajout d'un fichier
-
+    gestionFTP.envoyerUnFichier(fichier_chemin=,fichier_nom=, ftp=, )
     #Si suppression d'un fichier
-
+    gestionFTP.effacerFichier(ftp=, fichier=)
     #Si ajout d'un dossier
-
+    gestionFTP.creerDossier(ftp=, nom_dossier=, chemin_dossier=)
+    gestionFTP.copierContenuDossier(ftp=, chemin_ftp=, chemin_local=,nom_dossier=,profondeure_copie_autorisee=)
     #Si suppression d'un dossier
-
+    gestionFTP.supprimerDossier(ftp=,dossier=)
     #Si modification d'un fichier => remplacement
-
+    gestionFTP.effacerFichier(ftp=,fichier=)
+    gestionFTP.envoyerUnFichier(ftp=,fichier_chemin=,fichier_nom=)
     #Si modification d'un dossier
-
+    """
     return 1
 
 
@@ -88,6 +91,7 @@ def loop(args, logger):
     """
     # Sureveiller
     #directorySupervisor.loop(logger, args.frequence, args.supervisionTime, args.arbrePrecedent, args.dp)
+    #directorySupervisor.comparateSurveyList()
     # Si modif, mettre a jour le serveur FTP
     #updateFTP()
 
