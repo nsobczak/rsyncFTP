@@ -57,7 +57,7 @@ def updateFTP_M(args, logger, connectFTP, M):
     :param M: liste des elements modifies
     :type args: dict
     :type logger: log
-    :type connectFTP: ftp ?
+    :type connectFTP: class 'ftplib.FTP'
     :type M: list
     """
     for tup in M:
@@ -83,7 +83,7 @@ def updateFTP_A(args, logger, connectFTP, A):
     :param A: liste des elements ajoutes
     :type args: dict
     :type logger: log
-    :type connectFTP: ftp ?
+    :type connectFTP: class 'ftplib.FTP'
     :type A: list
     """
     for tup in A:
@@ -110,7 +110,7 @@ def updateFTP_D(args, logger, connectFTP, D):
     :param D: liste des elements supprimes
     :type args: dict
     :type logger: log
-    :type connectFTP: ftp ?
+    :type connectFTP: class 'ftplib.FTP'
     :type D: list
     """
     for tup in D:
@@ -133,6 +133,8 @@ def updateFTP(args, logger, connectFTP, M, A, D):
     :param logger:
     :type args: dict
     :type logger: log
+    :param connectFTP: objet ftp
+    :type connectFTP: class 'ftplib.FTP'
     """
     # Si ajout
     if (A != []):
@@ -155,6 +157,8 @@ def loop(args, logger, arbrePrecedent, connectFTP):
     :param logger:
     :type args: dict
     :type logger: log
+    :param connectFTP: objet ftp
+    :type connectFTP: class 'ftplib.FTP'
 
 
     :return: 1
