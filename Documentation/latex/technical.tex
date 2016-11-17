@@ -5,9 +5,22 @@ Le programme a été testé sur avec les serveurs FTP :
 \item \textit{Proftpd} pour linux, avec son interface graphique Gadmin ProFTPD (version 0.4.2)
 \end{itemize}
 
+Pour utiliser ce programme, il est nécessaire d'installer les bibliothèques suivantes :
+\begin{itemize}
+\item os
+\item os.path
+\item ftplip
+\item argparse
+\item logging
+\item logging.config
+\item time
+\end{itemize}
+
 \section{Synchronisation}
 Pour synchroniser le dossier miroir, nous avons choisi de surveiller notre dossier local et alors de mettre à jour le dossier miroir.\\
 \\
+Au lancement du programme, si le serveur FTP contient déjà un dossier avec le nom de celui dont on souhaite réaliser le miroir,
+nous le supprimons. Nous copions ensuite le dossier que l'ont veut superviser sur le serveur FTP.
 
 
 \section{Paramètres}	
@@ -29,9 +42,10 @@ Nous avons choisi de passer en ligne de commande les paramètres suivants:
 \hline  taille maximale des fichiers transferes en Mo, default = 500 Mo & optionnel & "-sf","--sizeFile"  \\
 \hline  frequence de supervision en s, default = 1 s & optionnel & "-f", "--frequence"  \\
 \hline  temps de supervision en s, default = 60 sec & optionnel & "-st", "--supervisionTime"  \\
-
 \hline 
 \end{tabular}
+
+\textbf{Il faut compléter le tableau ci-dessus !} 
 
 \section{Fichier log}
 
@@ -54,7 +68,8 @@ Dans la librairie \textit{gestionFTP}, nous avons choisi de définir des fonctio
 \item transferer un dossier vers le seveur ftp
 \item effacer un dossier sur le seveur ftp
 \end{itemize}
-
+\textbf{Il faut compléter la liste ci-dessus !} \\
+\\
 Nous pouvons alors executer ces actions pour réaliser des fonctions plus complexes.\\
 \\
 Nous avons rencontré une difficulté concernant la fonction qui supprime un dossier. 

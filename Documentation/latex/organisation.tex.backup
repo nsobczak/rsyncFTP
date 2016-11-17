@@ -1,13 +1,43 @@
-Nous avons voulu séparer le plus possible les fonctionnalités en créant des fichier différents: <liste des fichiers>
+Nous avons voulu séparer le plus possible les fonctionnalités en créant des fichiers différents: 
+\begin{itemize}
+\item logger.py
+\item parserRsyncFTP.py
+\item gestionFTP.py
+\item directorySupervisor.py
+\item main.py
+\end{itemize}
 
 \section{logger.py}	
 
-\section{parser.py}
+Le package logger contient la gestion du logger. C'est ici qu'on s'occupe de créer le logger.
 
-\section{main.py}
+\section{parserRsyncFTP.py}
+
+Le package parserRsyncFTP contient la fonction de définition de gestion du parser. 
+C'est ici que nous définissons les paramètres que nous passons en lignes de commandes.
 
 \section{gestionFTP.py}
 
+Le package gestionFTP contient toutes les fonctions utiles pour gérer les actions basiques avec le serveur FTP.
+
 \section{directorySupervisor.py}
 
+Le package directorySupervisor correspond à la supervision des dossiers. 
+Il s'agit des fonctions du tp1 que nous avons adaptées pour rsyncFTP. 
+Nous n'en avons repris que le coeur de façon à garder une certaine souplesse par rapport à ce que nous avions déjà réalisé.
+C'est à dire que nous l'avons amélioré notamment en supprimant les variables globales qui était dangereuses.\\
+\\
+Cependant, il y a toujours des cas où ce module ne fonctionne pas. Nous n'avons pas su mettre en évidence ces cas.
+Nous pensons que de réaliser trop d'actions dans une courte période peut générer ces problèmes.
 
+\section{main.py}
+
+Le package main contient les fonctions principales. 
+Nous avons chercher à le réduire à l'essentiel de façon à ce qu'il reste lisible et compréhensible au premier coup d'oeil.\\
+\\
+Les quelques étapes que nous réalisons sont les suivantes :
+\begin{itemize}
+\item Nous définissons notre parser.
+\item Nous initialisons le logger.
+\item Nous lançons ensuite notre boucle principale qui supervise le dossier et synchornise le répertoire situé sur le serveur FTP distant.
+\end{itemize}

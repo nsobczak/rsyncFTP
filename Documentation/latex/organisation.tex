@@ -7,18 +7,25 @@ Nous avons voulu séparer le plus possible les fonctionnalités en créant des f
 \item main.py
 \end{itemize}
 
+A la fin de chaque fichier se trouvent des tests unitaires.
+
 \section{logger.py}	
 
 Le package logger contient la gestion du logger. C'est ici qu'on s'occupe de créer le logger.
+Il est possible d'utiliser un fichier de configuration \textit{.conf} pour le faire. 
+Il est également possible de créer ce fichier dans un dossier spécifique, 
+ou encore de laisser le programme gérer le logger lui-même.
 
 \section{parserRsyncFTP.py}
 
 Le package parserRsyncFTP contient la fonction de définition de gestion du parser. 
 C'est ici que nous définissons les paramètres que nous passons en lignes de commandes.
+Nous avons également ajouté une description pour le programme et ses paramètres.
 
 \section{gestionFTP.py}
 
 Le package gestionFTP contient toutes les fonctions utiles pour gérer les actions basiques avec le serveur FTP.
+Elle est basée sur la librairie python ftplib.
 
 \section{directorySupervisor.py}
 
@@ -28,7 +35,7 @@ Nous n'en avons repris que le coeur de façon à garder une certaine souplesse p
 C'est à dire que nous l'avons amélioré notamment en supprimant les variables globales qui était dangereuses.\\
 \\
 Cependant, il y a toujours des cas où ce module ne fonctionne pas. Nous n'avons pas su mettre en évidence ces cas.
-Nous pensons que de réaliser trop d'actions dans une courte période peut générer ces problèmes.
+Nous pensons que de réaliser trop d'actions dans une courte période peut générer des problèmes.
 
 \section{main.py}
 

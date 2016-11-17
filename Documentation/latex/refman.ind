@@ -1,115 +1,115 @@
 \begin{theindex}
 
   \item {affichage\+F\+TP}
-    \subitem {gestion\+F\+TP}, \hyperpage{11}
+    \subitem {gestion\+F\+TP}, \hyperpage{13}
 
   \indexspace
 
   \item {comparate\+Survey\+List}
-    \subitem {directory\+Supervisor}, \hyperpage{9}
+    \subitem {directory\+Supervisor}, \hyperpage{11}
   \item {connection\+Au\+Serveur\+F\+TP}
-    \subitem {gestion\+F\+TP}, \hyperpage{11}
+    \subitem {gestion\+F\+TP}, \hyperpage{13}
   \item {copier\+Contenu\+Dossier}
-    \subitem {gestion\+F\+TP}, \hyperpage{11}
+    \subitem {gestion\+F\+TP}, \hyperpage{13}
   \item {create\+Survey\+List}
-    \subitem {directory\+Supervisor}, \hyperpage{9}
+    \subitem {directory\+Supervisor}, \hyperpage{11}
   \item {creer\+Dossier}
-    \subitem {gestion\+F\+TP}, \hyperpage{11}
+    \subitem {gestion\+F\+TP}, \hyperpage{13}
 
   \indexspace
 
   \item {deconnexion\+Au\+Serveur}
-    \subitem {gestion\+F\+TP}, \hyperpage{11}
-  \item {directory\+Supervisor}, \hyperpage{9}
-    \subitem {comparate\+Survey\+List}, \hyperpage{9}
-    \subitem {create\+Survey\+List}, \hyperpage{9}
-    \subitem {log\+The\+M\+A\+D\+Lists}, \hyperpage{10}
-    \subitem {loop}, \hyperpage{10}
+    \subitem {gestion\+F\+TP}, \hyperpage{13}
+  \item {directory\+Supervisor}, \hyperpage{11}
+    \subitem {comparate\+Survey\+List}, \hyperpage{11}
+    \subitem {create\+Survey\+List}, \hyperpage{11}
+    \subitem {log\+The\+M\+A\+D\+Lists}, \hyperpage{12}
+    \subitem {loop}, \hyperpage{12}
   \item {donne\+Chemin\+Relatif}
-    \subitem {main}, \hyperpage{13}
+    \subitem {main}, \hyperpage{15}
 
   \indexspace
 
   \item {envoyer\+Un\+Fichier}
-    \subitem {gestion\+F\+TP}, \hyperpage{12}
+    \subitem {gestion\+F\+TP}, \hyperpage{14}
   \item {etat\+Connexion}
-    \subitem {gestion\+F\+TP}, \hyperpage{12}
+    \subitem {gestion\+F\+TP}, \hyperpage{14}
 
   \indexspace
 
-  \item {gestion\+F\+TP}, \hyperpage{10}
-    \subitem {affichage\+F\+TP}, \hyperpage{11}
-    \subitem {connection\+Au\+Serveur\+F\+TP}, \hyperpage{11}
-    \subitem {copier\+Contenu\+Dossier}, \hyperpage{11}
-    \subitem {creer\+Dossier}, \hyperpage{11}
-    \subitem {deconnexion\+Au\+Serveur}, \hyperpage{11}
-    \subitem {envoyer\+Un\+Fichier}, \hyperpage{12}
-    \subitem {etat\+Connexion}, \hyperpage{12}
-    \subitem {lister\+Dossiers}, \hyperpage{12}
-    \subitem {lister\+Elements}, \hyperpage{12}
-    \subitem {lister\+Fichiers}, \hyperpage{12}
-    \subitem {supprimer\+Dossier}, \hyperpage{12}
-    \subitem {supprimer\+Fichier}, \hyperpage{12}
+  \item {gestion\+F\+TP}, \hyperpage{12}
+    \subitem {affichage\+F\+TP}, \hyperpage{13}
+    \subitem {connection\+Au\+Serveur\+F\+TP}, \hyperpage{13}
+    \subitem {copier\+Contenu\+Dossier}, \hyperpage{13}
+    \subitem {creer\+Dossier}, \hyperpage{13}
+    \subitem {deconnexion\+Au\+Serveur}, \hyperpage{13}
+    \subitem {envoyer\+Un\+Fichier}, \hyperpage{14}
+    \subitem {etat\+Connexion}, \hyperpage{14}
+    \subitem {lister\+Dossiers}, \hyperpage{14}
+    \subitem {lister\+Elements}, \hyperpage{14}
+    \subitem {lister\+Fichiers}, \hyperpage{14}
+    \subitem {supprimer\+Dossier}, \hyperpage{14}
+    \subitem {supprimer\+Fichier}, \hyperpage{14}
 
   \indexspace
 
   \item {init}
-    \subitem {main}, \hyperpage{13}
+    \subitem {main}, \hyperpage{15}
   \item {init\+Variables}
-    \subitem {parser\+Rsync\+F\+TP}, \hyperpage{15}
+    \subitem {parser\+Rsync\+F\+TP}, \hyperpage{17}
   \item {initialisation\+Dossier\+F\+TP}
-    \subitem {main}, \hyperpage{13}
+    \subitem {main}, \hyperpage{15}
 
   \indexspace
 
   \item {lister\+Dossiers}
-    \subitem {gestion\+F\+TP}, \hyperpage{12}
+    \subitem {gestion\+F\+TP}, \hyperpage{14}
   \item {lister\+Elements}
-    \subitem {gestion\+F\+TP}, \hyperpage{12}
+    \subitem {gestion\+F\+TP}, \hyperpage{14}
   \item {lister\+Fichiers}
-    \subitem {gestion\+F\+TP}, \hyperpage{12}
+    \subitem {gestion\+F\+TP}, \hyperpage{14}
   \item {log\+Args}
-    \subitem {parser\+Rsync\+F\+TP}, \hyperpage{15}
+    \subitem {parser\+Rsync\+F\+TP}, \hyperpage{17}
   \item {log\+The\+M\+A\+D\+Lists}
-    \subitem {directory\+Supervisor}, \hyperpage{10}
+    \subitem {directory\+Supervisor}, \hyperpage{12}
   \item {loop}
-    \subitem {directory\+Supervisor}, \hyperpage{10}
-    \subitem {main}, \hyperpage{14}
+    \subitem {directory\+Supervisor}, \hyperpage{12}
+    \subitem {main}, \hyperpage{16}
 
   \indexspace
 
-  \item {main}, \hyperpage{13}
-    \subitem {donne\+Chemin\+Relatif}, \hyperpage{13}
-    \subitem {init}, \hyperpage{13}
-    \subitem {initialisation\+Dossier\+F\+TP}, \hyperpage{13}
-    \subitem {loop}, \hyperpage{14}
-    \subitem {update\+F\+T\+P\+\_\+A}, \hyperpage{14}
-    \subitem {update\+F\+T\+P\+\_\+D}, \hyperpage{14}
-    \subitem {update\+F\+T\+P\+\_\+M}, \hyperpage{14}
-    \subitem {update\+F\+TP}, \hyperpage{14}
+  \item {main}, \hyperpage{15}
+    \subitem {donne\+Chemin\+Relatif}, \hyperpage{15}
+    \subitem {init}, \hyperpage{15}
+    \subitem {initialisation\+Dossier\+F\+TP}, \hyperpage{15}
+    \subitem {loop}, \hyperpage{16}
+    \subitem {update\+F\+T\+P\+\_\+A}, \hyperpage{16}
+    \subitem {update\+F\+T\+P\+\_\+D}, \hyperpage{16}
+    \subitem {update\+F\+T\+P\+\_\+M}, \hyperpage{16}
+    \subitem {update\+F\+TP}, \hyperpage{16}
 
   \indexspace
 
-  \item {parser\+Rsync\+F\+TP}, \hyperpage{15}
-    \subitem {init\+Variables}, \hyperpage{15}
-    \subitem {log\+Args}, \hyperpage{15}
+  \item {parser\+Rsync\+F\+TP}, \hyperpage{17}
+    \subitem {init\+Variables}, \hyperpage{17}
+    \subitem {log\+Args}, \hyperpage{17}
 
   \indexspace
 
   \item {supprimer\+Dossier}
-    \subitem {gestion\+F\+TP}, \hyperpage{12}
+    \subitem {gestion\+F\+TP}, \hyperpage{14}
   \item {supprimer\+Fichier}
-    \subitem {gestion\+F\+TP}, \hyperpage{12}
+    \subitem {gestion\+F\+TP}, \hyperpage{14}
 
   \indexspace
 
   \item {update\+F\+T\+P\+\_\+A}
-    \subitem {main}, \hyperpage{14}
+    \subitem {main}, \hyperpage{16}
   \item {update\+F\+T\+P\+\_\+D}
-    \subitem {main}, \hyperpage{14}
+    \subitem {main}, \hyperpage{16}
   \item {update\+F\+T\+P\+\_\+M}
-    \subitem {main}, \hyperpage{14}
+    \subitem {main}, \hyperpage{16}
   \item {update\+F\+TP}
-    \subitem {main}, \hyperpage{14}
+    \subitem {main}, \hyperpage{16}
 
 \end{theindex}
