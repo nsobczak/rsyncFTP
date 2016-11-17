@@ -131,38 +131,33 @@ def supprimerDossier(ftp, dossier_chemin, dossier_nom):
     Fonction qui cree un dossier dans le ftp
     :param ftp: serveur ftp
     :type ftp: class 'ftplib.FTP'
-    :param dossier_chemin: chemin vers le dossier local
+    :param dossier_chemin: chemin relatif vers le dossier local contenant le dossier a supprimer
     :type dossier_chemin: str
-    :param dossier_nom: nom du fichier
+    :param dossier_nom: nom du dossier
     :type dossier_nom: str
     """
+    print(ftp.pwd())
     ftp.cwd(dossier_chemin)
+    print(ftp.pwd())
     ftp.cwd(dossier_nom)
-    liste_dossiers = listerDossiers(ftp)
+    print(ftp.pwd())
+    liste_sous_dossiers = listerDossiers(ftp)
     liste_fichiers = listerFichiers(ftp)
-    l = liste_fichiers+liste_dossiers
-    print(l)
-    if (l == []):
+    print(liste_fichiers+liste_sous_dossiers)
+    if (not liste_sous_dossiers and not liste_fichiers):
         ftp.cwd('..')
+        print('Supprimons le dossier vide '+dossier_nom)
         ftp.rmd(dossier_nom)
     else :
-        for i in l:
-            chemin_ftp = ftp.pwd()[1::]
-            element = os.path.join(chemin_ftp, i)
-            if i in liste_dossiers:
-                print('supprimons un dossier')
-                supprimerDossier(ftp, '', i)
-            elif i in liste_fichiers:
-                print('supprimons un fichier')
-                supprimerFichier(ftp, '', i)
-
-    l = listerElements(ftp)
-    print(l)
-    while (l == []):
-        ftp.cwd('..')
-        ftp.rmd(dossier_nom)
-        l = listerElements(ftp)
+        for i in liste_fichiers:
+            print('supprimons le fichier '+i)
+            supprimerFichier(ftp, '', i)
+        for i in liste_sous_dossiers:
+            print('supprimons le dossier '+i)
+            print(ftp.pwd())
+            supprimerDossier(ftp, '', i)
     ftp.cwd('..')
+    ftp.rmd(dossier_nom)
 
 
 def copierContenuDossier(ftp, chemin_ftp, chemin_local, nom_dossier, profondeure_copie_autorisee):
@@ -240,14 +235,14 @@ def monMain():
     ftp = connectionAuServeurFTP(host, user, password)
     print(type(ftp))
     chemin1 = "test"
-    #envoyerUnFichier(fichier1, filename1, ftp)
+    #envoyerUnFichier(fichier1, ftp)
     # etatConnexion(ftp)
     #supprimerFichier(ftp, filename2)
     #creerDossier(ftp, chemin1, nom_dossier1)
     #supprimerDossier(ftp, dossier)
     #lister(ftp)
-    copierContenuDossier(ftp, "",chemin_local1, nom_dossier1, 2)
-    #supprimerDossier(ftp,'',nom_dossier)
+    copierContenuDossier(ftp, "",chemin_local, nom_dossier, 5)
+    supprimerDossier(ftp,'',nom_dossier)
 
     deconnexionAuServeur(ftp)
 
