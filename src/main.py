@@ -42,9 +42,33 @@ def init(args):
 
     return connectFTP, includes, excludes, arbrePrecedent, startinglevel
 
+def initialisationDossierFTP(args, logger, connectFTP):
+    """
+    Fonction qui initialise le dossier sur le serveur FTP : supprime puis copie le dossier local
+    :param args:
+    :param logger:
+    :param connectFTP:
+    """
+    dossier_chemin_absolu, dossier_nom = os.path.split(args.dp)
+    dossier_chemin_relatif = os.path.realpath(dossier_chemin_absolu)
+    gestionFTP.supprimerDossier(ftp=connectFTP, dossier_chemin="", dossier_nom=dossier_nom)
+    gestionFTP.copierContenuDossier(ftp=connectFTP, chemin_ftp="", chemin_local=args.dp, nom_dossier=dossier_nom,
+                                    profondeure_copie_autorisee=args.profondeur)
+    logger.info("initialisation du dossier")
 
 # ___________________________________________________________________________________________________
 # Fonctions principales
+def donneCheminRelatif(args, chemin_element):
+    """
+    Fonction qui retourne le chemin relatif a partir des chemins absolus du dossier sureveile et de l'element dont on veut le chemin relatif
+    :param args:
+    :param chemin_element:
+    :return:
+    """
+    chemin_absolu, nom = os.path.split(args.dp)
+    chemin_relatif = nom
+
+    chemin_relatif = os.path.join(nom, )
 
 def updateFTP_M(args, logger, connectFTP, M):
     """
@@ -63,7 +87,7 @@ def updateFTP_M(args, logger, connectFTP, M):
         # Si modification d'un fichier => remplacement
         if os.path.isfile(path):
             fichier_chemin_absolu, fichier_nom = os.path.split(path)
-            fichier_chemin_relatif = os.path.realpath(fichier_chemin_absolu,args.dp)
+            fichier_chemin_relatif = os.path.realpath(fichier_chemin_absolu)
             gestionFTP.supprimerFichier(ftp=connectFTP, fichier_chemin=fichier_chemin_relatif, fichier_nom=fichier_nom)
             gestionFTP.envoyerUnFichier(ftp=connectFTP, fichier_chemin=path, fichier_nom=fichier_nom)
         # Les modifications de dossiers ne sont pas prises en compte ici
@@ -122,7 +146,7 @@ def updateFTP_D(args, logger, connectFTP, D):
         # Si suppression d'un dossier
         elif os.path.isdir(path):
             dossier_chemin_absolu, dossier_nom = os.path.split(path)
-            dossier_chemin_relatif = os.path.realpath(fichier_chemin_absolu, args.dp)
+            dossier_chemin_relatif = os.path.realpath(dossier_chemin_absolu)
             gestionFTP.supprimerDossier(ftp=connectFTP, dossier_chemin= dossier_chemin_relatif, dossier_nom = dossier_nom)
         else:
             logger.info(path + " n'est pas supporte par rsyncFTP")
@@ -169,6 +193,9 @@ def loop(args, logger, arbrePrecedent, startingLevel, connectFTP):
     frequence = args.frequence
     supervisionTime = args.supervisionTime
     dp = args.dp
+
+    # initialisation dossier sur serveur ftp
+    initialisationDossierFTP(args, logger, connectFTP)
 
     # boucle infinie si supervision time = -1
     infinite = False

@@ -174,7 +174,7 @@ def supprimerDossier(ftp, dossier_chemin, dossier_nom):
             ftp.cwd('..')
             ftp.rmd(dossier_nom)
     except:
-        print("dossier inexistant")
+        print("Warning: dossier inexistant sur le serveur FTP => il ne peut pas etre supprime")
 
 
 
