@@ -155,21 +155,27 @@ def supprimerDossier(ftp, dossier_chemin, dossier_nom):
     :param dossier_nom: nom du dossier
     :type dossier_nom: str
     """
-    ftp.cwd(dossier_chemin)
-    ftp.cwd(dossier_nom)
-    liste_sous_dossiers = listerDossiers(ftp)
-    liste_fichiers = listerFichiers(ftp)
-    print(liste_fichiers+liste_sous_dossiers)
-    if (not liste_sous_dossiers and not liste_fichiers):
-        ftp.cwd('..')
-        ftp.rmd(dossier_nom)
-    else :
-        for i in liste_fichiers:
-            supprimerFichier(ftp, '', i)
-        for i in liste_sous_dossiers:
-            supprimerDossier(ftp, '', i)
-        ftp.cwd('..')
-        ftp.rmd(dossier_nom)
+    try:
+        ftp.cwd(dossier_chemin)
+        ftp.cwd(dossier_nom)
+
+        liste_sous_dossiers = listerDossiers(ftp)
+        liste_fichiers = listerFichiers(ftp)
+        print(liste_fichiers+liste_sous_dossiers)
+
+        if (not liste_sous_dossiers and not liste_fichiers):
+            ftp.cwd('..')
+            ftp.rmd(dossier_nom)
+        else :
+            for i in liste_fichiers:
+                supprimerFichier(ftp, '', i)
+            for i in liste_sous_dossiers:
+                supprimerDossier(ftp, '', i)
+            ftp.cwd('..')
+            ftp.rmd(dossier_nom)
+    except:
+        print("dossier inexistant")
+
 
 
 def copierContenuDossier(ftp, chemin_ftp, chemin_local, nom_dossier, profondeure_copie_autorisee):
@@ -223,13 +229,13 @@ def monMain():
 
     host = "localhost"  # adresse du serveur FTP
     user = "root"  # votre identifiant
-    password = "0000"  # votre mot de passe
+    password = "tomtom"  # votre mot de passe
 
-    directory = "C:\\Users\\vvinc_000\\Documents\\Cours\\ISEN\\M1\\Python\\1"
+    directory = "C:\\Users\\ISEN\\Desktop\\COURS\\M1\\Python\\PycharmProjects\\Projects\\rsync"
     filename1 = "1.1.1.txt"
     fichier1 = os.path.join(directory, filename1)
 
-    nom_dossier = "Nouveau_dossier"
+    nom_dossier = "test0"
     chemin_local = os.path.join(directory, nom_dossier)
     nom_dossier1 = "1.1"
     chemin_local1 = os.path.join(directory, nom_dossier1)
