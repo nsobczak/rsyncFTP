@@ -1,0 +1,47 @@
+\subsection*{Programme qui synchronise un dossier local de notre machine vers un site miroir ftp distant}
+
+Python course -\/ T\+P03
+
+rendu le 18 au soir au plus tard pdf + zip
+
+\subsection*{parametres}
+
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*3{|X[-1]}|}
+\hline
+\rowcolor{\tableheadbgcolor}{\bf Paramètre}&{\bf Type}&{\bf Variable  }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\rowcolor{\tableheadbgcolor}{\bf Paramètre}&{\bf Type}&{\bf Variable  }\\\cline{1-3}
+\endhead
+site ftp distant&obligatoire&ftp \\\cline{1-3}
+chemin vers le dossier local (directory path)&obligatoire&dp \\\cline{1-3}
+chemin pour generer le fichier log (log path)&obligatoire&lp \\\cline{1-3}
+2-\/uple contenant les extensions de la liste de fichiers a inclure et de la liste de fichiers a exclure&obligatoire&ie \\\cline{1-3}
+chemin vers le fichier conf du log (gestion des handler)&optionnel&\char`\"{}-\/lc\char`\"{}, \char`\"{}-\/-\/log\+Conf\char`\"{} \\\cline{1-3}
+profondeur de la supervision du dossier, default = 2&optionnel&\char`\"{}-\/p\char`\"{}, \char`\"{}-\/-\/profondeur\char`\"{} \\\cline{1-3}
+taille maximale des fichiers transferes en Mo, default = 500 Mo&optionnel&\char`\"{}-\/sf\char`\"{},\char`\"{}-\/-\/size\+File\char`\"{} \\\cline{1-3}
+frequence de supervision en s, default = 1 s&optionnel&\char`\"{}-\/f\char`\"{}, \char`\"{}-\/-\/frequence\char`\"{} \\\cline{1-3}
+temps de supervision en s, default = 60 sec&optionnel&\char`\"{}-\/st\char`\"{}, \char`\"{}-\/-\/supervision\+Time\char`\"{} \\\cline{1-3}
+\end{longtabu}
+
+
+commande linux = rsync
+
+paramètre en lignes de commande ou dans un fichier ini
+
+\subsection*{Note explicative}
+
+Un pdf qui permet d\textquotesingle{}expliquer notre projet, pourquoi on a choisi de faire le truc comme ça. Faut vendre le projet.
+
+
+\begin{DoxyItemize}
+\item auteurs
+\item Si librairie supplémentaire =$>$ installable par pip
+\item choix techniques
+\item choix d\textquotesingle{}organisation
+\end{DoxyItemize}
+
+En lignes de commande 

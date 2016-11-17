@@ -3,38 +3,187 @@
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-def \hyperlink{namespacemain_aa544a7dc52268f7a0c48c5e2be458281}{init} (logger, args)
+def \hyperlink{namespacemain_a0e290154722b65ed489c05ccb63123a4}{init} (args)
 \item 
-def \hyperlink{namespacemain_a91cfa2acfddf70baca02ba819e3fee0d}{loop} (logger, args)
+def \hyperlink{namespacemain_af2b805eecb08e493981427109e24bfb4}{initialisation\+Dossier\+F\+TP} (args, logger, connect\+F\+TP)
 \item 
-def \hyperlink{namespacemain_abc81a2bc9032239e47ace22a92fe0cc6}{mon\+Main} ()
+def \hyperlink{namespacemain_a00446ed819ceb3ba2a2efc386436b91c}{donne\+Chemin\+Relatif} (args, chemin\+\_\+element)
+\item 
+def \hyperlink{namespacemain_a72891f9d649c2f0889626af662f224d9}{update\+F\+T\+P\+\_\+M} (args, logger, connect\+F\+TP, M)
+\item 
+def \hyperlink{namespacemain_a0ac30c71ac670b7676d8fcf2a2ee94d0}{update\+F\+T\+P\+\_\+A} (args, logger, connect\+F\+TP, A)
+\item 
+def \hyperlink{namespacemain_a67671b5a8ef31c164a336616c31866c0}{update\+F\+T\+P\+\_\+D} (args, logger, connect\+F\+TP, D)
+\item 
+def \hyperlink{namespacemain_a900cc8c3d9f9e1b8b986796482ae5323}{update\+F\+TP} (args, logger, connect\+F\+TP, M, A, D)
+\item 
+def \hyperlink{namespacemain_a94b514e853b8fc48d9c89f08326fe9b9}{loop} (args, logger, arbre\+Precedent, starting\+Level, connect\+F\+TP)
+\item 
+def {\bfseries mon\+Main} ()\hypertarget{namespacemain_abc81a2bc9032239e47ace22a92fe0cc6}{}\label{namespacemain_abc81a2bc9032239e47ace22a92fe0cc6}
+
 \end{DoxyCompactItemize}
 
 
+\subsection{Detailed Description}
+\begin{DoxyVerb}############
+# rsyncFTP #
+############
+# main     #
+############
+
+@author: Julien Vermeil and Vincent Reynaert and Nicolas Sobczak
+\end{DoxyVerb}
+ 
+
 \subsection{Function Documentation}
-\index{main@{main}!init@{init}}
-\index{init@{init}!main@{main}}
-\subsubsection[{\texorpdfstring{init(logger, args)}{init(logger, args)}}]{\setlength{\rightskip}{0pt plus 5cm}def main.\+init (
+\index{main@{main}!donne\+Chemin\+Relatif@{donne\+Chemin\+Relatif}}
+\index{donne\+Chemin\+Relatif@{donne\+Chemin\+Relatif}!main@{main}}
+\subsubsection[{\texorpdfstring{donne\+Chemin\+Relatif(args, chemin\+\_\+element)}{donneCheminRelatif(args, chemin_element)}}]{\setlength{\rightskip}{0pt plus 5cm}def main.\+donne\+Chemin\+Relatif (
 \begin{DoxyParamCaption}
-\item[{}]{logger, }
+\item[{}]{args, }
+\item[{}]{chemin\+\_\+element}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacemain_a00446ed819ceb3ba2a2efc386436b91c}{}\label{namespacemain_a00446ed819ceb3ba2a2efc386436b91c}
+\begin{DoxyVerb}Fonction qui retourne le chemin relatif a partir des chemins absolus du dossier surveille et de l'element dont on veut le chemin relatif
+:param args: parametres entres en lignes de commandes
+:param chemin_element: chemin absolu vers l'element (fichier ou dossier) dont on veut le chemin relatif
+:type args: dict
+:type chemin_element: str
+:return: chemin_relatif
+:rtype: str
+\end{DoxyVerb}
+ \index{main@{main}!init@{init}}
+\index{init@{init}!main@{main}}
+\subsubsection[{\texorpdfstring{init(args)}{init(args)}}]{\setlength{\rightskip}{0pt plus 5cm}def main.\+init (
+\begin{DoxyParamCaption}
 \item[{}]{args}
 \end{DoxyParamCaption}
-)}\hypertarget{namespacemain_aa544a7dc52268f7a0c48c5e2be458281}{}\label{namespacemain_aa544a7dc52268f7a0c48c5e2be458281}
-\begin{DoxyVerb}log format
-logging.basicConfig(datefmt='', format='%asctime', level=logging.INFO)
+)}\hypertarget{namespacemain_a0e290154722b65ed489c05ccb63123a4}{}\label{namespacemain_a0e290154722b65ed489c05ccb63123a4}
+\begin{DoxyVerb}Initialise les variables, constantes utiles, et se connecte au serveur ftp
+:param args: parametres entres en lignes de commandes
+:type args: dict
+:return: connectFTP, includes, excludes, arbrePrecedent, startinglevel
+:rtype: tuple
+\end{DoxyVerb}
+ \index{main@{main}!initialisation\+Dossier\+F\+TP@{initialisation\+Dossier\+F\+TP}}
+\index{initialisation\+Dossier\+F\+TP@{initialisation\+Dossier\+F\+TP}!main@{main}}
+\subsubsection[{\texorpdfstring{initialisation\+Dossier\+F\+T\+P(args, logger, connect\+F\+T\+P)}{initialisationDossierFTP(args, logger, connectFTP)}}]{\setlength{\rightskip}{0pt plus 5cm}def main.\+initialisation\+Dossier\+F\+TP (
+\begin{DoxyParamCaption}
+\item[{}]{args, }
+\item[{}]{logger, }
+\item[{}]{connect\+F\+TP}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacemain_af2b805eecb08e493981427109e24bfb4}{}\label{namespacemain_af2b805eecb08e493981427109e24bfb4}
+\begin{DoxyVerb}Fonction qui initialise le dossier sur le serveur FTP : supprime puis copie le dossier local
+:param args: parametres entres en lignes de commandes
+:param logger: fichier de log
+:param connectFTP: objet ftp
+:type args: dict
+:type logger: log
+:type connectFTP: class 'ftplib.FTP'
 \end{DoxyVerb}
  \index{main@{main}!loop@{loop}}
 \index{loop@{loop}!main@{main}}
-\subsubsection[{\texorpdfstring{loop(logger, args)}{loop(logger, args)}}]{\setlength{\rightskip}{0pt plus 5cm}def main.\+loop (
+\subsubsection[{\texorpdfstring{loop(args, logger, arbre\+Precedent, starting\+Level, connect\+F\+T\+P)}{loop(args, logger, arbrePrecedent, startingLevel, connectFTP)}}]{\setlength{\rightskip}{0pt plus 5cm}def main.\+loop (
 \begin{DoxyParamCaption}
+\item[{}]{args, }
 \item[{}]{logger, }
-\item[{}]{args}
+\item[{}]{arbre\+Precedent, }
+\item[{}]{starting\+Level, }
+\item[{}]{connect\+F\+TP}
 \end{DoxyParamCaption}
-)}\hypertarget{namespacemain_a91cfa2acfddf70baca02ba819e3fee0d}{}\label{namespacemain_a91cfa2acfddf70baca02ba819e3fee0d}
-\index{main@{main}!mon\+Main@{mon\+Main}}
-\index{mon\+Main@{mon\+Main}!main@{main}}
-\subsubsection[{\texorpdfstring{mon\+Main()}{monMain()}}]{\setlength{\rightskip}{0pt plus 5cm}def main.\+mon\+Main (
+)}\hypertarget{namespacemain_a94b514e853b8fc48d9c89f08326fe9b9}{}\label{namespacemain_a94b514e853b8fc48d9c89f08326fe9b9}
+\begin{DoxyVerb}Fonction de boucle principale. Elle fonctionne en 2 actions:
+- Surveiller
+- Si modif, mettre a jour le serveur FTP
+:param args: parametres entres en lignes de commandes
+:param logger: fichier de log
+:type args: dict
+:type logger: log
+:param connectFTP: objet ftp
+:type connectFTP: class 'ftplib.FTP'
+
+
+:return: 1
+\end{DoxyVerb}
+ \index{main@{main}!update\+F\+TP@{update\+F\+TP}}
+\index{update\+F\+TP@{update\+F\+TP}!main@{main}}
+\subsubsection[{\texorpdfstring{update\+F\+T\+P(args, logger, connect\+F\+T\+P, M, A, D)}{updateFTP(args, logger, connectFTP, M, A, D)}}]{\setlength{\rightskip}{0pt plus 5cm}def main.\+update\+F\+TP (
 \begin{DoxyParamCaption}
-{}
+\item[{}]{args, }
+\item[{}]{logger, }
+\item[{}]{connect\+F\+TP, }
+\item[{}]{M, }
+\item[{}]{A, }
+\item[{}]{D}
 \end{DoxyParamCaption}
-)}\hypertarget{namespacemain_abc81a2bc9032239e47ace22a92fe0cc6}{}\label{namespacemain_abc81a2bc9032239e47ace22a92fe0cc6}
+)}\hypertarget{namespacemain_a900cc8c3d9f9e1b8b986796482ae5323}{}\label{namespacemain_a900cc8c3d9f9e1b8b986796482ae5323}
+\begin{DoxyVerb}Fonction qui gere la mise a jour du dossier distant
+:param args: parametres entres en lignes de commandes
+:param logger:
+:type args: dict
+:type logger: log
+:param connectFTP: objet ftp
+:type connectFTP: class 'ftplib.FTP'
+\end{DoxyVerb}
+ \index{main@{main}!update\+F\+T\+P\+\_\+A@{update\+F\+T\+P\+\_\+A}}
+\index{update\+F\+T\+P\+\_\+A@{update\+F\+T\+P\+\_\+A}!main@{main}}
+\subsubsection[{\texorpdfstring{update\+F\+T\+P\+\_\+\+A(args, logger, connect\+F\+T\+P, A)}{updateFTP_A(args, logger, connectFTP, A)}}]{\setlength{\rightskip}{0pt plus 5cm}def main.\+update\+F\+T\+P\+\_\+A (
+\begin{DoxyParamCaption}
+\item[{}]{args, }
+\item[{}]{logger, }
+\item[{}]{connect\+F\+TP, }
+\item[{}]{A}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacemain_a0ac30c71ac670b7676d8fcf2a2ee94d0}{}\label{namespacemain_a0ac30c71ac670b7676d8fcf2a2ee94d0}
+\begin{DoxyVerb}Fonction qui s'occupe de mettre a jour le dossier situe sur le serveur FTP en cas d'ajout
+:param args: parametres entres en lignes de commandes
+:param logger: fichier de log
+:param connectFTP: objet ftp
+:param A: liste des elements ajoutes
+:type args: dict
+:type logger: log
+:type connectFTP: class 'ftplib.FTP'
+:type A: list
+\end{DoxyVerb}
+ \index{main@{main}!update\+F\+T\+P\+\_\+D@{update\+F\+T\+P\+\_\+D}}
+\index{update\+F\+T\+P\+\_\+D@{update\+F\+T\+P\+\_\+D}!main@{main}}
+\subsubsection[{\texorpdfstring{update\+F\+T\+P\+\_\+\+D(args, logger, connect\+F\+T\+P, D)}{updateFTP_D(args, logger, connectFTP, D)}}]{\setlength{\rightskip}{0pt plus 5cm}def main.\+update\+F\+T\+P\+\_\+D (
+\begin{DoxyParamCaption}
+\item[{}]{args, }
+\item[{}]{logger, }
+\item[{}]{connect\+F\+TP, }
+\item[{}]{D}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacemain_a67671b5a8ef31c164a336616c31866c0}{}\label{namespacemain_a67671b5a8ef31c164a336616c31866c0}
+\begin{DoxyVerb}Fonction qui s'occupe de mettre a jour le dossier situe sur le serveur FTP en cas d'ajout
+:param args: parametres entres en lignes de commandes
+:param logger: fichier de log
+:param connectFTP: objet ftp
+:param D: liste des elements supprimes
+:type args: dict
+:type logger: log
+:type connectFTP: class 'ftplib.FTP'
+:type D: list
+\end{DoxyVerb}
+ \index{main@{main}!update\+F\+T\+P\+\_\+M@{update\+F\+T\+P\+\_\+M}}
+\index{update\+F\+T\+P\+\_\+M@{update\+F\+T\+P\+\_\+M}!main@{main}}
+\subsubsection[{\texorpdfstring{update\+F\+T\+P\+\_\+\+M(args, logger, connect\+F\+T\+P, M)}{updateFTP_M(args, logger, connectFTP, M)}}]{\setlength{\rightskip}{0pt plus 5cm}def main.\+update\+F\+T\+P\+\_\+M (
+\begin{DoxyParamCaption}
+\item[{}]{args, }
+\item[{}]{logger, }
+\item[{}]{connect\+F\+TP, }
+\item[{}]{M}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacemain_a72891f9d649c2f0889626af662f224d9}{}\label{namespacemain_a72891f9d649c2f0889626af662f224d9}
+\begin{DoxyVerb}Fonction qui s'occupe de mettre a jour le dossier situe sur le serveur FTP en cas d'ajout
+:param args: parametres entres en lignes de commandes
+:param logger: fichier de log
+:param connectFTP: objet ftp
+:param M: liste des elements modifies
+:type args: dict
+:type logger: log
+:type connectFTP: class 'ftplib.FTP'
+:type M: list
+\end{DoxyVerb}
+ 

@@ -1,24 +1,24 @@
 var indexSectionsWithContent =
 {
-  0: "acdegilmps",
-  1: "dglmp",
-  2: "dglmp",
-  3: "acdeilmps"
+  0: "acdegilmprsu",
+  1: "dgmp",
+  2: "acdeilsu",
+  3: "lr"
 };
 
 var indexSectionNames =
 {
   0: "all",
   1: "namespaces",
-  2: "files",
-  3: "functions"
+  2: "functions",
+  3: "pages"
 };
 
 var indexSectionLabels =
 {
   0: "All",
   1: "Namespaces",
-  2: "Files",
-  3: "Functions"
+  2: "Functions",
+  3: "Pages"
 };
 

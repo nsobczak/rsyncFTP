@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.10.11)  17 NOV 2016 17:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.10.11)  17 NOV 2016 21:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1251,31 +1251,46 @@ LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
 (Font)              scaled to size 12.9599pt on input line 10.
 
-Underfull \hbox (badness 10000) in paragraph at lines 32--36
+Underfull \hbox (badness 10000) in paragraph at lines 25--32
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 35--39
 
  []
 
 [3]) [4]
 Chapter 3.
-(./technical.tex [5
+(./technical.tex
+Underfull \hbox (badness 10000) in paragraph at lines 9--11
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 9--11
+
+ []
+
+[5
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 56--67
+Underfull \hbox (badness 10000) in paragraph at lines 58--69
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 56--67
+Underfull \hbox (badness 10000) in paragraph at lines 58--69
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 71--79
+Underfull \hbox (badness 10000) in paragraph at lines 73--81
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 71--79
+Underfull \hbox (badness 10000) in paragraph at lines 73--81
 
  []
 
@@ -1287,10 +1302,6 @@ Chapter 4.
 
 ]
 Chapter 5.
-(./files.tex) [9] [10
-
-]
-Chapter 6.
 (./namespacedirectory_supervisor.tex
 LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
 (Font)              scaled to size 6.29996pt on input line 1.
@@ -1300,87 +1311,150 @@ LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 10.79993pt on input line 3.
 LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
 (Font)              scaled to size 10.79993pt on input line 3.
-LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
-(Font)              scaled to size 8.99994pt on input line 26.
-LaTeX Font Info:    Font shape `T1/phv/bc/it' in size <10> not available
-(Font)              Font shape `T1/phv/bc/sl' tried instead on input line 26.
-LaTeX Font Info:    Font shape `T1/phv/bc/sl' will be
-(Font)              scaled to size 8.99994pt on input line 26.
-LaTeX Font Info:    Font shape `T1/phv/bc/it' in size <7> not available
-(Font)              Font shape `T1/phv/bc/sl' tried instead on input line 26.
-LaTeX Font Info:    Font shape `T1/phv/bc/sl' will be
-(Font)              scaled to size 6.29996pt on input line 26.
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 7.19995pt on input line 27.
+(Font)              scaled to size 7.19995pt on input line 20.
+LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
+(Font)              scaled to size 8.99994pt on input line 38.
+LaTeX Font Info:    Font shape `T1/phv/bc/it' in size <10> not available
+(Font)              Font shape `T1/phv/bc/sl' tried instead on input line 38.
+LaTeX Font Info:    Font shape `T1/phv/bc/sl' will be
+(Font)              scaled to size 8.99994pt on input line 38.
+LaTeX Font Info:    Font shape `T1/phv/bc/it' in size <7> not available
+(Font)              Font shape `T1/phv/bc/sl' tried instead on input line 38.
+LaTeX Font Info:    Font shape `T1/phv/bc/sl' will be
+(Font)              scaled to size 6.29996pt on input line 38.
 
-Overfull \hbox (19.95619pt too wide) in paragraph at lines 32--32
+Overfull \hbox (19.95619pt too wide) in paragraph at lines 44--44
 []\T1/pcr/m/n/8 :return: tuple of list for the modified files, list for the add
 ed files, list for the deleted files[] 
  []
 
 
-Overfull \hbox (91.95624pt too wide) in paragraph at lines 44--44
+Overfull \hbox (91.95624pt too wide) in paragraph at lines 56--56
 []\T1/pcr/m/n/8 Function which create a list of tupples form by (fileName, date
 OfLastModif) corresponding to the files in the tree 
  []
 
-[11]) (./namespacegestion_f_t_p.tex [12]
+[9]) (./namespacegestion_f_t_p.tex [10]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 69.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 125.
+(hyperref)                removing `subscript' on input line 87.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 125.
+(hyperref)                removing `subscript' on input line 87.
 
-[13]) (./namespacelogger.tex
-Overfull \hbox (202.35631pt too wide) in paragraph at lines 21--21
-[]\T1/pcr/m/n/8 logging.basicConfig(datefmt='', format='%asctime', level=loggin
-g.INFO)    :param fileName: nom du fichier dans lequel remplacer les liens[] 
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 87.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 87.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 87.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 108.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 108.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 136.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 136.
+
+[11]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 197.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 197.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 214.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 214.
+
+) (./namespacemain.tex [12]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 46.
+
+
+Overfull \hbox (197.5563pt too wide) in paragraph at lines 47--47
+[]\T1/pcr/m/n/8 Fonction qui retourne le chemin relatif a partir des chemins ab
+solus du dossier surveille et de l'element dont on veut le chemin relatif 
  []
 
-) (./namespacemain.tex [14]) (./namespaceparser.tex) [15] [16
 
-]
-Chapter 7.
-(./directory_supervisor_8py.tex) (./gestion_f_t_p_8py.tex) (./logger_8py.tex
-[17]) (./main_8py.tex) (./parser_8py.tex) [18] (./refman.ind [19
+Overfull \hbox (39.1562pt too wide) in paragraph at lines 49--49
+[]\T1/pcr/m/n/8 :param chemin_element: chemin absolu vers l'element (fichier ou
+ dossier) dont on veut le chemin relatif[] 
+ []
 
+[13]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 138.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 158.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 178.
+
+[14]) (./namespaceparser_rsync_f_t_p.tex) [15] [16
+
+] (./refman.ind [17
 
 
 ])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 172.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 172.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 163.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 163.
 
 (./refman.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 172.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 172.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 163.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 163.
 Package rerunfilecheck Info: File `refman.out' has not changed.
-(rerunfilecheck)             Checksum: 6A215D906C9564DB372B75DDD31765C0;12183.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 172.
+(rerunfilecheck)             Checksum: 2D49F786906AA3C99AAD713286F9A65F;13281.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 163.
  ) 
 Here is how much of TeX's memory you used:
- 14971 strings out of 493029
- 213834 string characters out of 6136233
- 310407 words of memory out of 5000000
- 18106 multiletter control sequences out of 15000+600000
+ 14938 strings out of 493029
+ 214094 string characters out of 6136233
+ 313255 words of memory out of 5000000
+ 18103 multiletter control sequences out of 15000+600000
  58763 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 53i,16n,92p,862b,493s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 53i,15n,92p,1586b,493s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
-e/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-urw/helvetic/uhvb8ac.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helveti
-c/uhvbo8ac.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.p
-fb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on refman.pdf (23 pages, 99450 bytes).
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/ur
+w/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/u
+hvb8ac.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvbo8ac.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
+Output written on refman.pdf (21 pages, 114530 bytes).
 PDF statistics:
- 635 PDF objects out of 1000 (max. 8388607)
- 598 compressed objects within 6 object streams
- 129 named destinations out of 1000 (max. 500000)
- 473 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 563 PDF objects out of 1000 (max. 8388607)
+ 526 compressed objects within 6 object streams
+ 114 named destinations out of 1000 (max. 500000)
+ 441 words of extra memory for PDF output out of 10000 (max. 10000000)
 

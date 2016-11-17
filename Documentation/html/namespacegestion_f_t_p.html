@@ -8,6 +8,14 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -25,8 +33,9 @@
   <td id="projectlogo"><img alt="Logo" src="image.jpg"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">rsyncFTP
-   &#160;<span id="projectnumber">1.1</span>
+   &#160;<span id="projectnumber">1.2</span>
    </div>
+   <div id="projectbrief">Programme qui synchronise un dossier local de notre machine vers un site miroir ftp distant</div>
   </td>
  </tr>
  </tbody>
@@ -40,8 +49,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li class="current"><a href="namespaces.html"><span>Packages</span></a></li>
-      <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -66,6 +75,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="namespacemembers.html"><span>Package&#160;Functions</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('namespacegestion_f_t_p.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -80,7 +104,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
@@ -93,30 +116,41 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 Functions</h2></td></tr>
 <tr class="memitem:ac302a85ee832b8ee7df6332236fb03fd"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegestion_f_t_p.html#ac302a85ee832b8ee7df6332236fb03fd">connectionAuServeurFTP</a> (host, user, password)</td></tr>
 <tr class="separator:ac302a85ee832b8ee7df6332236fb03fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad8f6cfbd9c6f0f416388cda6be0006a1"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegestion_f_t_p.html#ad8f6cfbd9c6f0f416388cda6be0006a1">deconnexionAuServeur</a> (connect)</td></tr>
-<tr class="separator:ad8f6cfbd9c6f0f416388cda6be0006a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9af85f209eb48e2ab12361a74c23357d"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegestion_f_t_p.html#a9af85f209eb48e2ab12361a74c23357d">deconnexionAuServeur</a> (ftp)</td></tr>
+<tr class="separator:a9af85f209eb48e2ab12361a74c23357d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af55225f5cdcb61a67ac02eeebf5f3860"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegestion_f_t_p.html#af55225f5cdcb61a67ac02eeebf5f3860">affichageFTP</a> (ftp)</td></tr>
 <tr class="separator:af55225f5cdcb61a67ac02eeebf5f3860"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae9eaad537c75d8beb4d50100f6b7eb53"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegestion_f_t_p.html#ae9eaad537c75d8beb4d50100f6b7eb53">envoyerUnFichier</a> (fichier_chemin, fichier_nom, ftp)</td></tr>
-<tr class="separator:ae9eaad537c75d8beb4d50100f6b7eb53"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a18440a52ad61b01732d15fcbd809f0d6"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegestion_f_t_p.html#a18440a52ad61b01732d15fcbd809f0d6">etatConnexion</a> (ftp)</td></tr>
 <tr class="separator:a18440a52ad61b01732d15fcbd809f0d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa5e571d2a08d3a629af8934d539efdd5"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegestion_f_t_p.html#aa5e571d2a08d3a629af8934d539efdd5">effacerFichier</a> (ftp, fichier)</td></tr>
-<tr class="separator:aa5e571d2a08d3a629af8934d539efdd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4f578f0eb414b4cf018e728e673d1b8e"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegestion_f_t_p.html#a4f578f0eb414b4cf018e728e673d1b8e">creerDossier</a> (ftp, dossier)</td></tr>
-<tr class="separator:a4f578f0eb414b4cf018e728e673d1b8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9d2f5ec25bb3819b33f44983216f7f9b"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegestion_f_t_p.html#a9d2f5ec25bb3819b33f44983216f7f9b">supprimerDossier</a> (ftp, dossier)</td></tr>
-<tr class="separator:a9d2f5ec25bb3819b33f44983216f7f9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0b92822e6b7f5190f17191696cc45236"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegestion_f_t_p.html#a0b92822e6b7f5190f17191696cc45236">lister</a> (ftp)</td></tr>
-<tr class="separator:a0b92822e6b7f5190f17191696cc45236"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a896f323f39f972a38433e3f8dfae7eab"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegestion_f_t_p.html#a896f323f39f972a38433e3f8dfae7eab">copierContenuDossier</a> (ftp, chemin, nom_dossier)</td></tr>
-<tr class="separator:a896f323f39f972a38433e3f8dfae7eab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae6c72baede960f1d7c8722c2421eece3"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegestion_f_t_p.html#ae6c72baede960f1d7c8722c2421eece3">pushAuServeurFTP</a> ()</td></tr>
-<tr class="separator:ae6c72baede960f1d7c8722c2421eece3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a60eb7697458514d4a24011cab1c4d559"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegestion_f_t_p.html#a60eb7697458514d4a24011cab1c4d559">monMain</a> ()</td></tr>
+<tr class="memitem:a8ea306f854213c2d395b2ee10d648309"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegestion_f_t_p.html#a8ea306f854213c2d395b2ee10d648309">listerFichiers</a> (ftp)</td></tr>
+<tr class="separator:a8ea306f854213c2d395b2ee10d648309"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f67d833c10d35ec09aab3185d4b92f3"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegestion_f_t_p.html#a2f67d833c10d35ec09aab3185d4b92f3">listerDossiers</a> (ftp)</td></tr>
+<tr class="separator:a2f67d833c10d35ec09aab3185d4b92f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a137686a569213bca2d098b55ca5bb22e"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegestion_f_t_p.html#a137686a569213bca2d098b55ca5bb22e">listerElements</a> (ftp)</td></tr>
+<tr class="separator:a137686a569213bca2d098b55ca5bb22e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9eaad537c75d8beb4d50100f6b7eb53"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegestion_f_t_p.html#ae9eaad537c75d8beb4d50100f6b7eb53">envoyerUnFichier</a> (fichier_chemin, fichier_nom, ftp)</td></tr>
+<tr class="separator:ae9eaad537c75d8beb4d50100f6b7eb53"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ed81ad37ebdebc0cdf8fe7d902ea3d6"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegestion_f_t_p.html#a9ed81ad37ebdebc0cdf8fe7d902ea3d6">supprimerFichier</a> (ftp, fichier_chemin, fichier_nom)</td></tr>
+<tr class="separator:a9ed81ad37ebdebc0cdf8fe7d902ea3d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64e31d4eac232d50fde68a2bd4b75f5d"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegestion_f_t_p.html#a64e31d4eac232d50fde68a2bd4b75f5d">creerDossier</a> (ftp, dossier_chemin, dossier_nom)</td></tr>
+<tr class="separator:a64e31d4eac232d50fde68a2bd4b75f5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2dc69e6943fef6bd469d230867d3b4a6"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegestion_f_t_p.html#a2dc69e6943fef6bd469d230867d3b4a6">supprimerDossier</a> (ftp, dossier_chemin, dossier_nom)</td></tr>
+<tr class="separator:a2dc69e6943fef6bd469d230867d3b4a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a321839c920f9e83567746d4036f93ea0"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegestion_f_t_p.html#a321839c920f9e83567746d4036f93ea0">copierContenuDossier</a> (ftp, chemin_ftp, chemin_local, nom_dossier, profondeure_copie_autorisee)</td></tr>
+<tr class="separator:a321839c920f9e83567746d4036f93ea0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60eb7697458514d4a24011cab1c4d559"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a60eb7697458514d4a24011cab1c4d559"></a>
+def&#160;</td><td class="memItemRight" valign="bottom"><b>monMain</b> ()</td></tr>
 <tr class="separator:a60eb7697458514d4a24011cab1c4d559"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><pre class="fragment">############
+# rsyncFTP #
+##############
+# gestionFTP #
+##############
+
+@author: Julien Vermeil and Vincent Reynaert and Nicolas Sobczak
+</pre> </div><h2 class="groupheader">Function Documentation</h2>
 <a class="anchor" id="af55225f5cdcb61a67ac02eeebf5f3860"></a>
 <div class="memitem">
 <div class="memproto">
@@ -130,9 +164,9 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">Fonction qui affiche ???
-:param ftp: ???
-:type ftp: ???
+<pre class="fragment">Fonction qui affiche les infos (fichiers et dossiers) contenues dans le ftp
+:param ftp: serveur ftp
+:type ftp: class 'ftplib.FTP'
 </pre> 
 </div>
 </div>
@@ -172,10 +206,12 @@ Functions</h2></td></tr>
 :type user: str
 :param password: password
 :type password: str
+:return: ftp
+:rtype: class 'ftplib.FTP'
 </pre> 
 </div>
 </div>
-<a class="anchor" id="a896f323f39f972a38433e3f8dfae7eab"></a>
+<a class="anchor" id="a321839c920f9e83567746d4036f93ea0"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -189,13 +225,25 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>chemin</em>, </td>
+          <td class="paramname"><em>chemin_ftp</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>nom_dossier</em>&#160;</td>
+          <td class="paramname"><em>chemin_local</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>nom_dossier</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>profondeure_copie_autorisee</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -204,17 +252,21 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">Fonction qui ???
-:param ftp: ???
-:type ftp: ???
-:param chemin: ???
-:type chemin: str
-:param nom_dossier: ???
+<pre class="fragment">Fonction qui copie les fichiers d'un dossier specifie
+:param ftp: serveur ftp
+:type ftp:
+:param chemin_ftp: chemin dans le dossier distant
+:type chemin_ftp: str
+:param chemin_local: chemin absolu (avec nom du dossier) du dossier
+:type chemin_local: str
+:param nom_dossier: nom du dossier
 :type nom_dossier: str
+:param profondeure_copie_autorisee: profondeur de copie autorisee
+:type profondeure_copie_autorisee: int
 </pre> 
 </div>
 </div>
-<a class="anchor" id="a4f578f0eb414b4cf018e728e673d1b8e"></a>
+<a class="anchor" id="a64e31d4eac232d50fde68a2bd4b75f5d"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -228,7 +280,13 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>dossier</em>&#160;</td>
+          <td class="paramname"><em>dossier_chemin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>dossier_nom</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -237,15 +295,17 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">Fonction qui cree un dossier
-:param ftp: ???
-:type ftp: ???
-:param dossier: ???
-:type dossier: ???
+<pre class="fragment">Fonction qui cree un dossier dans le ftp
+:param ftp: serveur ftp
+:type ftp: class 'ftplib.FTP'
+:param dossier_chemin: chemin relatif (sans le nom du dossier) vers le dossier local
+:type dossier_chemin: str
+:param dossier_nom: nom du fichier
+:type dossier_nom: str
 </pre> 
 </div>
 </div>
-<a class="anchor" id="ad8f6cfbd9c6f0f416388cda6be0006a1"></a>
+<a class="anchor" id="a9af85f209eb48e2ab12361a74c23357d"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -253,45 +313,14 @@ Functions</h2></td></tr>
           <td class="memname">def gestionFTP.deconnexionAuServeur </td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>connect</em></td><td>)</td>
+          <td class="paramname"><em>ftp</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <pre class="fragment">Fonction qui se deconnecte du serveur
-:param connect: nom de la variable dans laquelle la connexion a ete declaree
-:type connect: ???
-</pre> 
-</div>
-</div>
-<a class="anchor" id="aa5e571d2a08d3a629af8934d539efdd5"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">def gestionFTP.effacerFichier </td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>ftp</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>fichier</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<pre class="fragment">Fonction qui ???
-:param ftp: ???
-:type ftp: ???
-:param fichier: ???
-:type fichier: ???
+:param ftp: nom de la variable dans laquelle la connexion a ete declaree
+:type ftp: class 'ftplib.FTP'
 </pre> 
 </div>
 </div>
@@ -324,9 +353,13 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">Fonction qui envoie un fichier
-:param ftp: ???
-:type ftp: ???
+<pre class="fragment">Fonction qui envoie un fichier existant vers le serveur ftp
+:param fichier_chemin: chemin absolu (avec le nom du fichier) vers le fichier local
+:type fichier_chemin: str
+:param fichier_nom: nom du fichier
+:type fichier_nom: str
+:param ftp: serveur ftp
+:type ftp: class 'ftplib.FTP'
 </pre> 
 </div>
 </div>
@@ -343,18 +376,18 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">Fonction qui ???
-:param ftp: ???
-:type ftp: ???
+<pre class="fragment">Fonction qui affiche l'etat de la connexion au serveur ftp
+:param ftp: serveur ftp
+:type ftp: class 'ftplib.FTP'
 </pre> 
 </div>
 </div>
-<a class="anchor" id="a0b92822e6b7f5190f17191696cc45236"></a>
+<a class="anchor" id="a2f67d833c10d35ec09aab3185d4b92f3"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">def gestionFTP.lister </td>
+          <td class="memname">def gestionFTP.listerDossiers </td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname"><em>ftp</em></td><td>)</td>
@@ -362,44 +395,51 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">Fonction qui ???
-:param ftp: ???
-:type ftp: ???
+<pre class="fragment">Fonction qui liste les dossiers presents dans le repertoire observe sur le ftp
+:param ftp: serveur ftp
+:type ftp: class 'ftplib.FTP'
 </pre> 
 </div>
 </div>
-<a class="anchor" id="a60eb7697458514d4a24011cab1c4d559"></a>
+<a class="anchor" id="a137686a569213bca2d098b55ca5bb22e"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">def gestionFTP.monMain </td>
+          <td class="memname">def gestionFTP.listerElements </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>ftp</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<pre class="fragment">Fonction qui liste les fichiers et les dossiers presents dans le repertoire observe sur le ftp
+:param ftp: serveur ftp
+:type ftp: class 'ftplib.FTP'
+</pre> 
 </div>
 </div>
-<a class="anchor" id="ae6c72baede960f1d7c8722c2421eece3"></a>
+<a class="anchor" id="a8ea306f854213c2d395b2ee10d648309"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">def gestionFTP.pushAuServeurFTP </td>
+          <td class="memname">def gestionFTP.listerFichiers </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>ftp</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">Fonction qui push les donnees vers le serveur FTP distant
+<pre class="fragment">Fonction qui liste les fichiers presents dans le repertoire observe sur le ftp
+:param ftp: serveur ftp
+:type ftp: class 'ftplib.FTP'
 </pre> 
 </div>
 </div>
-<a class="anchor" id="a9d2f5ec25bb3819b33f44983216f7f9b"></a>
+<a class="anchor" id="a2dc69e6943fef6bd469d230867d3b4a6"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -413,7 +453,13 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>dossier</em>&#160;</td>
+          <td class="paramname"><em>dossier_chemin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>dossier_nom</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -422,20 +468,65 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">Fonction qui supprime un dossier
-:param ftp: ???
-:type ftp: ???
-:param dossier: ???
-:type dossier: ???
+<pre class="fragment">Fonction qui cree un dossier dans le ftp
+:param ftp: serveur ftp
+:type ftp: class 'ftplib.FTP'
+:param dossier_chemin: chemin relatif vers le dossier local contenant le dossier a supprimer
+:type dossier_chemin: str
+:param dossier_nom: nom du dossier
+:type dossier_nom: str
+</pre> 
+</div>
+</div>
+<a class="anchor" id="a9ed81ad37ebdebc0cdf8fe7d902ea3d6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def gestionFTP.supprimerFichier </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>ftp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>fichier_chemin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>fichier_nom</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">Fonction qui supprime un fichier dans le ftp
+:param ftp: serveur ftp
+:type ftp: class 'ftplib.FTP'
+:param fichier_chemin: chemin relatif (sans le nom du fichier) vers le fichier local
+:type fichier_chemin: str
+:param fichier_nom: nom du fichier
+:type fichier_nom: str
 </pre> 
 </div>
 </div>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.11
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespacegestion_f_t_p.html">gestionFTP</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
+  </ul>
+</div>
 </body>
 </html>

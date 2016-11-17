@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['license',['LICENSE',['../md_LICENSE.html',1,'']]]
+  ['rsyncftp',['rsyncFTP',['../md_README.html',1,'']]]
 ];

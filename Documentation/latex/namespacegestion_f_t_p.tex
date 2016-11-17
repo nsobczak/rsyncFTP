@@ -5,29 +5,43 @@
 \item 
 def \hyperlink{namespacegestion_f_t_p_ac302a85ee832b8ee7df6332236fb03fd}{connection\+Au\+Serveur\+F\+TP} (host, user, password)
 \item 
-def \hyperlink{namespacegestion_f_t_p_ad8f6cfbd9c6f0f416388cda6be0006a1}{deconnexion\+Au\+Serveur} (connect)
+def \hyperlink{namespacegestion_f_t_p_a9af85f209eb48e2ab12361a74c23357d}{deconnexion\+Au\+Serveur} (ftp)
 \item 
 def \hyperlink{namespacegestion_f_t_p_af55225f5cdcb61a67ac02eeebf5f3860}{affichage\+F\+TP} (ftp)
 \item 
-def \hyperlink{namespacegestion_f_t_p_ae9eaad537c75d8beb4d50100f6b7eb53}{envoyer\+Un\+Fichier} (fichier\+\_\+chemin, fichier\+\_\+nom, ftp)
-\item 
 def \hyperlink{namespacegestion_f_t_p_a18440a52ad61b01732d15fcbd809f0d6}{etat\+Connexion} (ftp)
 \item 
-def \hyperlink{namespacegestion_f_t_p_aa5e571d2a08d3a629af8934d539efdd5}{effacer\+Fichier} (ftp, fichier)
+def \hyperlink{namespacegestion_f_t_p_a8ea306f854213c2d395b2ee10d648309}{lister\+Fichiers} (ftp)
 \item 
-def \hyperlink{namespacegestion_f_t_p_a4f578f0eb414b4cf018e728e673d1b8e}{creer\+Dossier} (ftp, dossier)
+def \hyperlink{namespacegestion_f_t_p_a2f67d833c10d35ec09aab3185d4b92f3}{lister\+Dossiers} (ftp)
 \item 
-def \hyperlink{namespacegestion_f_t_p_a9d2f5ec25bb3819b33f44983216f7f9b}{supprimer\+Dossier} (ftp, dossier)
+def \hyperlink{namespacegestion_f_t_p_a137686a569213bca2d098b55ca5bb22e}{lister\+Elements} (ftp)
 \item 
-def \hyperlink{namespacegestion_f_t_p_a0b92822e6b7f5190f17191696cc45236}{lister} (ftp)
+def \hyperlink{namespacegestion_f_t_p_ae9eaad537c75d8beb4d50100f6b7eb53}{envoyer\+Un\+Fichier} (fichier\+\_\+chemin, fichier\+\_\+nom, ftp)
 \item 
-def \hyperlink{namespacegestion_f_t_p_a896f323f39f972a38433e3f8dfae7eab}{copier\+Contenu\+Dossier} (ftp, chemin, nom\+\_\+dossier)
+def \hyperlink{namespacegestion_f_t_p_a9ed81ad37ebdebc0cdf8fe7d902ea3d6}{supprimer\+Fichier} (ftp, fichier\+\_\+chemin, fichier\+\_\+nom)
 \item 
-def \hyperlink{namespacegestion_f_t_p_ae6c72baede960f1d7c8722c2421eece3}{push\+Au\+Serveur\+F\+TP} ()
+def \hyperlink{namespacegestion_f_t_p_a64e31d4eac232d50fde68a2bd4b75f5d}{creer\+Dossier} (ftp, dossier\+\_\+chemin, dossier\+\_\+nom)
 \item 
-def \hyperlink{namespacegestion_f_t_p_a60eb7697458514d4a24011cab1c4d559}{mon\+Main} ()
+def \hyperlink{namespacegestion_f_t_p_a2dc69e6943fef6bd469d230867d3b4a6}{supprimer\+Dossier} (ftp, dossier\+\_\+chemin, dossier\+\_\+nom)
+\item 
+def \hyperlink{namespacegestion_f_t_p_a321839c920f9e83567746d4036f93ea0}{copier\+Contenu\+Dossier} (ftp, chemin\+\_\+ftp, chemin\+\_\+local, nom\+\_\+dossier, profondeure\+\_\+copie\+\_\+autorisee)
+\item 
+def {\bfseries mon\+Main} ()\hypertarget{namespacegestion_f_t_p_a60eb7697458514d4a24011cab1c4d559}{}\label{namespacegestion_f_t_p_a60eb7697458514d4a24011cab1c4d559}
+
 \end{DoxyCompactItemize}
 
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}############
+# rsyncFTP #
+##############
+# gestionFTP #
+##############
+
+@author: Julien Vermeil and Vincent Reynaert and Nicolas Sobczak
+\end{DoxyVerb}
+ 
 
 \subsection{Function Documentation}
 \index{gestion\+F\+TP@{gestion\+F\+TP}!affichage\+F\+TP@{affichage\+F\+TP}}
@@ -37,9 +51,9 @@ def \hyperlink{namespacegestion_f_t_p_a60eb7697458514d4a24011cab1c4d559}{mon\+Ma
 \item[{}]{ftp}
 \end{DoxyParamCaption}
 )}\hypertarget{namespacegestion_f_t_p_af55225f5cdcb61a67ac02eeebf5f3860}{}\label{namespacegestion_f_t_p_af55225f5cdcb61a67ac02eeebf5f3860}
-\begin{DoxyVerb}Fonction qui affiche ???
-:param ftp: ???
-:type ftp: ???
+\begin{DoxyVerb}Fonction qui affiche les infos (fichiers et dossiers) contenues dans le ftp
+:param ftp: serveur ftp
+:type ftp: class 'ftplib.FTP'
 \end{DoxyVerb}
  \index{gestion\+F\+TP@{gestion\+F\+TP}!connection\+Au\+Serveur\+F\+TP@{connection\+Au\+Serveur\+F\+TP}}
 \index{connection\+Au\+Serveur\+F\+TP@{connection\+Au\+Serveur\+F\+TP}!gestion\+F\+TP@{gestion\+F\+TP}}
@@ -57,62 +71,59 @@ def \hyperlink{namespacegestion_f_t_p_a60eb7697458514d4a24011cab1c4d559}{mon\+Ma
 :type user: str
 :param password: password
 :type password: str
+:return: ftp
+:rtype: class 'ftplib.FTP'
 \end{DoxyVerb}
  \index{gestion\+F\+TP@{gestion\+F\+TP}!copier\+Contenu\+Dossier@{copier\+Contenu\+Dossier}}
 \index{copier\+Contenu\+Dossier@{copier\+Contenu\+Dossier}!gestion\+F\+TP@{gestion\+F\+TP}}
-\subsubsection[{\texorpdfstring{copier\+Contenu\+Dossier(ftp, chemin, nom\+\_\+dossier)}{copierContenuDossier(ftp, chemin, nom_dossier)}}]{\setlength{\rightskip}{0pt plus 5cm}def gestion\+F\+T\+P.\+copier\+Contenu\+Dossier (
+\subsubsection[{\texorpdfstring{copier\+Contenu\+Dossier(ftp, chemin\+\_\+ftp, chemin\+\_\+local, nom\+\_\+dossier, profondeure\+\_\+copie\+\_\+autorisee)}{copierContenuDossier(ftp, chemin_ftp, chemin_local, nom_dossier, profondeure_copie_autorisee)}}]{\setlength{\rightskip}{0pt plus 5cm}def gestion\+F\+T\+P.\+copier\+Contenu\+Dossier (
 \begin{DoxyParamCaption}
 \item[{}]{ftp, }
-\item[{}]{chemin, }
-\item[{}]{nom\+\_\+dossier}
+\item[{}]{chemin\+\_\+ftp, }
+\item[{}]{chemin\+\_\+local, }
+\item[{}]{nom\+\_\+dossier, }
+\item[{}]{profondeure\+\_\+copie\+\_\+autorisee}
 \end{DoxyParamCaption}
-)}\hypertarget{namespacegestion_f_t_p_a896f323f39f972a38433e3f8dfae7eab}{}\label{namespacegestion_f_t_p_a896f323f39f972a38433e3f8dfae7eab}
-\begin{DoxyVerb}Fonction qui ???
-:param ftp: ???
-:type ftp: ???
-:param chemin: ???
-:type chemin: str
-:param nom_dossier: ???
+)}\hypertarget{namespacegestion_f_t_p_a321839c920f9e83567746d4036f93ea0}{}\label{namespacegestion_f_t_p_a321839c920f9e83567746d4036f93ea0}
+\begin{DoxyVerb}Fonction qui copie les fichiers d'un dossier specifie
+:param ftp: serveur ftp
+:type ftp:
+:param chemin_ftp: chemin dans le dossier distant
+:type chemin_ftp: str
+:param chemin_local: chemin absolu (avec nom du dossier) du dossier
+:type chemin_local: str
+:param nom_dossier: nom du dossier
 :type nom_dossier: str
+:param profondeure_copie_autorisee: profondeur de copie autorisee
+:type profondeure_copie_autorisee: int
 \end{DoxyVerb}
  \index{gestion\+F\+TP@{gestion\+F\+TP}!creer\+Dossier@{creer\+Dossier}}
 \index{creer\+Dossier@{creer\+Dossier}!gestion\+F\+TP@{gestion\+F\+TP}}
-\subsubsection[{\texorpdfstring{creer\+Dossier(ftp, dossier)}{creerDossier(ftp, dossier)}}]{\setlength{\rightskip}{0pt plus 5cm}def gestion\+F\+T\+P.\+creer\+Dossier (
+\subsubsection[{\texorpdfstring{creer\+Dossier(ftp, dossier\+\_\+chemin, dossier\+\_\+nom)}{creerDossier(ftp, dossier_chemin, dossier_nom)}}]{\setlength{\rightskip}{0pt plus 5cm}def gestion\+F\+T\+P.\+creer\+Dossier (
 \begin{DoxyParamCaption}
 \item[{}]{ftp, }
-\item[{}]{dossier}
+\item[{}]{dossier\+\_\+chemin, }
+\item[{}]{dossier\+\_\+nom}
 \end{DoxyParamCaption}
-)}\hypertarget{namespacegestion_f_t_p_a4f578f0eb414b4cf018e728e673d1b8e}{}\label{namespacegestion_f_t_p_a4f578f0eb414b4cf018e728e673d1b8e}
-\begin{DoxyVerb}Fonction qui cree un dossier
-:param ftp: ???
-:type ftp: ???
-:param dossier: ???
-:type dossier: ???
+)}\hypertarget{namespacegestion_f_t_p_a64e31d4eac232d50fde68a2bd4b75f5d}{}\label{namespacegestion_f_t_p_a64e31d4eac232d50fde68a2bd4b75f5d}
+\begin{DoxyVerb}Fonction qui cree un dossier dans le ftp
+:param ftp: serveur ftp
+:type ftp: class 'ftplib.FTP'
+:param dossier_chemin: chemin relatif (sans le nom du dossier) vers le dossier local
+:type dossier_chemin: str
+:param dossier_nom: nom du fichier
+:type dossier_nom: str
 \end{DoxyVerb}
  \index{gestion\+F\+TP@{gestion\+F\+TP}!deconnexion\+Au\+Serveur@{deconnexion\+Au\+Serveur}}
 \index{deconnexion\+Au\+Serveur@{deconnexion\+Au\+Serveur}!gestion\+F\+TP@{gestion\+F\+TP}}
-\subsubsection[{\texorpdfstring{deconnexion\+Au\+Serveur(connect)}{deconnexionAuServeur(connect)}}]{\setlength{\rightskip}{0pt plus 5cm}def gestion\+F\+T\+P.\+deconnexion\+Au\+Serveur (
+\subsubsection[{\texorpdfstring{deconnexion\+Au\+Serveur(ftp)}{deconnexionAuServeur(ftp)}}]{\setlength{\rightskip}{0pt plus 5cm}def gestion\+F\+T\+P.\+deconnexion\+Au\+Serveur (
 \begin{DoxyParamCaption}
-\item[{}]{connect}
+\item[{}]{ftp}
 \end{DoxyParamCaption}
-)}\hypertarget{namespacegestion_f_t_p_ad8f6cfbd9c6f0f416388cda6be0006a1}{}\label{namespacegestion_f_t_p_ad8f6cfbd9c6f0f416388cda6be0006a1}
+)}\hypertarget{namespacegestion_f_t_p_a9af85f209eb48e2ab12361a74c23357d}{}\label{namespacegestion_f_t_p_a9af85f209eb48e2ab12361a74c23357d}
 \begin{DoxyVerb}Fonction qui se deconnecte du serveur
-:param connect: nom de la variable dans laquelle la connexion a ete declaree
-:type connect: ???
-\end{DoxyVerb}
- \index{gestion\+F\+TP@{gestion\+F\+TP}!effacer\+Fichier@{effacer\+Fichier}}
-\index{effacer\+Fichier@{effacer\+Fichier}!gestion\+F\+TP@{gestion\+F\+TP}}
-\subsubsection[{\texorpdfstring{effacer\+Fichier(ftp, fichier)}{effacerFichier(ftp, fichier)}}]{\setlength{\rightskip}{0pt plus 5cm}def gestion\+F\+T\+P.\+effacer\+Fichier (
-\begin{DoxyParamCaption}
-\item[{}]{ftp, }
-\item[{}]{fichier}
-\end{DoxyParamCaption}
-)}\hypertarget{namespacegestion_f_t_p_aa5e571d2a08d3a629af8934d539efdd5}{}\label{namespacegestion_f_t_p_aa5e571d2a08d3a629af8934d539efdd5}
-\begin{DoxyVerb}Fonction qui ???
-:param ftp: ???
-:type ftp: ???
-:param fichier: ???
-:type fichier: ???
+:param ftp: nom de la variable dans laquelle la connexion a ete declaree
+:type ftp: class 'ftplib.FTP'
 \end{DoxyVerb}
  \index{gestion\+F\+TP@{gestion\+F\+TP}!envoyer\+Un\+Fichier@{envoyer\+Un\+Fichier}}
 \index{envoyer\+Un\+Fichier@{envoyer\+Un\+Fichier}!gestion\+F\+TP@{gestion\+F\+TP}}
@@ -123,9 +134,13 @@ def \hyperlink{namespacegestion_f_t_p_a60eb7697458514d4a24011cab1c4d559}{mon\+Ma
 \item[{}]{ftp}
 \end{DoxyParamCaption}
 )}\hypertarget{namespacegestion_f_t_p_ae9eaad537c75d8beb4d50100f6b7eb53}{}\label{namespacegestion_f_t_p_ae9eaad537c75d8beb4d50100f6b7eb53}
-\begin{DoxyVerb}Fonction qui envoie un fichier
-:param ftp: ???
-:type ftp: ???
+\begin{DoxyVerb}Fonction qui envoie un fichier existant vers le serveur ftp
+:param fichier_chemin: chemin absolu (avec le nom du fichier) vers le fichier local
+:type fichier_chemin: str
+:param fichier_nom: nom du fichier
+:type fichier_nom: str
+:param ftp: serveur ftp
+:type ftp: class 'ftplib.FTP'
 \end{DoxyVerb}
  \index{gestion\+F\+TP@{gestion\+F\+TP}!etat\+Connexion@{etat\+Connexion}}
 \index{etat\+Connexion@{etat\+Connexion}!gestion\+F\+TP@{gestion\+F\+TP}}
@@ -134,49 +149,75 @@ def \hyperlink{namespacegestion_f_t_p_a60eb7697458514d4a24011cab1c4d559}{mon\+Ma
 \item[{}]{ftp}
 \end{DoxyParamCaption}
 )}\hypertarget{namespacegestion_f_t_p_a18440a52ad61b01732d15fcbd809f0d6}{}\label{namespacegestion_f_t_p_a18440a52ad61b01732d15fcbd809f0d6}
-\begin{DoxyVerb}Fonction qui ???
-:param ftp: ???
-:type ftp: ???
+\begin{DoxyVerb}Fonction qui affiche l'etat de la connexion au serveur ftp
+:param ftp: serveur ftp
+:type ftp: class 'ftplib.FTP'
 \end{DoxyVerb}
- \index{gestion\+F\+TP@{gestion\+F\+TP}!lister@{lister}}
-\index{lister@{lister}!gestion\+F\+TP@{gestion\+F\+TP}}
-\subsubsection[{\texorpdfstring{lister(ftp)}{lister(ftp)}}]{\setlength{\rightskip}{0pt plus 5cm}def gestion\+F\+T\+P.\+lister (
+ \index{gestion\+F\+TP@{gestion\+F\+TP}!lister\+Dossiers@{lister\+Dossiers}}
+\index{lister\+Dossiers@{lister\+Dossiers}!gestion\+F\+TP@{gestion\+F\+TP}}
+\subsubsection[{\texorpdfstring{lister\+Dossiers(ftp)}{listerDossiers(ftp)}}]{\setlength{\rightskip}{0pt plus 5cm}def gestion\+F\+T\+P.\+lister\+Dossiers (
 \begin{DoxyParamCaption}
 \item[{}]{ftp}
 \end{DoxyParamCaption}
-)}\hypertarget{namespacegestion_f_t_p_a0b92822e6b7f5190f17191696cc45236}{}\label{namespacegestion_f_t_p_a0b92822e6b7f5190f17191696cc45236}
-\begin{DoxyVerb}Fonction qui ???
-:param ftp: ???
-:type ftp: ???
+)}\hypertarget{namespacegestion_f_t_p_a2f67d833c10d35ec09aab3185d4b92f3}{}\label{namespacegestion_f_t_p_a2f67d833c10d35ec09aab3185d4b92f3}
+\begin{DoxyVerb}Fonction qui liste les dossiers presents dans le repertoire observe sur le ftp
+:param ftp: serveur ftp
+:type ftp: class 'ftplib.FTP'
 \end{DoxyVerb}
- \index{gestion\+F\+TP@{gestion\+F\+TP}!mon\+Main@{mon\+Main}}
-\index{mon\+Main@{mon\+Main}!gestion\+F\+TP@{gestion\+F\+TP}}
-\subsubsection[{\texorpdfstring{mon\+Main()}{monMain()}}]{\setlength{\rightskip}{0pt plus 5cm}def gestion\+F\+T\+P.\+mon\+Main (
+ \index{gestion\+F\+TP@{gestion\+F\+TP}!lister\+Elements@{lister\+Elements}}
+\index{lister\+Elements@{lister\+Elements}!gestion\+F\+TP@{gestion\+F\+TP}}
+\subsubsection[{\texorpdfstring{lister\+Elements(ftp)}{listerElements(ftp)}}]{\setlength{\rightskip}{0pt plus 5cm}def gestion\+F\+T\+P.\+lister\+Elements (
 \begin{DoxyParamCaption}
-{}
+\item[{}]{ftp}
 \end{DoxyParamCaption}
-)}\hypertarget{namespacegestion_f_t_p_a60eb7697458514d4a24011cab1c4d559}{}\label{namespacegestion_f_t_p_a60eb7697458514d4a24011cab1c4d559}
-\index{gestion\+F\+TP@{gestion\+F\+TP}!push\+Au\+Serveur\+F\+TP@{push\+Au\+Serveur\+F\+TP}}
-\index{push\+Au\+Serveur\+F\+TP@{push\+Au\+Serveur\+F\+TP}!gestion\+F\+TP@{gestion\+F\+TP}}
-\subsubsection[{\texorpdfstring{push\+Au\+Serveur\+F\+T\+P()}{pushAuServeurFTP()}}]{\setlength{\rightskip}{0pt plus 5cm}def gestion\+F\+T\+P.\+push\+Au\+Serveur\+F\+TP (
+)}\hypertarget{namespacegestion_f_t_p_a137686a569213bca2d098b55ca5bb22e}{}\label{namespacegestion_f_t_p_a137686a569213bca2d098b55ca5bb22e}
+\begin{DoxyVerb}Fonction qui liste les fichiers et les dossiers presents dans le repertoire observe sur le ftp
+:param ftp: serveur ftp
+:type ftp: class 'ftplib.FTP'
+\end{DoxyVerb}
+ \index{gestion\+F\+TP@{gestion\+F\+TP}!lister\+Fichiers@{lister\+Fichiers}}
+\index{lister\+Fichiers@{lister\+Fichiers}!gestion\+F\+TP@{gestion\+F\+TP}}
+\subsubsection[{\texorpdfstring{lister\+Fichiers(ftp)}{listerFichiers(ftp)}}]{\setlength{\rightskip}{0pt plus 5cm}def gestion\+F\+T\+P.\+lister\+Fichiers (
 \begin{DoxyParamCaption}
-{}
+\item[{}]{ftp}
 \end{DoxyParamCaption}
-)}\hypertarget{namespacegestion_f_t_p_ae6c72baede960f1d7c8722c2421eece3}{}\label{namespacegestion_f_t_p_ae6c72baede960f1d7c8722c2421eece3}
-\begin{DoxyVerb}Fonction qui push les donnees vers le serveur FTP distant
+)}\hypertarget{namespacegestion_f_t_p_a8ea306f854213c2d395b2ee10d648309}{}\label{namespacegestion_f_t_p_a8ea306f854213c2d395b2ee10d648309}
+\begin{DoxyVerb}Fonction qui liste les fichiers presents dans le repertoire observe sur le ftp
+:param ftp: serveur ftp
+:type ftp: class 'ftplib.FTP'
 \end{DoxyVerb}
  \index{gestion\+F\+TP@{gestion\+F\+TP}!supprimer\+Dossier@{supprimer\+Dossier}}
 \index{supprimer\+Dossier@{supprimer\+Dossier}!gestion\+F\+TP@{gestion\+F\+TP}}
-\subsubsection[{\texorpdfstring{supprimer\+Dossier(ftp, dossier)}{supprimerDossier(ftp, dossier)}}]{\setlength{\rightskip}{0pt plus 5cm}def gestion\+F\+T\+P.\+supprimer\+Dossier (
+\subsubsection[{\texorpdfstring{supprimer\+Dossier(ftp, dossier\+\_\+chemin, dossier\+\_\+nom)}{supprimerDossier(ftp, dossier_chemin, dossier_nom)}}]{\setlength{\rightskip}{0pt plus 5cm}def gestion\+F\+T\+P.\+supprimer\+Dossier (
 \begin{DoxyParamCaption}
 \item[{}]{ftp, }
-\item[{}]{dossier}
+\item[{}]{dossier\+\_\+chemin, }
+\item[{}]{dossier\+\_\+nom}
 \end{DoxyParamCaption}
-)}\hypertarget{namespacegestion_f_t_p_a9d2f5ec25bb3819b33f44983216f7f9b}{}\label{namespacegestion_f_t_p_a9d2f5ec25bb3819b33f44983216f7f9b}
-\begin{DoxyVerb}Fonction qui supprime un dossier
-:param ftp: ???
-:type ftp: ???
-:param dossier: ???
-:type dossier: ???
+)}\hypertarget{namespacegestion_f_t_p_a2dc69e6943fef6bd469d230867d3b4a6}{}\label{namespacegestion_f_t_p_a2dc69e6943fef6bd469d230867d3b4a6}
+\begin{DoxyVerb}Fonction qui cree un dossier dans le ftp
+:param ftp: serveur ftp
+:type ftp: class 'ftplib.FTP'
+:param dossier_chemin: chemin relatif vers le dossier local contenant le dossier a supprimer
+:type dossier_chemin: str
+:param dossier_nom: nom du dossier
+:type dossier_nom: str
+\end{DoxyVerb}
+ \index{gestion\+F\+TP@{gestion\+F\+TP}!supprimer\+Fichier@{supprimer\+Fichier}}
+\index{supprimer\+Fichier@{supprimer\+Fichier}!gestion\+F\+TP@{gestion\+F\+TP}}
+\subsubsection[{\texorpdfstring{supprimer\+Fichier(ftp, fichier\+\_\+chemin, fichier\+\_\+nom)}{supprimerFichier(ftp, fichier_chemin, fichier_nom)}}]{\setlength{\rightskip}{0pt plus 5cm}def gestion\+F\+T\+P.\+supprimer\+Fichier (
+\begin{DoxyParamCaption}
+\item[{}]{ftp, }
+\item[{}]{fichier\+\_\+chemin, }
+\item[{}]{fichier\+\_\+nom}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacegestion_f_t_p_a9ed81ad37ebdebc0cdf8fe7d902ea3d6}{}\label{namespacegestion_f_t_p_a9ed81ad37ebdebc0cdf8fe7d902ea3d6}
+\begin{DoxyVerb}Fonction qui supprime un fichier dans le ftp
+:param ftp: serveur ftp
+:type ftp: class 'ftplib.FTP'
+:param fichier_chemin: chemin relatif (sans le nom du fichier) vers le fichier local
+:type fichier_chemin: str
+:param fichier_nom: nom du fichier
+:type fichier_nom: str
 \end{DoxyVerb}
  

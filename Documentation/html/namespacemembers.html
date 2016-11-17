@@ -8,6 +8,14 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -25,8 +33,9 @@
   <td id="projectlogo"><img alt="Logo" src="image.jpg"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">rsyncFTP
-   &#160;<span id="projectnumber">1.1</span>
+   &#160;<span id="projectnumber">1.2</span>
    </div>
+   <div id="projectbrief">Programme qui synchronise un dossier local de notre machine vers un site miroir ftp distant</div>
   </td>
  </tr>
  </tbody>
@@ -40,8 +49,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li class="current"><a href="namespaces.html"><span>Packages</span></a></li>
-      <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -73,6 +82,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     </ul>
   </div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('namespacemembers.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -88,7 +111,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 
 <div class="contents">
-<div class="textblock">Here is a list of all namespace members with links to the namespace documentation for each member:</div><ul>
+<div class="textblock">Here is a list of all documented namespace members with links to the namespaces they belong to:</div><ul>
 <li>affichageFTP()
 : <a class="el" href="namespacegestion_f_t_p.html#af55225f5cdcb61a67ac02eeebf5f3860">gestionFTP</a>
 </li>
@@ -99,19 +122,19 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="namespacegestion_f_t_p.html#ac302a85ee832b8ee7df6332236fb03fd">gestionFTP</a>
 </li>
 <li>copierContenuDossier()
-: <a class="el" href="namespacegestion_f_t_p.html#a896f323f39f972a38433e3f8dfae7eab">gestionFTP</a>
+: <a class="el" href="namespacegestion_f_t_p.html#a321839c920f9e83567746d4036f93ea0">gestionFTP</a>
 </li>
 <li>createSurveyList()
 : <a class="el" href="namespacedirectory_supervisor.html#a9d74cc8524cb7e3e77edb67c0ee845ca">directorySupervisor</a>
 </li>
 <li>creerDossier()
-: <a class="el" href="namespacegestion_f_t_p.html#a4f578f0eb414b4cf018e728e673d1b8e">gestionFTP</a>
+: <a class="el" href="namespacegestion_f_t_p.html#a64e31d4eac232d50fde68a2bd4b75f5d">gestionFTP</a>
 </li>
 <li>deconnexionAuServeur()
-: <a class="el" href="namespacegestion_f_t_p.html#ad8f6cfbd9c6f0f416388cda6be0006a1">gestionFTP</a>
+: <a class="el" href="namespacegestion_f_t_p.html#a9af85f209eb48e2ab12361a74c23357d">gestionFTP</a>
 </li>
-<li>effacerFichier()
-: <a class="el" href="namespacegestion_f_t_p.html#aa5e571d2a08d3a629af8934d539efdd5">gestionFTP</a>
+<li>donneCheminRelatif()
+: <a class="el" href="namespacemain.html#a00446ed819ceb3ba2a2efc386436b91c">main</a>
 </li>
 <li>envoyerUnFichier()
 : <a class="el" href="namespacegestion_f_t_p.html#ae9eaad537c75d8beb4d50100f6b7eb53">gestionFTP</a>
@@ -120,44 +143,61 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="namespacegestion_f_t_p.html#a18440a52ad61b01732d15fcbd809f0d6">gestionFTP</a>
 </li>
 <li>init()
-: <a class="el" href="namespacemain.html#aa544a7dc52268f7a0c48c5e2be458281">main</a>
+: <a class="el" href="namespacemain.html#a0e290154722b65ed489c05ccb63123a4">main</a>
 </li>
-<li>initLog()
-: <a class="el" href="namespacelogger.html#abf8f32b7c6e94b379bc7a10c660a0dd7">logger</a>
+<li>initialisationDossierFTP()
+: <a class="el" href="namespacemain.html#af2b805eecb08e493981427109e24bfb4">main</a>
 </li>
 <li>initVariables()
-: <a class="el" href="namespaceparser.html#a9c28a44f4389a88921390ebe7837b38a">parser</a>
+: <a class="el" href="namespaceparser_rsync_f_t_p.html#a0e73b909879252022af61a25a8073f72">parserRsyncFTP</a>
 </li>
-<li>lister()
-: <a class="el" href="namespacegestion_f_t_p.html#a0b92822e6b7f5190f17191696cc45236">gestionFTP</a>
+<li>listerDossiers()
+: <a class="el" href="namespacegestion_f_t_p.html#a2f67d833c10d35ec09aab3185d4b92f3">gestionFTP</a>
+</li>
+<li>listerElements()
+: <a class="el" href="namespacegestion_f_t_p.html#a137686a569213bca2d098b55ca5bb22e">gestionFTP</a>
+</li>
+<li>listerFichiers()
+: <a class="el" href="namespacegestion_f_t_p.html#a8ea306f854213c2d395b2ee10d648309">gestionFTP</a>
+</li>
+<li>logArgs()
+: <a class="el" href="namespaceparser_rsync_f_t_p.html#a5f7efa75f1e14cae53a2f58b147efc39">parserRsyncFTP</a>
 </li>
 <li>logTheMADLists()
 : <a class="el" href="namespacedirectory_supervisor.html#a318858380e4893dce2f9d4a878c954c9">directorySupervisor</a>
 </li>
 <li>loop()
-: <a class="el" href="namespacedirectory_supervisor.html#a79c093888347915f7624fbac8f61e0be">directorySupervisor</a>
-, <a class="el" href="namespacemain.html#a91cfa2acfddf70baca02ba819e3fee0d">main</a>
-</li>
-<li>monMain()
-: <a class="el" href="namespacedirectory_supervisor.html#a88ef40a67ed7762ac92c5fdf5167204d">directorySupervisor</a>
-, <a class="el" href="namespacegestion_f_t_p.html#a60eb7697458514d4a24011cab1c4d559">gestionFTP</a>
-, <a class="el" href="namespacelogger.html#a08f1b65fe4556439e24520d9148ff374">logger</a>
-, <a class="el" href="namespacemain.html#abc81a2bc9032239e47ace22a92fe0cc6">main</a>
-, <a class="el" href="namespaceparser.html#a67d0bdbfc7285e06cb5843b7b039eac9">parser</a>
-</li>
-<li>pushAuServeurFTP()
-: <a class="el" href="namespacegestion_f_t_p.html#ae6c72baede960f1d7c8722c2421eece3">gestionFTP</a>
+: <a class="el" href="namespacedirectory_supervisor.html#a97d1cb03388e91e814277fa2a7105f83">directorySupervisor</a>
+, <a class="el" href="namespacemain.html#a94b514e853b8fc48d9c89f08326fe9b9">main</a>
 </li>
 <li>supprimerDossier()
-: <a class="el" href="namespacegestion_f_t_p.html#a9d2f5ec25bb3819b33f44983216f7f9b">gestionFTP</a>
+: <a class="el" href="namespacegestion_f_t_p.html#a2dc69e6943fef6bd469d230867d3b4a6">gestionFTP</a>
+</li>
+<li>supprimerFichier()
+: <a class="el" href="namespacegestion_f_t_p.html#a9ed81ad37ebdebc0cdf8fe7d902ea3d6">gestionFTP</a>
+</li>
+<li>updateFTP()
+: <a class="el" href="namespacemain.html#a900cc8c3d9f9e1b8b986796482ae5323">main</a>
+</li>
+<li>updateFTP_A()
+: <a class="el" href="namespacemain.html#a0ac30c71ac670b7676d8fcf2a2ee94d0">main</a>
+</li>
+<li>updateFTP_D()
+: <a class="el" href="namespacemain.html#a67671b5a8ef31c164a336616c31866c0">main</a>
+</li>
+<li>updateFTP_M()
+: <a class="el" href="namespacemain.html#a72891f9d649c2f0889626af662f224d9">main</a>
 </li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.11
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
+  </ul>
+</div>
 </body>
 </html>
