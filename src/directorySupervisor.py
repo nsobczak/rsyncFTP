@@ -1,11 +1,15 @@
+"""
 ############
 # rsyncFTP #
 #######################
 # directorySupervisor #
 #######################
 
-# TODO : Completer les commentaires
-# ____________________________________________________________________________________________________
+@author: Julien Vermeil and Vincent Reynaert and Nicolas Sobczak
+"""
+
+# TODO : /
+# %%__________________________________________________________________________________________________
 # Config
 
 # Import
@@ -15,7 +19,7 @@ import os.path
 import time
 
 
-# ___________________________________________________________________________________________________
+# %%_________________________________________________________________________________________________
 # ___________________________________________________________________________________________________
 # Fonctions de creation de l'arbre du dossier et de comparaison
 
@@ -112,7 +116,7 @@ def logTheMADLists(logger, M, A, D):
                 dFile) + " is viewed before delete")
 
 
-# ___________________________________________________________________________________________________
+# %%_________________________________________________________________________________________________
 # Fonctions principales
 
 def loop(logger, frequence, supervisionTime, arbrePrecedent, dp, startinglevel):
@@ -133,7 +137,7 @@ def loop(logger, frequence, supervisionTime, arbrePrecedent, dp, startinglevel):
     """
     # si supervision time est a -1 on fait une boucle infinie
     infinite = False
-    if (supervisionTime==-1):
+    if (supervisionTime == -1):
         logger.info("supervisionTime = -1 => supervision en continue")
         infinite = True
 
@@ -150,16 +154,17 @@ def loop(logger, frequence, supervisionTime, arbrePrecedent, dp, startinglevel):
             M, A, D = comparateSurveyList(arbrePrecedent, nouvelArbre)
             if len(M) or len(A) or len(D):
                 arbrePrecedent = nouvelArbre
-                #logTheMADLists(M, A, D)
+                # logTheMADLists(M, A, D)
                 print("\nM list: ", M)
                 print("\nA list: ", A)
                 print("\nD list: ", D)
             totalTime += 1
     return 1
 
+
+# %%__________________________________________________________________________________________________
 # ____________________________________________________________________________________________________
-# ____________________________________________________________________________________________________
-# Test unitaire
+# Tests unitaires
 def monMain():
     MAIN_LOGGER = logger.initLog("", "rsyncFTP.conf")
     dp = "/home/nicolas/Documents"

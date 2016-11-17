@@ -1,11 +1,15 @@
+"""
 ############
 # rsyncFTP #
 ##############
 # gestionFTP #
 ##############
 
+@author: Julien Vermeil and Vincent Reynaert and Nicolas Sobczak
+"""
+
 # TODO : /
-# ____________________________________________________________________________________________________
+# %%__________________________________________________________________________________________________
 # Config
 
 # Import
@@ -14,7 +18,7 @@ import os
 import os.path
 
 
-# ____________________________________________________________________________________________________
+# %%__________________________________________________________________________________________________
 # ____________________________________________________________________________________________________
 # Fonctions
 def connectionAuServeurFTP(host, user, password):
@@ -94,7 +98,7 @@ def listerElements(ftp):
     return listerFichiers(ftp) + listerDossiers(ftp)
 
 
-# ____________________________________________________________________________________________________
+# %%__________________________________________________________________________________________________
 def envoyerUnFichier(fichier_chemin, fichier_nom, ftp):
     """
     Fonction qui envoie un fichier existant vers le serveur ftp
@@ -125,8 +129,8 @@ def supprimerFichier(ftp, fichier_chemin, fichier_nom):
     """
     ftp.cwd(fichier_chemin)
     ftp.delete(fichier_nom)
-    for i in fichier_chemin.split('/') :
-        if i!='' :
+    for i in fichier_chemin.split('/'):
+        if i != '':
             ftp.cwd('..')
 
 
@@ -161,12 +165,12 @@ def supprimerDossier(ftp, dossier_chemin, dossier_nom):
 
         liste_sous_dossiers = listerDossiers(ftp)
         liste_fichiers = listerFichiers(ftp)
-        print(liste_fichiers+liste_sous_dossiers)
+        print(liste_fichiers + liste_sous_dossiers)
 
         if (not liste_sous_dossiers and not liste_fichiers):
             ftp.cwd('..')
             ftp.rmd(dossier_nom)
-        else :
+        else:
             for i in liste_fichiers:
                 supprimerFichier(ftp, '', i)
             for i in liste_sous_dossiers:
@@ -175,7 +179,6 @@ def supprimerDossier(ftp, dossier_chemin, dossier_nom):
             ftp.rmd(dossier_nom)
     except:
         print("Warning: dossier inexistant sur le serveur FTP => il ne peut pas etre supprime")
-
 
 
 def copierContenuDossier(ftp, chemin_ftp, chemin_local, nom_dossier, profondeure_copie_autorisee):
@@ -212,7 +215,7 @@ def copierContenuDossier(ftp, chemin_ftp, chemin_local, nom_dossier, profondeure
     for i in l:
         element = os.path.join(chemin_local, i)
         if os.path.isdir(element):
-            copierContenuDossier(ftp, chemin_ftp, element, i, profondeure_copie_autorisee-1)
+            copierContenuDossier(ftp, chemin_ftp, element, i, profondeure_copie_autorisee - 1)
         elif os.path.isfile(element):
             if profondeure_copie_autorisee > 0:
                 envoyerUnFichier(element, i, ftp)
@@ -220,18 +223,19 @@ def copierContenuDossier(ftp, chemin_ftp, chemin_local, nom_dossier, profondeure
     ftp.cwd('..')
     l = listerFichiers(ftp)
 
+
+# %%__________________________________________________________________________________________________
 # ____________________________________________________________________________________________________
-# ____________________________________________________________________________________________________
-# Test unitaire
+# Tests unitaires
 
 def monMain():
     ### Variables
-
     host = "localhost"  # adresse du serveur FTP
     user = "root"  # votre identifiant
     password = "tomtom"  # votre mot de passe
 
     directory = "C:\\Users\\ISEN\\Desktop\\COURS\\M1\\Python\\PycharmProjects\\Projects\\rsync"
+    # "/home/nicolas/Documents/Git/rsyncFTP"
     filename1 = "1.1.1.txt"
     fichier1 = os.path.join(directory, filename1)
 
@@ -245,14 +249,14 @@ def monMain():
     ftp = connectionAuServeurFTP(host, user, password)
     print(type(ftp))
     chemin1 = "test"
-    #envoyerUnFichier(fichier1, ftp)
+    # envoyerUnFichier(fichier1, ftp)
     # etatConnexion(ftp)
-    #supprimerFichier(ftp, filename2)
-    #creerDossier(ftp, chemin1, nom_dossier1)
-    #supprimerDossier(ftp, dossier)
-    #lister(ftp)
-    #copierContenuDossier(ftp, "",chemin_local, nom_dossier, 5)
-    supprimerDossier(ftp,'',nom_dossier)
+    # supprimerFichier(ftp, filename2)
+    # creerDossier(ftp, chemin1, nom_dossier1)
+    # supprimerDossier(ftp, dossier)
+    # lister(ftp)
+    # copierContenuDossier(ftp, "",chemin_local, nom_dossier, 5)
+    supprimerDossier(ftp, '', nom_dossier)
 
     deconnexionAuServeur(ftp)
 

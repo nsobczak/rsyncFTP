@@ -1,19 +1,25 @@
+"""
 ############
 # rsyncFTP #
 ############
 # parser   #
 ############
 
-# TODO : Tester la fonction logArgs, ajouter un exemple d'ecriture pour la commande ftp
-# ____________________________________________________________________________________________________
+@author: Julien Vermeil and Vincent Reynaert and Nicolas Sobczak
+"""
+
+# TODO : Tester la fonction logArgs, mettre a jour les commentaires et exemples
+# %%__________________________________________________________________________________________________
 # Config
 
 # Import
 import logger
 import argparse
 
-test=0
-# ____________________________________________________________________________________________________
+test = 0
+
+
+# %%__________________________________________________________________________________________________
 # ____________________________________________________________________________________________________
 # Fonctions d'initialisation
 def initVariables():
@@ -30,19 +36,19 @@ def initVariables():
     # obligatoire
     PARSER.add_argument("ftp", type=str, nargs=3,
                         help="(hote, identifiant, mot_de_passe) :\n" + \
-                             "donnees pour le site FTP distant",
-                        )
+                             "donnees pour le site FTP distant" + \
+                             "ex : localhost nsobczak ISEN")
     PARSER.add_argument("dp", type=str, help="chemin vers le dossier local")
     PARSER.add_argument("ie", type=str, nargs=2,
                         help="2-uple contenant :\n" +
                              "-la liste de fichiers a inclure (les extensions)\n" + \
                              "-la liste de fichiers a exclure (les extensions)\n" + \
                              "sous la forme . " + \
-                             "ex : ([],['txt']) pour dire de tout inclure sauf les txt")
+                             "ex : * .odt,.docx pour dire de tout inclure sauf les .odt et .docx")
 
     # optionnel
     PARSER.add_argument("-lp", "--logPath", default="",
-                        help="chemin pour generer le fichier log")
+                        help="chemin ou generer le fichier log")
     PARSER.add_argument("-lc", "--logConf", default="rsyncFTP.conf",
                         help="chemin vers le fichier conf du log (gestion des handler)")
     PARSER.add_argument("-p", "--profondeur", default=2,
@@ -60,12 +66,12 @@ def initVariables():
     return ARGS
 
 
-# ____________________________________________________________________________________________________
+# %%__________________________________________________________________________________________________
 # Fonctions de log
 def logArgs(args, logger):
     """
     Procedure qui ecrit les parametres utilises dans le logger
-    :param args:
+    :param args: parametres entres en lignes de commandes
     :type args: dict
     """
     logger.info(
@@ -87,9 +93,9 @@ def logArgs(args, logger):
     )
 
 
+# %%__________________________________________________________________________________________________
 # ____________________________________________________________________________________________________
-# ____________________________________________________________________________________________________
-# Test unitaire
+# Tests unitaires
 def monMain():
     ARGS = initVariables()
     MAIN_LOGGER = logger.initLog(ARGS.logPath, ARGS.logConf)
@@ -98,5 +104,3 @@ def monMain():
 
 if __name__ == "__main__":
     monMain()
-
-

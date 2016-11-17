@@ -1,11 +1,15 @@
+"""
 ############
 # rsyncFTP #
 ############
 # main     #
 ############
 
-# TODO : Faire la boucle principale
-# ____________________________________________________________________________________________________
+@author: Julien Vermeil and Vincent Reynaert and Nicolas Sobczak
+"""
+
+# TODO : Faire la boucle principale de synchronisation, gerer les exceptions
+# %%__________________________________________________________________________________________________
 # Config
 
 # Import
@@ -17,7 +21,7 @@ import os
 import time
 
 
-# ____________________________________________________________________________________________________
+# %%__________________________________________________________________________________________________
 # ____________________________________________________________________________________________________
 # Fonctions d'initialisation
 
@@ -42,12 +46,16 @@ def init(args):
 
     return connectFTP, includes, excludes, arbrePrecedent, startinglevel
 
+
 def initialisationDossierFTP(args, logger, connectFTP):
     """
     Fonction qui initialise le dossier sur le serveur FTP : supprime puis copie le dossier local
-    :param args:
-    :param logger:
-    :param connectFTP:
+    :param args: parametres entres en lignes de commandes
+    :param logger: fichier de log
+    :param connectFTP: objet ftp
+    :type args: dict
+    :type logger: log
+    :type connectFTP: class 'ftplib.FTP'
     """
     dossier_chemin_absolu, dossier_nom = os.path.split(args.dp)
     dossier_chemin_relatif = os.path.realpath(dossier_chemin_absolu)
@@ -56,19 +64,24 @@ def initialisationDossierFTP(args, logger, connectFTP):
                                     profondeure_copie_autorisee=args.profondeur)
     logger.info("initialisation du dossier")
 
-# ___________________________________________________________________________________________________
+
+# %%_________________________________________________________________________________________________
 # Fonctions principales
 def donneCheminRelatif(args, chemin_element):
     """
-    Fonction qui retourne le chemin relatif a partir des chemins absolus du dossier sureveile et de l'element dont on veut le chemin relatif
-    :param args:
-    :param chemin_element:
-    :return:
+    Fonction qui retourne le chemin relatif a partir des chemins absolus du dossier surveille et de l'element dont on veut le chemin relatif
+    :param args: parametres entres en lignes de commandes
+    :param chemin_element: chemin absolu vers l'element (fichier ou dossier) dont on veut le chemin relatif
+    :type args: dict
+    :type chemin_element: str
+    :return: chemin_relatif
+    :rtype: str
     """
     chemin_absolu, nom = os.path.split(args.dp)
-    chemin_relatif = nom
+    longueur_chemin_absolu = len(chemin_absolu)
+    chemin_relatif = os.path.join(nom, chemin_element[longueur_chemin_absolu:])
+    return chemin_relatif
 
-    chemin_relatif = os.path.join(nom, )
 
 def updateFTP_M(args, logger, connectFTP, M):
     """
@@ -87,7 +100,7 @@ def updateFTP_M(args, logger, connectFTP, M):
         # Si modification d'un fichier => remplacement
         if os.path.isfile(path):
             fichier_chemin_absolu, fichier_nom = os.path.split(path)
-            fichier_chemin_relatif = os.path.realpath(fichier_chemin_absolu)
+            fichier_chemin_relatif = donneCheminRelatif(args.dp, path)
             gestionFTP.supprimerFichier(ftp=connectFTP, fichier_chemin=fichier_chemin_relatif, fichier_nom=fichier_nom)
             gestionFTP.envoyerUnFichier(ftp=connectFTP, fichier_chemin=path, fichier_nom=fichier_nom)
         # Les modifications de dossiers ne sont pas prises en compte ici
@@ -116,7 +129,7 @@ def updateFTP_A(args, logger, connectFTP, A):
             gestionFTP.envoyerUnFichier(fichier_chemin=path, ftp=connectFTP, fichier_nom=fichier_nom)
         # Si ajout d'un dossier
         elif os.path.isdir(path):
-            #chemin local et nom dossier a recuperer en separant le chemin absolu
+            # chemin local et nom dossier a recuperer en separant le chemin absolu
             dossier_chemin_absolu, dossier_nom = os.path.split(path)
             gestionFTP.copierContenuDossier(ftp=connectFTP, chemin_ftp="", chemin_local=path, nom_dossier=dossier_nom,
                                             profondeure_copie_autorisee=args.profondeur)
@@ -141,13 +154,13 @@ def updateFTP_D(args, logger, connectFTP, D):
         # Si suppression d'un fichier
         if os.path.isfile(path):
             fichier_chemin_absolu, fichier_nom = os.path.split(path)
-            fichier_chemin_relatif = os.path.realpath(fichier_chemin_absolu, args.dp)
-            gestionFTP.supprimerFichier(ftp=connectFTP, fichier_chemin=fichier_chemin_relatif, fichier_nom = fichier_nom)
+            fichier_chemin_relatif = donneCheminRelatif(args.dp, path)
+            gestionFTP.supprimerFichier(ftp=connectFTP, fichier_chemin=fichier_chemin_relatif, fichier_nom=fichier_nom)
         # Si suppression d'un dossier
         elif os.path.isdir(path):
             dossier_chemin_absolu, dossier_nom = os.path.split(path)
-            dossier_chemin_relatif = os.path.realpath(dossier_chemin_absolu)
-            gestionFTP.supprimerDossier(ftp=connectFTP, dossier_chemin= dossier_chemin_relatif, dossier_nom = dossier_nom)
+            dossier_chemin_relatif = donneCheminRelatif(args.dp, path)
+            gestionFTP.supprimerDossier(ftp=connectFTP, dossier_chemin=dossier_chemin_relatif, dossier_nom=dossier_nom)
         else:
             logger.info(path + " n'est pas supporte par rsyncFTP")
 
@@ -173,7 +186,7 @@ def updateFTP(args, logger, connectFTP, M, A, D):
         updateFTP_M(args, logger, connectFTP, M)
 
 
-# ____________________________________________________________________________________________________
+# %%__________________________________________________________________________________________________
 def loop(args, logger, arbrePrecedent, startingLevel, connectFTP):
     """
     Fonction de boucle principale. Elle fonctionne en 2 actions:
@@ -226,7 +239,7 @@ def loop(args, logger, arbrePrecedent, startingLevel, connectFTP):
     return 1
 
 
-# ____________________________________________________________________________________________________
+# %%__________________________________________________________________________________________________
 # ____________________________________________________________________________________________________
 def monMain():
     # === Initialisation des variables ===
