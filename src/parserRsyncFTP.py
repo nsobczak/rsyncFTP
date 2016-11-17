@@ -69,7 +69,7 @@ def logArgs(args, logger):
     :type args: dict
     """
     logger.info(
-        ":\n(hote, identifiant, mot_de_passe, (port)) " + \
+        ":\n(hote, identifiant, mot_de_passe) " + \
         "donnees pour le site FTP distant: %s \n" + \
         "chemin vers le dossier local: %s \n" + \
         "chemin pour generer le log: %s \n" + \

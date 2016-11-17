@@ -24,11 +24,9 @@ import time
 def init(args):
     """
     Initialise les variables, constantes utiles, et se connecte au serveur ftp
-    :param args:
+    :param args: parametres entres en lignes de commandes
     :type args: dict
-    :return:    ftp, dp, lp, includes, excludes, logconf, \
-                profondeur, sizeFile, frequence, supervisionTime, \
-                arbrePrecedent, startinglevel
+    :return: connectFTP, includes, excludes, arbrePrecedent, startinglevel
     :rtype: tuple
     """
     # initialisation des constantes entrees en arguments
@@ -51,7 +49,7 @@ def init(args):
 def updateFTP_M(args, logger, connectFTP, M):
     """
     Fonction qui s'occupe de mettre a jour le dossier situe sur le serveur FTP en cas d'ajout
-    :param args:
+    :param args: parametres entres en lignes de commandes
     :param logger: fichier de log
     :param connectFTP: objet ftp
     :param M: liste des elements modifies
@@ -64,12 +62,12 @@ def updateFTP_M(args, logger, connectFTP, M):
         path = tup[0]
         # Si modification d'un fichier => remplacement
         if os.path.isfile(path):
-            print("coucou")
-            # gestionFTP.effacerFichier(ftp=connectFTP, fichier=)
-            # gestionFTP.envoyerUnFichier(ftp=connectFTP, fichier_chemin=path, fichier_nom=)
-        # Si modification d'un dossier
-        elif os.path.isdir(path):
-            print("coucou")
+            fichier_chemin_absolu, fichier_nom = os.path.split(path)
+            fichier_chemin_relatif = os.path.realpath(fichier_chemin_absolu,args.dp)
+            gestionFTP.supprimerFichier(ftp=connectFTP, fichier_chemin=fichier_chemin_relatif, fichier_nom=fichier_nom)
+            gestionFTP.envoyerUnFichier(ftp=connectFTP, fichier_chemin=path, fichier_nom=fichier_nom)
+        # Les modifications de dossiers ne sont pas prises en compte ici
+        # car elles sont assimilees a une suppression et creation
         else:
             logger.info(path + " n'est pas supporte par rsyncFTP")
 
@@ -77,7 +75,7 @@ def updateFTP_M(args, logger, connectFTP, M):
 def updateFTP_A(args, logger, connectFTP, A):
     """
     Fonction qui s'occupe de mettre a jour le dossier situe sur le serveur FTP en cas d'ajout
-    :param args:
+    :param args: parametres entres en lignes de commandes
     :param logger: fichier de log
     :param connectFTP: objet ftp
     :param A: liste des elements ajoutes
@@ -90,7 +88,8 @@ def updateFTP_A(args, logger, connectFTP, A):
         path = tup[0]
         # Si ajout d'un fichier
         if os.path.isfile(path):
-            gestionFTP.envoyerUnFichier(fichier_chemin=path, ftp=connectFTP)
+            fichier_chemin_absolu, fichier_nom = os.path.split(path)
+            gestionFTP.envoyerUnFichier(fichier_chemin=path, ftp=connectFTP, fichier_nom=fichier_nom)
         # Si ajout d'un dossier
         elif os.path.isdir(path):
             print("coucou")
