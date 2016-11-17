@@ -10,7 +10,7 @@
 
 # Import
 import logger
-import parser
+import parserRsyncFTP as prftp
 import directorySupervisor
 import gestionFTP
 import os
@@ -32,27 +32,16 @@ def init(args):
     """
     # initialisation des constantes entrees en arguments
     ftp = {'hote': args.ftp[0], 'idt': args.ftp[1], 'mdp': args.ftp[2]}
-    dp = args.dp
     includes = args.ie[0].split(',')
     excludes = args.ie[1].split(',')
-
-    logPath = args.logPath
-    logConf = args.logConf
-    profondeur = args.profondeur
-    sizeFile = args.sizeFile
-    frequence = args.frequence
-    supervisionTime = args.supervisionTime
-
     # initialisation des variable utiles pour la supervision
-    arbrePrecedent = directorySupervisor.createSurveyList(list(os.walk(dp)))
-    startinglevel = dp.count(os.sep)  # indique le niveau de profondeur initiale
+    startinglevel = args.dp.count(os.sep)  # indique le niveau de profondeur initiale
+    arbrePrecedent = directorySupervisor.createSurveyList(list(os.walk(args.dp)),startinglevel,args.profondeur)
 
     # connexion au serveur FTP
-    gestionFTP.connectionAuServeurFTP(ftp['hote'], ftp['idt'], args.ftp['mdp'])
+    gestionFTP.connectionAuServeurFTP(ftp['hote'], ftp['idt'], ftp['mdp'])
 
-    return ftp, dp, includes, excludes, logPath, logConf, \
-           profondeur, sizeFile, frequence, supervisionTime, \
-           arbrePrecedent, startinglevel
+    return ftp, includes, excludes, arbrePrecedent, startinglevel
 
 
 # ___________________________________________________________________________________________________
@@ -102,16 +91,21 @@ def loop(args, logger):
 # ____________________________________________________________________________________________________
 def monMain():
     # === Initialisation des variables ===
-    ARGS = parser.initVariables()
-    FTP, DP, LP, INCLUDES, EXCLUDES, LOGCONF, \
-    PROFONDEUR, SIZEFILE, FREQUENCE, SUPERVISIONTIME, \
-    arbrePrecedent, STRATINGLEVEL = init(ARGS)
-    # === Initialisation du logger ===
-    MAIN_LOGGER = logger.initLog(LP, LOGCONF)
-    # ecriture des parametres initiaux dans le logger
-    parser.logArgs(ARGS, MAIN_LOGGER)
-    # === Boucle principale ===
-    loop(ARGS, MAIN_LOGGER)
+    a = prftp.test
+
+    ARGS = prftp.initVariables()
+    # buffer = init(ARGS)
+    # ftp = buffer[0]
+    # INCLUDES = buffer[1]
+    # EXCLUDES = buffer[2]
+    # arbrePrecedent = buffer[3]
+    # STARTINGLEVEL = buffer[4]
+    # # === Initialisation du logger ===
+    # MAIN_LOGGER = logger.initLog(ARGS.logPath, ARGS.logConf)
+    # # ecriture des parametres initiaux dans le logger
+    # parser.logArgs(ARGS, MAIN_LOGGER)
+    # # === Boucle principale ===
+    # loop(ARGS, MAIN_LOGGER)
 
 
 if __name__ == "__main__":

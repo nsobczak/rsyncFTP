@@ -266,8 +266,8 @@ def monMain():
     #creerDossier(ftp, chemin1, nom_dossier1)
     #supprimerDossier(ftp, dossier)
     #lister(ftp)
-    #copierContenuDossier(ftp, "",chemin_local, nom_dossier,5)
-    supprimerDossier(ftp,'',nom_dossier)
+    copierContenuDossier(ftp, "",chemin_local, nom_dossier, 1)
+    #supprimerDossier(ftp,'',nom_dossier)
 
     deconnexionAuServeur(ftp)
 
