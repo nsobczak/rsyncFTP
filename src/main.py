@@ -150,7 +150,7 @@ def updateFTP(args, logger, connectFTP, M, A, D):
 
 
 # ____________________________________________________________________________________________________
-def loop(args, logger, arbrePrecedent, connectFTP):
+def loop(args, logger, arbrePrecedent, startingLevel, connectFTP):
     """
     Fonction de boucle principale. Elle fonctionne en 2 actions:
     - Surveiller
@@ -187,12 +187,12 @@ def loop(args, logger, arbrePrecedent, connectFTP):
         if (newTime - oldTime) > (1 / frequence):
             logger.debug(str(totalTime / frequence) + " sec depuis lancement du programme")
             oldTime = time.time()
-            nouvelArbre = directorySupervisor.createSurveyList(list(os.walk(dp)))
+            nouvelArbre = directorySupervisor.createSurveyList(list(os.walk(dp)), startingLevel, args.profondeur)
             M, A, D = directorySupervisor.comparateSurveyList(arbrePrecedent, nouvelArbre)
             # si modifications effectuees
             if len(M) or len(A) or len(D):
                 arbrePrecedent = nouvelArbre
-                directorySupervisor.logTheMADLists(M, A, D)
+                directorySupervisor.logTheMADLists(logger, M, A, D)
                 updateFTP(args, logger, connectFTP, M, A, D)
             totalTime += 1
 
@@ -203,8 +203,6 @@ def loop(args, logger, arbrePrecedent, connectFTP):
 # ____________________________________________________________________________________________________
 def monMain():
     # === Initialisation des variables ===
-    a = prftp.test
-
     ARGS = prftp.initVariables()
     buffer = init(ARGS)
     connectFTP = buffer[0]
@@ -219,7 +217,7 @@ def monMain():
     prftp.logArgs(ARGS, MAIN_LOGGER)
 
     # === Boucle principale ===
-    #loop(ARGS, MAIN_LOGGER, arbrePrecedent, connectFTP)
+    loop(ARGS, MAIN_LOGGER, arbrePrecedent, STARTINGLEVEL, connectFTP)
 
 
 if __name__ == "__main__":

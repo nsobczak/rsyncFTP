@@ -1,0 +1,129 @@
+"17/11/2016 17:49:07 INFO initLog Programme lance"
+"17/11/2016 17:51:02 INFO initLog Programme lance"
+"17/11/2016 17:54:42 INFO initLog Programme lance"
+"17/11/2016 17:54:42 INFO logArgs :
+(hote, identifiant, mot_de_passe) donnees pour le site FTP distant: ['localhost', 'root', 'tomtom'] 
+chemin vers le dossier local: C:\\Users\\ISEN\\Desktop\\COURS\\M1\\Python\\PycharmProjects\\Projects\\rsync\\test0 
+chemin pour generer le log:  
+2-uple contenant :
+-la liste de fichiers a inclure (les extensions): * 
+-la liste de fichiers a inclure (les extensions): .odt,.docx 
+chemin vers le fichier conf du log (gestion des handler): rsyncFTP.conf 
+profondeur de la supervision du dossier: 2 
+taille maximale des fichiers transferes en Mo: 500 
+frequence de supervision en s: 1 
+temps de supervision en s: 60 
+"
+"17/11/2016 17:55:33 INFO initLog Programme lance"
+"17/11/2016 17:55:33 INFO logArgs :
+(hote, identifiant, mot_de_passe) donnees pour le site FTP distant: ['localhost', 'root', 'tomtom'] 
+chemin vers le dossier local: C:\\Users\\ISEN\\Desktop\\COURS\\M1\\Python\\PycharmProjects\\Projects\\rsync\\test0 
+chemin pour generer le log:  
+2-uple contenant :
+-la liste de fichiers a inclure (les extensions): * 
+-la liste de fichiers a inclure (les extensions): .odt,.docx 
+chemin vers le fichier conf du log (gestion des handler): rsyncFTP.conf 
+profondeur de la supervision du dossier: 2 
+taille maximale des fichiers transferes en Mo: 500 
+frequence de supervision en s: 1 
+temps de supervision en s: 60 
+"
+"17/11/2016 17:58:58 INFO initLog Programme lance"
+"17/11/2016 17:58:58 INFO logArgs :
+(hote, identifiant, mot_de_passe) donnees pour le site FTP distant: ['localhost', 'root', 'tomtom'] 
+chemin vers le dossier local: C:\\Users\\ISEN\\Desktop\\COURS\\M1\\Python\\PycharmProjects\\Projects\\rsync\\test0 
+chemin pour generer le log:  
+2-uple contenant :
+-la liste de fichiers a inclure (les extensions): * 
+-la liste de fichiers a inclure (les extensions): .odt,.docx 
+chemin vers le fichier conf du log (gestion des handler): rsyncFTP.conf 
+profondeur de la supervision du dossier: 2 
+taille maximale des fichiers transferes en Mo: 500 
+frequence de supervision en s: 1 
+temps de supervision en s: 60 
+"
+"17/11/2016 18:01:14 INFO initLog Programme lance"
+"17/11/2016 18:01:14 INFO logArgs :
+(hote, identifiant, mot_de_passe) donnees pour le site FTP distant: ['localhost', 'root', 'tomtom'] 
+chemin vers le dossier local: C:\\Users\\ISEN\\Desktop\\COURS\\M1\\Python\\PycharmProjects\\Projects\\rsync\\test0 
+chemin pour generer le log:  
+2-uple contenant :
+-la liste de fichiers a inclure (les extensions): * 
+-la liste de fichiers a inclure (les extensions): .odt,.docx 
+chemin vers le fichier conf du log (gestion des handler): rsyncFTP.conf 
+profondeur de la supervision du dossier: 2 
+taille maximale des fichiers transferes en Mo: 500 
+frequence de supervision en s: 1 
+temps de supervision en s: 60 
+"
+"17/11/2016 18:01:22 INFO logTheMADLists A"
+"17/11/2016 18:01:22 INFO logTheMADLists Wed, 16 Nov 2016 17:13:28 C:\\Users\\ISEN\\Desktop\\COURS\\M1\\Python\\PycharmProjects\\Projects\\rsync\\test0/texte.txt is added"
+"17/11/2016 18:01:55 INFO logTheMADLists A"
+"17/11/2016 18:01:55 INFO logTheMADLists Thu, 17 Nov 2016 18:01:54 C:\\Users\\ISEN\\Desktop\\COURS\\M1\\Python\\PycharmProjects\\Projects\\rsync\\test0/Nouveau raccourci.lnk is added"
+"17/11/2016 18:01:57 INFO logTheMADLists D"
+"17/11/2016 18:01:57 INFO logTheMADLists Thu, 17 Nov 2016 18:01:54 last time C:\\Users\\ISEN\\Desktop\\COURS\\M1\\Python\\PycharmProjects\\Projects\\rsync\\test0/Nouveau raccourci.lnk is viewed before delete"
+"17/11/2016 18:01:57 INFO updateFTP_D C:\\Users\\ISEN\\Desktop\\COURS\\M1\\Python\\PycharmProjects\\Projects\\rsync\\test0/Nouveau raccourci.lnk n'est pas supporte par rsyncFTP"
+"17/11/2016 18:02:11 INFO logTheMADLists A"
+"17/11/2016 18:02:11 INFO logTheMADLists Thu, 17 Nov 2016 18:02:10 C:\\Users\\ISEN\\Desktop\\COURS\\M1\\Python\\PycharmProjects\\Projects\\rsync\\test0/Nouveau dossier is added"
+"17/11/2016 18:02:14 INFO logTheMADLists A"
+"17/11/2016 18:02:14 INFO logTheMADLists Thu, 17 Nov 2016 18:02:10 C:\\Users\\ISEN\\Desktop\\COURS\\M1\\Python\\PycharmProjects\\Projects\\rsync\\test0/nouveau is added"
+"17/11/2016 18:02:14 INFO logTheMADLists D"
+"17/11/2016 18:02:14 INFO logTheMADLists Thu, 17 Nov 2016 18:02:10 last time C:\\Users\\ISEN\\Desktop\\COURS\\M1\\Python\\PycharmProjects\\Projects\\rsync\\test0/Nouveau dossier is viewed before delete"
+"17/11/2016 18:02:14 INFO updateFTP_D C:\\Users\\ISEN\\Desktop\\COURS\\M1\\Python\\PycharmProjects\\Projects\\rsync\\test0/Nouveau dossier n'est pas supporte par rsyncFTP"
+"17/11/2016 18:02:23 INFO initLog Programme lance"
+"17/11/2016 18:02:23 INFO logArgs :
+(hote, identifiant, mot_de_passe) donnees pour le site FTP distant: ['localhost', 'root', 'tomtom'] 
+chemin vers le dossier local: C:\\Users\\ISEN\\Desktop\\COURS\\M1\\Python\\PycharmProjects\\Projects\\rsync\\test0 
+chemin pour generer le log:  
+2-uple contenant :
+-la liste de fichiers a inclure (les extensions): * 
+-la liste de fichiers a inclure (les extensions): .odt,.docx 
+chemin vers le fichier conf du log (gestion des handler): rsyncFTP.conf 
+profondeur de la supervision du dossier: 2 
+taille maximale des fichiers transferes en Mo: 500 
+frequence de supervision en s: 1 
+temps de supervision en s: 60 
+"
+"17/11/2016 18:03:00 INFO logTheMADLists M"
+"17/11/2016 18:03:00 INFO logTheMADLists Thu, 17 Nov 2016 18:02:59 C:\\Users\\ISEN\\Desktop\\COURS\\M1\\Python\\PycharmProjects\\Projects\\rsync\\test0/nouveau is modified"
+"17/11/2016 18:03:00 INFO logTheMADLists A"
+"17/11/2016 18:03:00 INFO logTheMADLists Thu, 17 Nov 2016 18:02:59 C:\\Users\\ISEN\\Desktop\\COURS\\M1\\Python\\PycharmProjects\\Projects\\rsync\\test0\nouveau/Nouveau document texte.txt is added"
+"17/11/2016 18:03:00 INFO updateFTP_M C:\\Users\\ISEN\\Desktop\\COURS\\M1\\Python\\PycharmProjects\\Projects\\rsync\\test0/nouveau n'est pas supporte par rsyncFTP"
+"17/11/2016 18:03:02 INFO logTheMADLists M"
+"17/11/2016 18:03:02 INFO logTheMADLists Thu, 17 Nov 2016 18:03:02 C:\\Users\\ISEN\\Desktop\\COURS\\M1\\Python\\PycharmProjects\\Projects\\rsync\\test0/nouveau is modified"
+"17/11/2016 18:03:02 INFO logTheMADLists A"
+"17/11/2016 18:03:02 INFO logTheMADLists Thu, 17 Nov 2016 18:02:59 C:\\Users\\ISEN\\Desktop\\COURS\\M1\\Python\\PycharmProjects\\Projects\\rsync\\test0\nouveau/texte.txt is added"
+"17/11/2016 18:03:02 INFO logTheMADLists D"
+"17/11/2016 18:03:02 INFO logTheMADLists Thu, 17 Nov 2016 18:02:59 last time C:\\Users\\ISEN\\Desktop\\COURS\\M1\\Python\\PycharmProjects\\Projects\\rsync\\test0\nouveau/Nouveau document texte.txt is viewed before delete"
+"17/11/2016 18:03:02 INFO updateFTP_D C:\\Users\\ISEN\\Desktop\\COURS\\M1\\Python\\PycharmProjects\\Projects\\rsync\\test0\nouveau/Nouveau document texte.txt n'est pas supporte par rsyncFTP"
+"17/11/2016 18:03:02 INFO updateFTP_M C:\\Users\\ISEN\\Desktop\\COURS\\M1\\Python\\PycharmProjects\\Projects\\rsync\\test0/nouveau n'est pas supporte par rsyncFTP"
+"17/11/2016 18:03:49 INFO initLog Programme lance"
+"17/11/2016 18:03:49 INFO logArgs :
+(hote, identifiant, mot_de_passe) donnees pour le site FTP distant: ['localhost', 'root', 'tomtom'] 
+chemin vers le dossier local: C:\\Users\\ISEN\\Desktop\\COURS\\M1\\Python\\PycharmProjects\\Projects\\rsync\\test0 
+chemin pour generer le log:  
+2-uple contenant :
+-la liste de fichiers a inclure (les extensions): * 
+-la liste de fichiers a inclure (les extensions): .odt,.docx 
+chemin vers le fichier conf du log (gestion des handler): rsyncFTP.conf 
+profondeur de la supervision du dossier: 2 
+taille maximale des fichiers transferes en Mo: 500 
+frequence de supervision en s: 1 
+temps de supervision en s: 60 
+"
+"17/11/2016 18:06:43 INFO initLog Programme lance"
+"17/11/2016 18:06:43 INFO logArgs :
+(hote, identifiant, mot_de_passe) donnees pour le site FTP distant: ['localhost', 'root', 'tomtom'] 
+chemin vers le dossier local: C:\\Users\\ISEN\\Desktop\\COURS\\M1\\Python\\PycharmProjects\\Projects\\rsync\\test0 
+chemin pour generer le log:  
+2-uple contenant :
+-la liste de fichiers a inclure (les extensions): * 
+-la liste de fichiers a inclure (les extensions): .odt,.docx 
+chemin vers le fichier conf du log (gestion des handler): rsyncFTP.conf 
+profondeur de la supervision du dossier: 2 
+taille maximale des fichiers transferes en Mo: 500 
+frequence de supervision en s: 1 
+temps de supervision en s: 60 
+"
+"17/11/2016 18:06:49 INFO logTheMADLists A"
+"17/11/2016 18:06:49 INFO logTheMADLists Thu, 17 Nov 2016 18:06:49 C:\\Users\\ISEN\\Desktop\\COURS\\M1\\Python\\PycharmProjects\\Projects\\rsync\\test0/Nouveau dossier is added"

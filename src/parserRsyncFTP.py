@@ -81,7 +81,7 @@ def logArgs(args, logger):
         "taille maximale des fichiers transferes en Mo: %d \n" + \
         "frequence de supervision en s: %d \n" + \
         "temps de supervision en s: %d \n",
-        args.ftp, args.dp, args.lp, str(args.ie[0]), str(args.ie[1]),
+        args.ftp, args.dp, args.logPath, str(args.ie[0]), str(args.ie[1]),
         args.logConf, args.profondeur, args.sizeFile, args.frequence,
         args.supervisionTime
     )
