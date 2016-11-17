@@ -1,11 +1,18 @@
-\section{Paramètres}	
+La version de python utilisée est la 3.5.2. 
+Le programme a été testé sur avec les serveurs FTP :
+\begin{itemize}
+\item \textit{Filezilla} (version ..) pour windows
+\item \textit{Proftpd} pour linux, avec son interface graphique Gadmin ProFTPD (version 0.4.2)
+\end{itemize}
 
+\section{Synchronisation}
+Pour synchroniser le dossier miroir, nous avons choisi de surveiller notre dossier local et alors de mettre à jour le dossier miroir.
+
+\section{Paramètres}	
 
 \newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
 \newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
 \newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
-
-
 
 Nous avons choisi de passer en ligne de commande les paramètres suivants:
 
@@ -26,8 +33,12 @@ Nous avons choisi de passer en ligne de commande les paramètres suivants:
 
 \section{Fichier log}
 
-Concernant le fichier de log, si aucun chemin pour enregistrer le fichier n'est précisé, nous utilisons le fichier .conf qui nous définit des handlers proprement et enregistre le fichier log dans le répertoire du projet.
-Si un chemin est précisé, nous n'utilisons pas le fichier log. Nous créons le logger dans le code du fichier logger.py. Le fichier rsyncFTP.log est alors enregistré dans le répertoire précisé par le chemin entré en ligne de commande.
+Concernant le fichier de log, si aucun chemin pour enregistrer le fichier n'est précisé, nous utilisons le fichier \textit{.conf} 
+qui nous définit des handlers proprement et enregistre le fichier log dans le répertoire du projet.
+Si un chemin est précisé, nous n'utilisons pas le fichier log. 
+Nous créons le logger dans le code du fichier logger.py. 
+Le fichier rsyncFTP.log est alors enregistré dans le répertoire précisé par le chemin entré en ligne de commande.
+Il est recommandé d'utiliser le fichier \textit{.conf} qui crée également un fichier de log de debug.
 
 
 \section{Librairie gestionFTP}
@@ -42,6 +53,29 @@ Dans la librairie \textit{gestionFTP}, nous avons choisi de définir des fonctio
 \item effacer un dossier sur le seveur ftp
 \end{itemize}
 
-Nous pouvons alors executer ces actions pour réaliser des fonctions plus complexes.
+Nous pouvons alors executer ces actions pour réaliser des fonctions plus complexes.\\
+\\
+Nous avons rencontré une difficulté concernant la fonction qui supprime un dossier. 
+Elle est un peu similaire à celle qui copie un dossier à ceci près qu'elle que l'on rencontre un probleme lorsque l'on
+veut supprimer un dossier ou un fichier car il n'existe plus en local. On ne peut donc pas vérifier si ce 
+qu'on veut supprimer sur le serveur ftp est un fichier ou un dossier. En outre, pour supprimer un dossier, nous devons en supprimer 
+tout son contenu. Il nous a donc fallu créer une fonction récursive pour vider les dossiers avant de les supprimer.
+
+
+\section{Librairie directorySupervisor}
+
+Pour pouvoir superviser un dossier, nous utilisons l'organisation des répertoire en ``arbre``.
+Nous avons choisi de ne pas créer de classe arbre mais plutôt de matérialiser un arbre avec une liste.\\
+\\
+Nous créons donc d'abord l'arbre du dossier à chaque fois qu'il s'écoule une période correspondant à la fréquence de supervision. 
+Puis nous comparons cette arbre avec l'arbre précédemment créé. 
+Si on observe une modification, on l'écrit dans le fichier de log et on va signaler le type de modification effectuée afin de pouvoir mettre à jour le dossier situé sur le serveur distant.\\
+\\
+Cette librairie ne fonctionne pas pour certains cas que nous avons décidé d'exclure. Ces cas sont les suivants:
+\begin{itemize}
+\item fichiers sans extension
+\item pour l'instant c'est tout
+\end{itemize}
+
 
 
