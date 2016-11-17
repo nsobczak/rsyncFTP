@@ -179,54 +179,33 @@ def copierContenuDossier(ftp, chemin_ftp, chemin_local, nom_dossier, profondeure
     :param profondeure_copie_autorisee:
     :type profondeure_copie_autorisee: int
     """
-    if profondeure_copie_autorisee<=0:
+    if profondeure_copie_autorisee < 0:
         return 1
     liste = listerElements(ftp)
-    print("1 : {}".format(liste))
     chemin_ftp += "/"
-    print("2 : chemin ftp = {}".format(chemin_ftp))
-    print("2.1 : {}".format(ftp.pwd()))
     # On cree le dossier s'il n'existe pas deja
     dossierExiste = False
     for i in liste:
         if (nom_dossier == i):
             dossierExiste = True
-    print("3 : {}".format(dossierExiste))
     if not dossierExiste:
-        print("4 : on cree le dossier = "+nom_dossier)
-        print("4.1 : {}".format(ftp.pwd()))
         creerDossier(ftp, chemin_ftp, nom_dossier)
-        print("4.2 : {}".format(ftp.pwd()))
         i = chemin_ftp.split("/")[-2]
         if i != '':
-            print("4.3 : {}".format(ftp.pwd()))
             ftp.cwd(i)
-            print("4.4 : {}".format(ftp.pwd()))
-
-    print("5 : {}".format(ftp.pwd()))
     ftp.cwd(nom_dossier)
     chemin_ftp += nom_dossier
-    print("6 : chemin ftp = {}".format(chemin_ftp))
-    print("7 : {}".format(ftp.pwd()))
-
     l = os.listdir(chemin_local)
-    print("8 : {}".format(l))
     for i in l:
         element = os.path.join(chemin_local, i)
-        print("9 : "+element)
         if os.path.isdir(element):
-            print("10 : copie d'un dossier")
-            print("11 : {}".format(ftp.pwd()))
             copierContenuDossier(ftp, chemin_ftp, element, i, profondeure_copie_autorisee-1)
         elif os.path.isfile(element):
-            print("12 : copie d'un fichier")
-            print("13 : {}".format(ftp.pwd()))
-            envoyerUnFichier(element, i, ftp)
+            if profondeure_copie_autorisee > 0:
+                envoyerUnFichier(element, i, ftp)
     l = listerFichiers(ftp)
-    print("14 : {}".format(l))
     ftp.cwd('..')
     l = listerFichiers(ftp)
-    print("15 : {}".format(l))
 
 
 def pushAuServeurFTP():
@@ -253,20 +232,21 @@ def monMain():
 
     nom_dossier = "Nouveau_dossier"
     chemin_local = os.path.join(directory, nom_dossier)
+    nom_dossier1 = "1.1"
+    chemin_local1 = os.path.join(directory, nom_dossier1)
 
     ### Tests des Fonctions
 
     ftp = connectionAuServeurFTP(host, user, password)
     print(type(ftp))
     chemin1 = "test"
-    nom_dossier1 = "test2.1"
     #envoyerUnFichier(fichier1, filename1, ftp)
     # etatConnexion(ftp)
     #supprimerFichier(ftp, filename2)
     #creerDossier(ftp, chemin1, nom_dossier1)
     #supprimerDossier(ftp, dossier)
     #lister(ftp)
-    copierContenuDossier(ftp, "",chemin_local, nom_dossier, 1)
+    copierContenuDossier(ftp, "",chemin_local1, nom_dossier1, 2)
     #supprimerDossier(ftp,'',nom_dossier)
 
     deconnexionAuServeur(ftp)
