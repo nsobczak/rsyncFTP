@@ -51,10 +51,54 @@ def affichageFTP(ftp):
     print(FTP.dir(ftp))
 
 
+def etatConnexion(ftp):
+    """
+    Fonction qui affiche l'etat de la connexion au serveur ftp
+    :param ftp: serveur ftp
+    :type ftp: class 'ftplib.FTP'
+    """
+    etat = ftp.getwelcome()  # grâce à la fonction getwelcome(), on récupère le "message de bienvenue"
+    print("Etat : ", etat)
+
+
+def listerFichiers(ftp):
+    """
+    Fonction qui liste les fichiers presents dans le repertoire observe sur le ftp
+    :param ftp: serveur ftp
+    :type ftp: class 'ftplib.FTP'
+    """
+    ret = []
+    ftp.dir("", ret.append)
+    ret = [x.split()[-1] for x in ret if x.startswith("-")]
+    return ret
+
+
+def listerDossiers(ftp):
+    """
+    Fonction qui liste les dossiers presents dans le repertoire observe sur le ftp
+    :param ftp: serveur ftp
+    :type ftp: class 'ftplib.FTP'
+    """
+    ret = []
+    ftp.dir("", ret.append)
+    ret = [x.split()[-1] for x in ret if x.startswith("d")]
+    return ret
+
+
+def listerElements(ftp):
+    """
+    Fonction qui liste les fichiers et les dossiers presents dans le repertoire observe sur le ftp
+    :param ftp: serveur ftp
+    :type ftp: class 'ftplib.FTP'
+    """
+    return listerFichiers(ftp) + listerDossiers(ftp)
+
+
+# ____________________________________________________________________________________________________
 def envoyerUnFichier(fichier_chemin, fichier_nom, ftp):
     """
     Fonction qui envoie un fichier existant vers le serveur ftp
-    :param fichier_chemin: chemin vers le fichier local
+    :param fichier_chemin: chemin absolu (avec le nom du fichier) vers le fichier local
     :type fichier_chemin: str
     :param fichier_nom: nom du fichier
     :type fichier_nom: str
@@ -69,22 +113,12 @@ def envoyerUnFichier(fichier_chemin, fichier_nom, ftp):
     file.close()
 
 
-def etatConnexion(ftp):
-    """
-    Fonction qui affiche l'etat de la connexion au serveur ftp
-    :param ftp: serveur ftp
-    :type ftp: class 'ftplib.FTP'
-    """
-    etat = ftp.getwelcome()  # grâce à la fonction getwelcome(), on récupère le "message de bienvenue"
-    print("Etat : ", etat)
-
-
 def supprimerFichier(ftp, fichier_chemin, fichier_nom):
     """
     Fonction qui supprime un fichier dans le ftp
     :param ftp: serveur ftp
     :type ftp: class 'ftplib.FTP'
-    :param fichier_chemin: chemin vers le fichier local
+    :param fichier_chemin: chemin relatif (sans le nom du fichier) vers le fichier local
     :type fichier_chemin: str
     :param fichier_nom: nom du fichier
     :type fichier_nom: str
@@ -96,13 +130,12 @@ def supprimerFichier(ftp, fichier_chemin, fichier_nom):
             ftp.cwd('..')
 
 
-
 def creerDossier(ftp, dossier_chemin, dossier_nom):
     """
     Fonction qui cree un dossier dans le ftp
     :param ftp: serveur ftp
     :type ftp: class 'ftplib.FTP'
-    :param dossier_chemin: chemin vers le dossier local
+    :param dossier_chemin: chemin relatif (sans le nom du dossier) vers le dossier local
     :type dossier_chemin: str
     :param dossier_nom: nom du fichier
     :type dossier_nom: str
@@ -111,20 +144,6 @@ def creerDossier(ftp, dossier_chemin, dossier_nom):
     ftp.mkd(dossier_nom)
     ftp.cwd('..')
 
-def listerFichiers(ftp):
-    ret = []
-    ftp.dir("", ret.append)
-    ret = [x.split()[-1] for x in ret if x.startswith("-")]
-    return ret
-
-def listerDossiers(ftp):
-    ret = []
-    ftp.dir("", ret.append)
-    ret = [x.split()[-1] for x in ret if x.startswith("d")]
-    return ret
-
-def listerElements(ftp):
-    return listerFichiers(ftp)+listerDossiers(ftp)
 
 def supprimerDossier(ftp, dossier_chemin, dossier_nom):
     """
@@ -136,42 +155,35 @@ def supprimerDossier(ftp, dossier_chemin, dossier_nom):
     :param dossier_nom: nom du dossier
     :type dossier_nom: str
     """
-    print(ftp.pwd())
     ftp.cwd(dossier_chemin)
-    print(ftp.pwd())
     ftp.cwd(dossier_nom)
-    print(ftp.pwd())
     liste_sous_dossiers = listerDossiers(ftp)
     liste_fichiers = listerFichiers(ftp)
     print(liste_fichiers+liste_sous_dossiers)
     if (not liste_sous_dossiers and not liste_fichiers):
         ftp.cwd('..')
-        print('Supprimons le dossier vide '+dossier_nom)
         ftp.rmd(dossier_nom)
     else :
         for i in liste_fichiers:
-            print('supprimons le fichier '+i)
             supprimerFichier(ftp, '', i)
         for i in liste_sous_dossiers:
-            print('supprimons le dossier '+i)
-            print(ftp.pwd())
             supprimerDossier(ftp, '', i)
-    ftp.cwd('..')
-    ftp.rmd(dossier_nom)
+        ftp.cwd('..')
+        ftp.rmd(dossier_nom)
 
 
 def copierContenuDossier(ftp, chemin_ftp, chemin_local, nom_dossier, profondeure_copie_autorisee):
     """
-    Fonction qui copie les fichiers d'un dossier spécifié
+    Fonction qui copie les fichiers d'un dossier specifie
     :param ftp: serveur ftp
     :type ftp:
-    :param chemin_ftp: chemin dans le dossier lointain
+    :param chemin_ftp: chemin dans le dossier distant
     :type chemin_ftp: str
-    :param chemin_local: chemin complet du dossier
+    :param chemin_local: chemin absolu (avec nom du dossier) du dossier
     :type chemin_local: str
     :param nom_dossier: nom du dossier
     :type nom_dossier: str
-    :param profondeure_copie_autorisee:
+    :param profondeure_copie_autorisee: profondeur de copie autorisee
     :type profondeure_copie_autorisee: int
     """
     if profondeure_copie_autorisee < 0:
@@ -201,14 +213,6 @@ def copierContenuDossier(ftp, chemin_ftp, chemin_local, nom_dossier, profondeure
     l = listerFichiers(ftp)
     ftp.cwd('..')
     l = listerFichiers(ftp)
-
-
-def pushAuServeurFTP():
-    """
-    Fonction qui push les donnees vers le serveur FTP distant
-    """
-    return 1
-
 
 # ____________________________________________________________________________________________________
 # ____________________________________________________________________________________________________
@@ -241,7 +245,7 @@ def monMain():
     #creerDossier(ftp, chemin1, nom_dossier1)
     #supprimerDossier(ftp, dossier)
     #lister(ftp)
-    copierContenuDossier(ftp, "",chemin_local, nom_dossier, 5)
+    #copierContenuDossier(ftp, "",chemin_local, nom_dossier, 5)
     supprimerDossier(ftp,'',nom_dossier)
 
     deconnexionAuServeur(ftp)
