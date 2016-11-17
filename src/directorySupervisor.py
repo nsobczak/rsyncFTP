@@ -11,6 +11,7 @@
 # Import
 import logger
 import os
+import os.path
 import time
 
 
@@ -114,7 +115,7 @@ def logTheMADLists(logger, M, A, D):
 # ___________________________________________________________________________________________________
 # Fonctions principales
 
-def loop(logger, frequence, supervisionTime, arbrePrecedent, dp):
+def loop(logger, frequence, supervisionTime, arbrePrecedent, dp, startinglevel):
     """
     Fonction: si stop() => arret, sinon compareArbre()
     :param logger: logger
@@ -145,23 +146,29 @@ def loop(logger, frequence, supervisionTime, arbrePrecedent, dp):
         if (newTime - oldTime) > (1 / frequence):
             # logger.info(str(totalTime / frequence) + " sec depuis lancement du programme")
             oldTime = time.time()
-            nouvelArbre = createSurveyList(list(os.walk(dp)))
+            nouvelArbre = createSurveyList(list(os.walk(dp)), startinglevel, 2)
             M, A, D = comparateSurveyList(arbrePrecedent, nouvelArbre)
             if len(M) or len(A) or len(D):
                 arbrePrecedent = nouvelArbre
-                logTheMADLists(M, A, D)
+                #logTheMADLists(M, A, D)
+                print("\nM list: ", M)
+                print("\nA list: ", A)
+                print("\nD list: ", D)
             totalTime += 1
     return 1
-
 
 # ____________________________________________________________________________________________________
 # ____________________________________________________________________________________________________
 # Test unitaire
 def monMain():
-    MAIN_LOGGER = logger.initLog()
+    MAIN_LOGGER = logger.initLog("", "rsyncFTP.conf")
+    dp = "/home/nicolas/Documents"
+    startinglevel = dp.count(os.sep)
+    arbrePrecedent = createSurveyList(list(os.walk(dp)), startinglevel, 2)
+    loop(MAIN_LOGGER, 10, -1, arbrePrecedent, dp, startinglevel)
 
 
 if __name__ == "__main__":
-    print('')
-    print(type(os._isdir('C:\\Users\\vvinc_000\\Documents\\Cours\\ISEN\\M1\\Python')))
+    # print('')
+    # print(type(os._isdir('C:\\Users\\vvinc_000\\Documents\\Cours\\ISEN\\M1\\Python')))
     monMain()
