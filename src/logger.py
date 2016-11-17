@@ -21,9 +21,9 @@ import os.path
 def creeLog(logPath):
     """
     Fonction qui cree le logger.
-    Soit elle cree un fichier avec le nom qu'on lui indique,
-    soit elle crée un fichier dans le répertoire qu'on lui indique,
-    soit elle utilise le fichier .conf que nous avons cree.
+    - soit elle cree un fichier avec le nom qu'on lui indique,
+    - soit elle crée un fichier dans le répertoire qu'on lui indique,
+    - soit elle utilise le fichier .conf que nous avons cree.
     :param logPath: chemin ou enregistrer le logger ou nom du fichier que l'on veut creer.
     :return: MAIN_LOGGER
     :rtype: logger
@@ -56,10 +56,13 @@ def initLog(logPath, logConf):
     """
     if logPath == "":
         logging.config.fileConfig(logConf)
-        # definition du handler
+        # definition du handler de log principal
         MAIN_LOGGER = logging.getLogger("rsyncLocal")
         MAIN_LOGGER.info("Programme lance")
-
+        # definition du handler de log de debogage
+        DEBUG_LOGGER = logging.getLogger("rsyncDebug")
+        DEBUG_LOGGER.info("Programme lance")
+        DEBUG_LOGGER.debug("Log de debug")
     else:
         MAIN_LOGGER = creeLog(logPath)
 
@@ -71,6 +74,7 @@ def initLog(logPath, logConf):
 # Test unitaire
 def monMain():
     # MAIN_LOGGER = initLog("C:\\Users\\vvinc_000\\Desktop", "")
+    # MAIN_LOGGER = initLog("/home/nicolas/Documents/Git/rsyncFTP", "")
     return 1
 
 
