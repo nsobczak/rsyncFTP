@@ -1,15 +1,16 @@
 \contentsline {chapter}{\numberline {1}Pr\IeC {\'e}sentation}{1}{chapter.1}
 \contentsline {chapter}{\numberline {2}Choix d'organisation}{3}{chapter.2}
 \contentsline {section}{\numberline {2.1}logger.py}{3}{section.2.1}
-\contentsline {section}{\numberline {2.2}parser.py}{3}{section.2.2}
+\contentsline {section}{\numberline {2.2}parserRsyncFTP.py}{3}{section.2.2}
 \contentsline {section}{\numberline {2.3}gestionFTP.py}{3}{section.2.3}
 \contentsline {section}{\numberline {2.4}directorySupervisor.py}{3}{section.2.4}
 \contentsline {section}{\numberline {2.5}main.py}{4}{section.2.5}
 \contentsline {chapter}{\numberline {3}Choix techniques}{5}{chapter.3}
-\contentsline {section}{\numberline {3.1}Param\IeC {\`e}tres}{5}{section.3.1}
-\contentsline {section}{\numberline {3.2}Fichier log}{5}{section.3.2}
-\contentsline {section}{\numberline {3.3}Librairie gestionFTP}{6}{section.3.3}
-\contentsline {section}{\numberline {3.4}Librairie directorySupervisor}{6}{section.3.4}
+\contentsline {section}{\numberline {3.1}Synchronisation}{5}{section.3.1}
+\contentsline {section}{\numberline {3.2}Param\IeC {\`e}tres}{5}{section.3.2}
+\contentsline {section}{\numberline {3.3}Fichier log}{5}{section.3.3}
+\contentsline {section}{\numberline {3.4}Librairie gestionFTP}{6}{section.3.4}
+\contentsline {section}{\numberline {3.5}Librairie directorySupervisor}{6}{section.3.5}
 \contentsline {chapter}{\numberline {4}Namespace Index}{7}{chapter.4}
 \contentsline {section}{\numberline {4.1}Packages}{7}{section.4.1}
 \contentsline {chapter}{\numberline {5}File Index}{9}{chapter.5}
