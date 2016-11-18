@@ -1,11 +1,6 @@
 # rsyncFTP
 
-## Programme qui synchronise un dossier local de notre machine vers un site miroir ftp distant
-Python course - TP03
-
-rendu le 18 au soir au plus tard
-pdf + zip
-
+Programme qui synchronise un dossier local de notre machine vers un site miroir ftp distant
 
 ## parametres
 
@@ -24,18 +19,11 @@ pdf + zip
 
 commande linux = rsync
 
-paramètre en lignes de commande ou dans un fichier ini
-
 
 ## Note explicative
-
-Un pdf qui permet d'expliquer notre projet, pourquoi on a choisi de faire le truc comme ça. Faut vendre le projet.
 
 - auteurs
 - Si librairie supplémentaire => installable par pip
 - choix techniques
 - choix d'organisation
-
-En lignes de commande
-
 
