@@ -9,18 +9,19 @@ def \hyperlink{namespacemain_af2b805eecb08e493981427109e24bfb4}{initialisation\+
 \item 
 def \hyperlink{namespacemain_a00446ed819ceb3ba2a2efc386436b91c}{donne\+Chemin\+Relatif} (args, chemin\+\_\+element)
 \item 
-def \hyperlink{namespacemain_a72891f9d649c2f0889626af662f224d9}{update\+F\+T\+P\+\_\+M} (args, logger, connect\+F\+TP, M)
+def \hyperlink{namespacemain_a7521c189c12c457f31fb27b6f1b8054c}{is\+File\+To\+Be\+Included} (includes, excludes, nom\+\_\+fichier)
 \item 
-def \hyperlink{namespacemain_a0ac30c71ac670b7676d8fcf2a2ee94d0}{update\+F\+T\+P\+\_\+A} (args, logger, connect\+F\+TP, A)
+def \hyperlink{namespacemain_a97bbb0b263cc3d0576c9d51867c02af6}{update\+F\+T\+P\+\_\+M} (args, logger, connect\+F\+TP, includes, excludes, M)
 \item 
-def \hyperlink{namespacemain_a67671b5a8ef31c164a336616c31866c0}{update\+F\+T\+P\+\_\+D} (args, logger, connect\+F\+TP, D)
+def \hyperlink{namespacemain_adc47cfe67a92cb5fbd422ddb0a0c15a2}{update\+F\+T\+P\+\_\+A} (args, logger, connect\+F\+TP, includes, excludes, A)
 \item 
-def \hyperlink{namespacemain_a900cc8c3d9f9e1b8b986796482ae5323}{update\+F\+TP} (args, logger, connect\+F\+TP, M, A, D)
+def \hyperlink{namespacemain_a4964e4c5c1465407b8c22345fcc80819}{update\+F\+T\+P\+\_\+D} (args, logger, connect\+F\+TP, includes, excludes, D)
 \item 
-def \hyperlink{namespacemain_a94b514e853b8fc48d9c89f08326fe9b9}{loop} (args, logger, arbre\+Precedent, starting\+Level, connect\+F\+TP)
+def \hyperlink{namespacemain_aa918b0ca63b511b11c02252a8622bc10}{update\+F\+TP} (args, logger, connect\+F\+TP, includes, excludes, M, A, D)
 \item 
-def {\bfseries mon\+Main} ()\hypertarget{namespacemain_abc81a2bc9032239e47ace22a92fe0cc6}{}\label{namespacemain_abc81a2bc9032239e47ace22a92fe0cc6}
-
+def \hyperlink{namespacemain_acb8acded5eecc7be91fabc0f0b0f9090}{loop} (args, logger, arbre\+Precedent, starting\+Level, connect\+F\+TP, includes, excludes)
+\item 
+def \hyperlink{namespacemain_abc81a2bc9032239e47ace22a92fe0cc6}{mon\+Main} ()
 \end{DoxyCompactItemize}
 
 
@@ -82,108 +83,179 @@ def {\bfseries mon\+Main} ()\hypertarget{namespacemain_abc81a2bc9032239e47ace22a
 :type logger: log
 :type connectFTP: class 'ftplib.FTP'
 \end{DoxyVerb}
+ \index{main@{main}!is\+File\+To\+Be\+Included@{is\+File\+To\+Be\+Included}}
+\index{is\+File\+To\+Be\+Included@{is\+File\+To\+Be\+Included}!main@{main}}
+\subsubsection[{\texorpdfstring{is\+File\+To\+Be\+Included(includes, excludes, nom\+\_\+fichier)}{isFileToBeIncluded(includes, excludes, nom_fichier)}}]{\setlength{\rightskip}{0pt plus 5cm}def main.\+is\+File\+To\+Be\+Included (
+\begin{DoxyParamCaption}
+\item[{}]{includes, }
+\item[{}]{excludes, }
+\item[{}]{nom\+\_\+fichier}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacemain_a7521c189c12c457f31fb27b6f1b8054c}{}\label{namespacemain_a7521c189c12c457f31fb27b6f1b8054c}
+\begin{DoxyVerb}Fonction qui retourne vrai si le fichier a une extension que l'on souhaite copier
+:param includes: liste des fichiers a inclure
+:param excludes: liste des fichiers a exclure
+:param nom_fichier: nom du fichier avec son extension
+:type nom_fichier: str
+:return: result
+:rtype: bool
+\end{DoxyVerb}
  \index{main@{main}!loop@{loop}}
 \index{loop@{loop}!main@{main}}
-\subsubsection[{\texorpdfstring{loop(args, logger, arbre\+Precedent, starting\+Level, connect\+F\+T\+P)}{loop(args, logger, arbrePrecedent, startingLevel, connectFTP)}}]{\setlength{\rightskip}{0pt plus 5cm}def main.\+loop (
+\subsubsection[{\texorpdfstring{loop(args, logger, arbre\+Precedent, starting\+Level, connect\+F\+T\+P, includes, excludes)}{loop(args, logger, arbrePrecedent, startingLevel, connectFTP, includes, excludes)}}]{\setlength{\rightskip}{0pt plus 5cm}def main.\+loop (
 \begin{DoxyParamCaption}
 \item[{}]{args, }
 \item[{}]{logger, }
 \item[{}]{arbre\+Precedent, }
 \item[{}]{starting\+Level, }
-\item[{}]{connect\+F\+TP}
+\item[{}]{connect\+F\+TP, }
+\item[{}]{includes, }
+\item[{}]{excludes}
 \end{DoxyParamCaption}
-)}\hypertarget{namespacemain_a94b514e853b8fc48d9c89f08326fe9b9}{}\label{namespacemain_a94b514e853b8fc48d9c89f08326fe9b9}
+)}\hypertarget{namespacemain_acb8acded5eecc7be91fabc0f0b0f9090}{}\label{namespacemain_acb8acded5eecc7be91fabc0f0b0f9090}
 \begin{DoxyVerb}Fonction de boucle principale. Elle fonctionne en 2 actions:
 - Surveiller
 - Si modif, mettre a jour le serveur FTP
 :param args: parametres entres en lignes de commandes
 :param logger: fichier de log
+:param arbrePrecedent:
+:param startingLevel: niveau de profondeur de depart
+:param connectFTP: objet ftp
+:param includes: liste des fichiers a inclure
+:param excludes: liste des fichiers a exclure
 :type args: dict
 :type logger: log
-:param connectFTP: objet ftp
+:type arbrePrecedent:
+:type startingLevel: int
 :type connectFTP: class 'ftplib.FTP'
-
-
+:type includes: list
+:type excludes: list
 :return: 1
+:rtype: int
+\end{DoxyVerb}
+ \index{main@{main}!mon\+Main@{mon\+Main}}
+\index{mon\+Main@{mon\+Main}!main@{main}}
+\subsubsection[{\texorpdfstring{mon\+Main()}{monMain()}}]{\setlength{\rightskip}{0pt plus 5cm}def main.\+mon\+Main (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacemain_abc81a2bc9032239e47ace22a92fe0cc6}{}\label{namespacemain_abc81a2bc9032239e47ace22a92fe0cc6}
+\begin{DoxyVerb}Tests Unitaires
+print(isFileToBeIncluded(['*'], ['.odt', ".docx"], "/home/nicolas/Documents/fichier.docx"))
+print(isFileToBeIncluded(['*'], ['.odt', ".docx"], "/home/nicolas/Documents/fichier.txt"))
+print(isFileToBeIncluded(['.odt', ".docx"], ['*'], "/home/nicolas/Documents/fichier.docx"))
+print(isFileToBeIncluded(['.odt', ".docx"], ['*'], "/home/nicolas/Documents/fichier.txt"))
 \end{DoxyVerb}
  \index{main@{main}!update\+F\+TP@{update\+F\+TP}}
 \index{update\+F\+TP@{update\+F\+TP}!main@{main}}
-\subsubsection[{\texorpdfstring{update\+F\+T\+P(args, logger, connect\+F\+T\+P, M, A, D)}{updateFTP(args, logger, connectFTP, M, A, D)}}]{\setlength{\rightskip}{0pt plus 5cm}def main.\+update\+F\+TP (
+\subsubsection[{\texorpdfstring{update\+F\+T\+P(args, logger, connect\+F\+T\+P, includes, excludes, M, A, D)}{updateFTP(args, logger, connectFTP, includes, excludes, M, A, D)}}]{\setlength{\rightskip}{0pt plus 5cm}def main.\+update\+F\+TP (
 \begin{DoxyParamCaption}
 \item[{}]{args, }
 \item[{}]{logger, }
 \item[{}]{connect\+F\+TP, }
+\item[{}]{includes, }
+\item[{}]{excludes, }
 \item[{}]{M, }
 \item[{}]{A, }
 \item[{}]{D}
 \end{DoxyParamCaption}
-)}\hypertarget{namespacemain_a900cc8c3d9f9e1b8b986796482ae5323}{}\label{namespacemain_a900cc8c3d9f9e1b8b986796482ae5323}
+)}\hypertarget{namespacemain_aa918b0ca63b511b11c02252a8622bc10}{}\label{namespacemain_aa918b0ca63b511b11c02252a8622bc10}
 \begin{DoxyVerb}Fonction qui gere la mise a jour du dossier distant
 :param args: parametres entres en lignes de commandes
-:param logger:
+:param logger: fichier de log
+:param connectFTP: objet ftp
+:param includes: liste des fichiers a inclure
+:param excludes: liste des fichiers a exclure
+:param M:
+:param A:
+:param D:
 :type args: dict
 :type logger: log
+:type connectFTP: class 'ftplib.FTP'
+:type includes: list
+:type excludes: list
+:type M: list
+:type A: list
+:type D: list
 :param connectFTP: objet ftp
 :type connectFTP: class 'ftplib.FTP'
 \end{DoxyVerb}
  \index{main@{main}!update\+F\+T\+P\+\_\+A@{update\+F\+T\+P\+\_\+A}}
 \index{update\+F\+T\+P\+\_\+A@{update\+F\+T\+P\+\_\+A}!main@{main}}
-\subsubsection[{\texorpdfstring{update\+F\+T\+P\+\_\+\+A(args, logger, connect\+F\+T\+P, A)}{updateFTP_A(args, logger, connectFTP, A)}}]{\setlength{\rightskip}{0pt plus 5cm}def main.\+update\+F\+T\+P\+\_\+A (
+\subsubsection[{\texorpdfstring{update\+F\+T\+P\+\_\+\+A(args, logger, connect\+F\+T\+P, includes, excludes, A)}{updateFTP_A(args, logger, connectFTP, includes, excludes, A)}}]{\setlength{\rightskip}{0pt plus 5cm}def main.\+update\+F\+T\+P\+\_\+A (
 \begin{DoxyParamCaption}
 \item[{}]{args, }
 \item[{}]{logger, }
 \item[{}]{connect\+F\+TP, }
+\item[{}]{includes, }
+\item[{}]{excludes, }
 \item[{}]{A}
 \end{DoxyParamCaption}
-)}\hypertarget{namespacemain_a0ac30c71ac670b7676d8fcf2a2ee94d0}{}\label{namespacemain_a0ac30c71ac670b7676d8fcf2a2ee94d0}
+)}\hypertarget{namespacemain_adc47cfe67a92cb5fbd422ddb0a0c15a2}{}\label{namespacemain_adc47cfe67a92cb5fbd422ddb0a0c15a2}
 \begin{DoxyVerb}Fonction qui s'occupe de mettre a jour le dossier situe sur le serveur FTP en cas d'ajout
 :param args: parametres entres en lignes de commandes
 :param logger: fichier de log
 :param connectFTP: objet ftp
+:param includes: liste des fichiers a inclure
+:param excludes: liste des fichiers a exclure
 :param A: liste des elements ajoutes
 :type args: dict
 :type logger: log
 :type connectFTP: class 'ftplib.FTP'
+:type includes: list
+:type excludes: list
 :type A: list
 \end{DoxyVerb}
  \index{main@{main}!update\+F\+T\+P\+\_\+D@{update\+F\+T\+P\+\_\+D}}
 \index{update\+F\+T\+P\+\_\+D@{update\+F\+T\+P\+\_\+D}!main@{main}}
-\subsubsection[{\texorpdfstring{update\+F\+T\+P\+\_\+\+D(args, logger, connect\+F\+T\+P, D)}{updateFTP_D(args, logger, connectFTP, D)}}]{\setlength{\rightskip}{0pt plus 5cm}def main.\+update\+F\+T\+P\+\_\+D (
+\subsubsection[{\texorpdfstring{update\+F\+T\+P\+\_\+\+D(args, logger, connect\+F\+T\+P, includes, excludes, D)}{updateFTP_D(args, logger, connectFTP, includes, excludes, D)}}]{\setlength{\rightskip}{0pt plus 5cm}def main.\+update\+F\+T\+P\+\_\+D (
 \begin{DoxyParamCaption}
 \item[{}]{args, }
 \item[{}]{logger, }
 \item[{}]{connect\+F\+TP, }
+\item[{}]{includes, }
+\item[{}]{excludes, }
 \item[{}]{D}
 \end{DoxyParamCaption}
-)}\hypertarget{namespacemain_a67671b5a8ef31c164a336616c31866c0}{}\label{namespacemain_a67671b5a8ef31c164a336616c31866c0}
+)}\hypertarget{namespacemain_a4964e4c5c1465407b8c22345fcc80819}{}\label{namespacemain_a4964e4c5c1465407b8c22345fcc80819}
 \begin{DoxyVerb}Fonction qui s'occupe de mettre a jour le dossier situe sur le serveur FTP en cas d'ajout
 :param args: parametres entres en lignes de commandes
 :param logger: fichier de log
 :param connectFTP: objet ftp
+:param includes: liste des fichiers a inclure
+:param excludes: liste des fichiers a exclure
 :param D: liste des elements supprimes
 :type args: dict
 :type logger: log
 :type connectFTP: class 'ftplib.FTP'
+:type includes: list
+:type excludes: list
 :type D: list
 \end{DoxyVerb}
  \index{main@{main}!update\+F\+T\+P\+\_\+M@{update\+F\+T\+P\+\_\+M}}
 \index{update\+F\+T\+P\+\_\+M@{update\+F\+T\+P\+\_\+M}!main@{main}}
-\subsubsection[{\texorpdfstring{update\+F\+T\+P\+\_\+\+M(args, logger, connect\+F\+T\+P, M)}{updateFTP_M(args, logger, connectFTP, M)}}]{\setlength{\rightskip}{0pt plus 5cm}def main.\+update\+F\+T\+P\+\_\+M (
+\subsubsection[{\texorpdfstring{update\+F\+T\+P\+\_\+\+M(args, logger, connect\+F\+T\+P, includes, excludes, M)}{updateFTP_M(args, logger, connectFTP, includes, excludes, M)}}]{\setlength{\rightskip}{0pt plus 5cm}def main.\+update\+F\+T\+P\+\_\+M (
 \begin{DoxyParamCaption}
 \item[{}]{args, }
 \item[{}]{logger, }
 \item[{}]{connect\+F\+TP, }
+\item[{}]{includes, }
+\item[{}]{excludes, }
 \item[{}]{M}
 \end{DoxyParamCaption}
-)}\hypertarget{namespacemain_a72891f9d649c2f0889626af662f224d9}{}\label{namespacemain_a72891f9d649c2f0889626af662f224d9}
+)}\hypertarget{namespacemain_a97bbb0b263cc3d0576c9d51867c02af6}{}\label{namespacemain_a97bbb0b263cc3d0576c9d51867c02af6}
 \begin{DoxyVerb}Fonction qui s'occupe de mettre a jour le dossier situe sur le serveur FTP en cas d'ajout
 :param args: parametres entres en lignes de commandes
 :param logger: fichier de log
 :param connectFTP: objet ftp
+:param includes: liste des fichiers a inclure
+:param excludes: liste des fichiers a exclure
 :param M: liste des elements modifies
 :type args: dict
 :type logger: log
 :type connectFTP: class 'ftplib.FTP'
+:type includes: list
+:type excludes: list
 :type M: list
 \end{DoxyVerb}
  

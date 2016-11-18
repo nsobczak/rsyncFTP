@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.10.11)  18 NOV 2016 22:48
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.10.11)  18 NOV 2016 23:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1167,7 +1167,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 (Font)              scaled to size 10.79993pt on input line 128.
 
-<../image.jpg, id=229, 382.42876pt x 132.495pt>
+<../image.jpg, id=253, 382.42876pt x 132.495pt>
 File: ../image.jpg Graphic file (type jpg)
  <use ../image.jpg>
 Package pdftex.def Info: ../image.jpg used on input line 132.
@@ -1194,15 +1194,18 @@ LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 
 [3
 
-])
+]
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <7> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 60.
+LaTeX Font Info:    Font shape `T1/phv/b/n' will be
+(Font)              scaled to size 6.29996pt on input line 60.
+ [4])
 \tf@toc=\write5
 \openout5 = `refman.toc'.
 
-LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <7> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 137.
-LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 6.29996pt on input line 137.
- [4]
+ [5] [6
+
+]
 Package hyperref Info: Option `pageanchor' set `true' on input line 139.
 
 Chapter 1.
@@ -1243,7 +1246,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 1--144
  []
 
 [1
-
 
 ] [2
 
@@ -1365,111 +1367,123 @@ OfLastModif) corresponding to the files in the tree
 [11]) (./namespacegestion_f_t_p.tex [12]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 87.
+(hyperref)                removing `subscript' on input line 95.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 87.
+(hyperref)                removing `subscript' on input line 95.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 87.
+(hyperref)                removing `subscript' on input line 95.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 87.
+(hyperref)                removing `subscript' on input line 95.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 87.
+(hyperref)                removing `subscript' on input line 95.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 108.
+(hyperref)                removing `subscript' on input line 116.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 108.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 136.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 136.
+(hyperref)                removing `subscript' on input line 116.
 
 [13]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 197.
+(hyperref)                removing `subscript' on input line 162.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 197.
+(hyperref)                removing `subscript' on input line 162.
+
+[14]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 236.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 214.
+(hyperref)                removing `subscript' on input line 265.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 214.
+(hyperref)                removing `subscript' on input line 265.
 
-) (./namespacemain.tex [14]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 46.
+(hyperref)                removing `subscript' on input line 282.
 
 
-Overfull \hbox (197.5563pt too wide) in paragraph at lines 47--47
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 282.
+
+) (./namespacemain.tex [15]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 47.
+
+
+Overfull \hbox (197.5563pt too wide) in paragraph at lines 48--48
 []\T1/pcr/m/n/8 Fonction qui retourne le chemin relatif a partir des chemins ab
 solus du dossier surveille et de l'element dont on veut le chemin relatif 
  []
 
 
-Overfull \hbox (39.1562pt too wide) in paragraph at lines 49--49
+Overfull \hbox (39.1562pt too wide) in paragraph at lines 50--50
 []\T1/pcr/m/n/8 :param chemin_element: chemin absolu vers l'element (fichier ou
  dossier) dont on veut le chemin relatif[] 
  []
 
-[15]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 138.
+(hyperref)                removing `subscript' on input line 94.
+
+[16]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 194.
+
+[17]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 220.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 158.
+(hyperref)                removing `subscript' on input line 246.
+
+) (./namespaceparser_rsync_f_t_p.tex [18]) [19] [20
+
+] (./refman.ind [21
 
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 178.
-
-[16]) (./namespaceparser_rsync_f_t_p.tex) [17] [18
-
-] (./refman.ind [19
-
+]
+[22
 
 ])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 165.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 165.
-
-(./refman.aux)
+ (./refman.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 165.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 165.
 Package rerunfilecheck Info: File `refman.out' has not changed.
-(rerunfilecheck)             Checksum: 4B78893CBC3B764E99F9A2C8397106A1;13640.
+(rerunfilecheck)             Checksum: AA4D3454C77861B6B9E9B7BB23568F33;15969.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 165.
  ) 
 Here is how much of TeX's memory you used:
- 14949 strings out of 493029
- 214215 string characters out of 6136233
- 313258 words of memory out of 5000000
- 18108 multiletter control sequences out of 15000+600000
+ 14974 strings out of 493029
+ 215062 string characters out of 6136233
+ 316152 words of memory out of 5000000
+ 18119 multiletter control sequences out of 15000+600000
  58763 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 53i,15n,92p,1586b,493s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 53i,15n,92p,1586b,495s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf
 -dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/f
@@ -1478,10 +1492,10 @@ w/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/u
 hvb8ac.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvbo8ac.pfb
 ></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on refman.pdf (23 pages, 123008 bytes).
+Output written on refman.pdf (28 pages, 130593 bytes).
 PDF statistics:
- 579 PDF objects out of 1000 (max. 8388607)
- 539 compressed objects within 6 object streams
- 117 named destinations out of 1000 (max. 500000)
- 454 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 654 PDF objects out of 1000 (max. 8388607)
+ 608 compressed objects within 7 object streams
+ 131 named destinations out of 1000 (max. 500000)
+ 502 words of extra memory for PDF output out of 10000 (max. 10000000)
 
