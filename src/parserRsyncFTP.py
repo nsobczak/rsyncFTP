@@ -36,14 +36,12 @@ def initVariables():
     # obligatoire
     PARSER.add_argument("ftp", type=str, nargs=3,
                         help="(hote, identifiant, mot_de_passe) :\n" + \
-                             "donnees pour le site FTP distant" + \
+                             "donnees pour le site FTP distant: hote, identifiant, mot de passe" + \
                              "ex : localhost nsobczak ISEN")
     PARSER.add_argument("dp", type=str, help="chemin vers le dossier local")
     PARSER.add_argument("ie", type=str, nargs=2,
-                        help="2-uple contenant :\n" +
-                             "-la liste de fichiers a inclure (les extensions)\n" + \
-                             "-la liste de fichiers a exclure (les extensions)\n" + \
-                             "sous la forme . " + \
+                        help="liste des fichiers à inclure puis celle à exclure, "
+                             "* pour tout selectionner, ',' pour séparer les extensions"
                              "ex : * .odt,.docx pour dire de tout inclure sauf les .odt et .docx")
 
     # optionnel
