@@ -17,7 +17,8 @@ Pour utiliser ce programme, il est nécessaire d'installer les bibliothèques su
 \end{itemize}
 
 \section{Synchronisation}
-Pour synchroniser le dossier miroir, nous avons choisi de surveiller notre dossier local et alors de mettre à jour le dossier miroir.\\
+Pour synchroniser le dossier miroir, nous avons choisi de surveiller notre dossier local et alors de mettre à jour le 
+dossier miroir en cas de modification.\\
 \\
 Au lancement du programme, si le serveur FTP contient déjà un dossier avec le nom de celui dont on souhaite réaliser le miroir,
 nous le supprimons. Nous copions ensuite le dossier que l'ont veut superviser sur le serveur FTP.
@@ -80,7 +81,10 @@ tout son contenu. Il nous a donc fallu créer une fonction récursive pour vider
 \\
 Avec les fonctions de cette librairie, il faut faire attention à la forme des chemins que l'on doit passer en paramètre. 
 En effet, certaine fonctions prenne en paramètre des chemin absolus tandis que d'autre prenne des chemins relatifs. 
-De surcroit, il est parfois nécessaire d'avoir le nom du fichier ou répertoire à la fin du chemin et parfois il ne faut pas le mettre.
+De surcroit, il est parfois nécessaire d'avoir le nom du fichier ou répertoire à la fin du chemin et parfois il ne faut pas le mettre.\\
+\\
+Nous aurions du discuter des chemins au préalable pour définir une convention. 
+Il est en effet très embêtant de devoir réfléchir au type de chemin à chaque utilisation de fonction.
 
 
 \section{Librairie directorySupervisor}
@@ -90,7 +94,13 @@ Nous avons choisi de ne pas créer de classe arbre mais plutôt de matérialiser
 \\
 Nous créons donc d'abord l'arbre du dossier à chaque fois qu'il s'écoule une période correspondant à la fréquence de supervision. 
 Puis nous comparons cette arbre avec l'arbre précédemment créé. 
-Si on observe une modification, on l'écrit dans le fichier de log et on va signaler le type de modification effectuée afin de pouvoir mettre à jour le dossier situé sur le serveur distant.\\
+Si on observe une modification, on l'écrit dans le fichier de log et on va signaler le type de modification effectuée 
+afin de pouvoir mettre à jour le dossier situé sur le serveur distant.\\
+\\
+Les modifications sont retournées dans des listes. Il y en a une pour les ajouts, une pour les suppressions et une pour les modifications.
+Chaque liste contient des tuples, un pour chaque modification effectuée. 
+Ainsi, si 2 ajouts de fichiers sont effectuée, la liste d'ajout contiendra 2 tuples alors que les 2 autres listes seront vides.
+Un tuple contient le chemin absolu vers l'élément modifié et le moment quand la modification a été effectuée.\\
 \\
 Cette librairie ne fonctionne pas pour certains cas que nous avons décidé d'exclure. Ces cas sont les suivants:
 \begin{itemize}

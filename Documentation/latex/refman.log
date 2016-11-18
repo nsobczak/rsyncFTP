@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.10.11)  17 NOV 2016 22:09
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.10.11)  18 NOV 2016 12:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1256,41 +1256,56 @@ Underfull \hbox (badness 10000) in paragraph at lines 32--39
  []
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 42--46
+Underfull \hbox (badness 10000) in paragraph at lines 42--49
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 42--49
 
  []
 
 ) [4]
 Chapter 3.
 (./technical.tex
-Underfull \hbox (badness 10000) in paragraph at lines 20--24
+Underfull \hbox (badness 10000) in paragraph at lines 20--25
 
  []
 
 [5
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 71--84
+Underfull \hbox (badness 10000) in paragraph at lines 72--88
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 71--84
+Underfull \hbox (badness 10000) in paragraph at lines 72--88
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 71--84
+Underfull \hbox (badness 10000) in paragraph at lines 72--88
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 72--88
 
  []
 
 [6]
-Underfull \hbox (badness 10000) in paragraph at lines 88--96
+Underfull \hbox (badness 10000) in paragraph at lines 92--106
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 88--96
+Underfull \hbox (badness 10000) in paragraph at lines 92--106
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 92--106
 
  []
 
@@ -1451,7 +1466,7 @@ w/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/u
 hvb8ac.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvbo8ac.pfb
 ></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on refman.pdf (23 pages, 116481 bytes).
+Output written on refman.pdf (23 pages, 117806 bytes).
 PDF statistics:
  572 PDF objects out of 1000 (max. 8388607)
  533 compressed objects within 6 object streams
