@@ -13,6 +13,7 @@
 # Config
 
 # Import
+import ftplib
 from ftplib import FTP
 import os
 import os.path
@@ -97,7 +98,8 @@ def listerElements(ftp):
     """
     return listerFichiers(ftp) + listerDossiers(ftp)
 
-def differenceEntreLesChemin(chemin1,chemin2):
+
+def differenceEntreChemins(chemin1,chemin2):
     """
     Fonction qui renvoie la difference chemin1-chemin2 (si chemin1 est plus haut que 2
     alors on retourne une liste contenant des '..')
@@ -109,10 +111,46 @@ def differenceEntreLesChemin(chemin1,chemin2):
                 au meme endroit que chemin1 a partir de chemin2
     :rtype : list
     """
-    chemin_absolu, nom = os.path.split(args.dp)
-    longueur_chemin_absolu = len(chemin_absolu)
-    chemin_relatif = chemin_element[longueur_chemin_absolu:]
-    return chemin_relatif
+    longueur_chemin1 = len(chemin1)
+    longueur_chemin2 = len(chemin2)
+    res = []
+    if longueur_chemin1 == longueur_chemin2 :
+        if chemin1 == chemin2:
+            return None
+        else :
+            return ['*']
+    elif longueur_chemin1 < longueur_chemin2 :
+        dif = str(chemin2[longueur_chemin1:])
+        for i in dif.split('/'):
+            if i:
+                res.append('..')
+    else :
+        dif = str(chemin1[longueur_chemin2:])
+        for i in dif.split('/'):
+            if i:
+                res.append(i)
+    return res
+
+
+def redirigeVers(ftp, chemin_relatif):
+    """
+    Fonction qui positionne dans le ftp en suivant le chemin relatif 'chemin' entre en parametre
+    :param ftp: serveur ftp
+    :type ftp: class 'ftplib.FTP'
+    :param chemin: chemin relatif (dont la racine correspond a celle du ftp)
+    :type chemin: str
+    """
+    # retour a la racine du ftp
+    while ftp.pwd() != '/':
+        ftp.cwd('..')
+    # on redirige vers chemin
+    for i in chemin_relatif.split('/'):
+        if i:
+            try :
+                ftp.cwd(i)
+            except ftplib.error_perm:
+                break
+
 
 def positionnementDansLeFTP(ftp, chemin):
     """
@@ -122,10 +160,35 @@ def positionnementDansLeFTP(ftp, chemin):
     :param chemin: chemin relatif (dont la racine correspond a celle du ftp)
     :type chemin: str
     """
-    ftp_chemin = ftp.pwd().split()
-    chemin_voulu = chemin.split()
-    differenceEntreChemins(chemin_voulu,ftp_chemin)
-    ftp.cwd()
+    l = differenceEntreChemins(chemin,ftp.pwd())
+    if l :
+        if l[0]=='*':
+            redirigeVers(ftp, chemin)
+        else :
+            for i in l:
+                try :
+                    ftp.cwd(i)
+                except ftplib.error_perm:
+                    redirigeVers(ftp, chemin)
+
+
+def rePositionnementDansLeFTP(ftp, chemin):
+    """
+    Fonction qui fait le chemin inverse de la fonction positionnementDansLeFTP
+    :param ftp: serveur ftp
+    :type ftp: class 'ftplib.FTP'
+    :param chemin: chemin relatif (dont la racine correspond a celle du ftp)
+    :type chemin: str
+    """
+    l = differenceEntreChemins(ftp.pwd(), chemin)
+    if l:
+        for i in l:
+            try :
+                ftp.cwd(i)
+            except ftplib.error_perm:
+                break
+
+
 # %%__________________________________________________________________________________________________
 def envoyerUnFichier(fichier_chemin, fichier_nom, ftp):
     """
@@ -173,7 +236,10 @@ def creerDossier(ftp, dossier_chemin, dossier_nom):
     :type dossier_nom: str
     """
     ftp.cwd(dossier_chemin)
-    ftp.mkd(dossier_nom)
+    try:
+        ftp.mkd(dossier_nom)
+    except ftplib.error_perm:
+        None
     ftp.cwd('..')
 
 

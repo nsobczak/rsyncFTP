@@ -135,11 +135,12 @@ def updateFTP_M(args, logger, connectFTP, includes, excludes, M):
             fichier_chemin_absolu, fichier_nom = os.path.split(path)
             # Si l'extension du fichier est a inclure
             if isFileToBeIncluded(includes, excludes, fichier_nom):
-                fichier_chemin_relatif = donneCheminRelatif(args.dp, path)
-                gestionFTP.supprimerFichier(ftp=connectFTP, fichier_chemin=fichier_chemin_relatif,
-                                            fichier_nom=fichier_nom)
+                chemin_relatif = donneCheminRelatif(args, fichier_chemin_absolu)
+                positionDeBaseFTP = connectFTP.pwd()
+                gestionFTP.positionnementDansLeFTP(connectFTP, chemin_relatif)
+                gestionFTP.supprimerFichier(ftp=connectFTP, fichier_chemin=chemin_relatif, fichier_nom=fichier_nom)
                 gestionFTP.envoyerUnFichier(ftp=connectFTP, fichier_chemin=path, fichier_nom=fichier_nom)
-
+                gestionFTP.positionnementDansLeFTP(connectFTP, positionDeBaseFTP)
         # Les modifications de dossiers ne sont pas prises en compte ici
         # car elles sont assimilees a une suppression suivie d'une creation
         else:
@@ -170,16 +171,21 @@ def updateFTP_A(args, logger, connectFTP, includes, excludes, A):
             fichier_chemin_absolu, fichier_nom = os.path.split(path)
             # Si l'extension du fichier est a inclure
             if isFileToBeIncluded(includes, excludes, fichier_nom):
-                fichier_chemin_relatif = donneCheminRelatif(args.dp, path)
-                gestionFTP.positionnementDansLeFTP(connectFTP, fichier_chemin_relatif)
+                chemin_relatif = donneCheminRelatif(args, fichier_chemin_absolu)
+                positionDeBaseFTP = connectFTP.pwd()
+                gestionFTP.positionnementDansLeFTP(connectFTP, chemin_relatif)
                 gestionFTP.envoyerUnFichier(fichier_chemin=path, ftp=connectFTP, fichier_nom=fichier_nom)
-
+                gestionFTP.positionnementDansLeFTP(connectFTP, positionDeBaseFTP)
         # Si ajout d'un dossier
         elif os.path.isdir(path):
             # chemin local et nom dossier a recuperer en separant le chemin absolu
             dossier_chemin_absolu, dossier_nom = os.path.split(path)
+            chemin_relatif = donneCheminRelatif(args, dossier_chemin_absolu)
+            positionDeBaseFTP = connectFTP.pwd()
+            gestionFTP.positionnementDansLeFTP(connectFTP, chemin_relatif)
             gestionFTP.copierContenuDossier(ftp=connectFTP, chemin_ftp="", chemin_local=path, nom_dossier=dossier_nom,
                                             profondeure_copie_autorisee=args.profondeur)
+            gestionFTP.positionnementDansLeFTP(connectFTP, positionDeBaseFTP)
 
         else:
             logger.info(path + " n'est pas supporte par rsyncFTP")
@@ -204,20 +210,15 @@ def updateFTP_D(args, logger, connectFTP, includes, excludes, D):
     for tup in D:
         path = tup[0]
 
-        # Si suppression d'un fichier
-        if os.path.isfile(path):
-            fichier_chemin_absolu, fichier_nom = os.path.split(path)
-            # Si l'extension du fichier est a inclure
-            if isFileToBeIncluded(includes, excludes, fichier_nom):
-                fichier_chemin_relatif = donneCheminRelatif(args.dp, path)
-                gestionFTP.supprimerFichier(ftp=connectFTP, fichier_chemin=fichier_chemin_relatif,
-                                            fichier_nom=fichier_nom)
-
-        # Si suppression d'un dossier
-        elif os.path.isdir(path):
-            dossier_chemin_absolu, dossier_nom = os.path.split(path)
-            dossier_chemin_relatif = donneCheminRelatif(args.dp, path)
-            gestionFTP.supprimerDossier(ftp=connectFTP, dossier_chemin=dossier_chemin_relatif, dossier_nom=dossier_nom)
+        chemin_absolu, nom = os.path.split(path)
+        chemin_relatif = donneCheminRelatif(args, chemin_absolu)
+        try:
+            # Si suppression dossier
+            gestionFTP.supprimerDossier(ftp=connectFTP, dossier_chemin=chemin_relatif, dossier_nom=nom)
+        except UnboundLocalError:
+            # Si suppression fichier
+            if isFileToBeIncluded(includes, excludes, nom):
+                gestionFTP.supprimerFichier(ftp=connectFTP, fichier_chemin=chemin_relatif, fichier_nom=nom)
 
         else:
             logger.info(path + " n'est pas supporte par rsyncFTP")
