@@ -15,7 +15,6 @@ pdf + zip
 |chemin vers le dossier local (directory path)|obligatoire|dp|
 |liste des fichiers à inclure puis celle à exclure, * pour tout selectionner, ',' pour séparer les extensions
 | ex : * .odt,.docx pour dire de tout inclure sauf les .odt et .docx|obligatoire|ie|
-
 |chemin ou generer le fichier log|optionnel|"--lp", "--logPath"|
 |chemin vers le fichier conf du log (gestion des handler)|optionnel|"-lc", "--logConf"|
 |profondeur de la supervision du dossier, default = 2|optionnel|"-p", "--profondeur"|
