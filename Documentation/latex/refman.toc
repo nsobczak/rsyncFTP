@@ -8,9 +8,10 @@
 \contentsline {chapter}{\numberline {3}Choix techniques}{5}{chapter.3}
 \contentsline {section}{\numberline {3.1}Synchronisation}{5}{section.3.1}
 \contentsline {section}{\numberline {3.2}Param\IeC {\`e}tres}{6}{section.3.2}
-\contentsline {section}{\numberline {3.3}Fichier log}{6}{section.3.3}
-\contentsline {section}{\numberline {3.4}Librairie gestionFTP}{6}{section.3.4}
-\contentsline {section}{\numberline {3.5}Librairie directorySupervisor}{7}{section.3.5}
+\contentsline {section}{\numberline {3.3}Gestion des extensions de fichiers \IeC {\`a} inclure/exclure}{6}{section.3.3}
+\contentsline {section}{\numberline {3.4}Fichier log}{6}{section.3.4}
+\contentsline {section}{\numberline {3.5}Librairie gestionFTP}{6}{section.3.5}
+\contentsline {section}{\numberline {3.6}Librairie directorySupervisor}{7}{section.3.6}
 \contentsline {chapter}{\numberline {4}Namespace Index}{9}{chapter.4}
 \contentsline {section}{\numberline {4.1}Packages}{9}{section.4.1}
 \contentsline {chapter}{\numberline {5}Namespace Documentation}{11}{chapter.5}

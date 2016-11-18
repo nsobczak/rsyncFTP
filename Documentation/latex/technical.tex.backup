@@ -34,10 +34,12 @@ Nous avons choisi de passer en ligne de commande les paramètres suivants:
 
 \begin{tabular}{|R{8cm}|C{3cm}|L{3cm}|}
 \hline \rowcolor{lightgray} Paramètre & Type &  Variable  \\
-\hline  site ftp distant & obligatoire & ftp  \\
+\hline  donnees pour le site FTP distant: hote, identifiant, mot de passe| ex : localhost nsobczak ISEN & obligatoire & ftp  \\
 \hline  chemin vers le dossier local (directory path) & obligatoire & dp  \\
-\hline  chemin pour generer le fichier log (log path) & obligatoire & lp  \\
-\hline  2-uple contenant les extensions de la liste de fichiers a inclure et de la liste de fichiers a exclure & obligatoire & ie  \\
+\hline  liste des fichiers à inclure puis celle à exclure, * pour tout selectionner, ',' pour séparer les extensions
+| ex : * .odt,.docx pour dire de tout inclure sauf les .odt et .docx & obligatoire & ie  \\
+
+\hline  chemin ou generer le fichier log & optionnel & "--lp", "--logPath"  \\
 \hline  chemin vers le fichier conf du log (gestion des handler) & optionnel & "-lc", "--logConf"  \\
 \hline  profondeur de la supervision du dossier, default = 2 & optionnel & "-p", "--profondeur"  \\
 \hline  taille maximale des fichiers transferes en Mo, default = 500 Mo & optionnel & "-sf","--sizeFile"  \\
@@ -46,17 +48,51 @@ Nous avons choisi de passer en ligne de commande les paramètres suivants:
 \hline 
 \end{tabular}
 
-\textbf{Il faut compléter le tableau ci-dessus !} 
+\begin{comment}
+# obligatoire
+PARSER.add_argument("ftp", type=str, nargs=3,
+		    help="(hote, identifiant, mot_de_passe) :\n" + \
+			  "donnees pour le site FTP distant: hote, identifiant, mot de passe" + \
+			  "ex : localhost nsobczak ISEN")
+PARSER.add_argument("dp", type=str, help="chemin vers le dossier local")
+PARSER.add_argument("ie", type=str, nargs=2,
+		    help="liste des fichiers à inclure puis celle à exclure, "
+			  "* pour tout selectionner, ',' pour séparer les extensions"
+			  "ex : * .odt,.docx pour dire de tout inclure sauf les .odt et .docx")
+
+# optionnel
+PARSER.add_argument("-lp", "--logPath", default="",
+		    help="chemin ou generer le fichier log")
+PARSER.add_argument("-lc", "--logConf", default="rsyncFTP.conf",
+		    help="chemin vers le fichier conf du log (gestion des handler)")
+PARSER.add_argument("-p", "--profondeur", default=5,
+		    help="profondeur de la supervision du dossier, default = 2")
+PARSER.add_argument("-sf", "--sizeFile", default=500,
+		    help="taille maximale des fichiers transferes en Mo, default = 500 Mo")
+PARSER.add_argument("-f", "--frequence", default=1,
+		    help="frequence de supervision en s, default = 1 s")
+PARSER.add_argument("-st", "--supervisionTime", default=-1,
+		    help="temps de supervision en s, default = infinite")
+\end{comment}
+
+
+\section{Gestion des extensions de fichiers à inclure/exclure}
+
+Les fichiers à inclure/exclure entrés en paramètres sont pris en compte lors l'ajout/modifaction/suppression de fichiers.
+Ils ne sont pas pris en compte lors de la copie de fichiers.
+Ils ne sont donc pas non plus pris en compte lors de la copie initiale du dossier.\\
+\\
+Le problème vient du fait que lors de la copie d'un dossier nous utilisons la fonction de la bibliothèque gestionFTP dans laquelle
+nous n'avons pas pris en compte les listes d'extensions de fichiers à inclure/exclure.
 
 \section{Fichier log}
 
 Concernant le fichier de log, si aucun chemin pour enregistrer le fichier n'est précisé, nous utilisons le fichier \textit{.conf} 
 qui nous définit des handlers proprement et enregistre le fichier log dans le répertoire du projet.
-Si un chemin est précisé, nous n'utilisons pas le fichier log. 
+Si un chemin est précisé, nous n'utilisons pas le fichier \textit{.conf}. 
 Nous créons le logger dans le code du fichier logger.py. 
 Le fichier rsyncFTP.log est alors enregistré dans le répertoire précisé par le chemin entré en ligne de commande.
 Il est recommandé d'utiliser le fichier \textit{.conf} qui crée également un fichier de log de debug.
-
 
 \section{Librairie gestionFTP}
 
@@ -94,12 +130,17 @@ Nous avons choisi de ne pas créer de classe arbre mais plutôt de matérialiser
 \\
 Nous créons donc d'abord l'arbre du dossier à chaque fois qu'il s'écoule une période correspondant à la fréquence de supervision. 
 Puis nous comparons cette arbre avec l'arbre précédemment créé. 
-Si on observe une modification, on l'écrit dans le fichier de log et on va signaler le type de modification effectuée afin de pouvoir mettre à jour le dossier situé sur le serveur distant.\\
+Si on observe une modification, on l'écrit dans le fichier de log et on va signaler le type de modification effectuée 
+afin de pouvoir mettre à jour le dossier situé sur le serveur distant.\\
+\\
+Les modifications sont retournées dans des listes. Il y en a une pour les ajouts, une pour les suppressions et une pour les modifications.
+Chaque liste contient des tuples, un pour chaque modification effectuée. 
+Ainsi, si 2 ajouts de fichiers sont effectuée, la liste d'ajout contiendra 2 tuples alors que les 2 autres listes seront vides.
+Un tuple contient le chemin absolu vers l'élément modifié et le moment quand la modification a été effectuée.\\
 \\
 Cette librairie ne fonctionne pas pour certains cas que nous avons décidé d'exclure. Ces cas sont les suivants:
 \begin{itemize}
 \item fichiers sans extension
-\item pour l'instant c'est tout
 \end{itemize}
 
 
