@@ -56,7 +56,7 @@ def initVariables():
     PARSER.add_argument("-f", "--frequence", default=1,
                         help="frequence de supervision en s, default = 1 s")
     PARSER.add_argument("-st", "--supervisionTime", default=-1,
-                        help="temps de supervision en s, default = infinite")
+                        help="temps de supervision en s, -1 pour infini, default = infinite")
 
     # affichage des arguments rentres dans le log
     ARGS = PARSER.parse_args()
