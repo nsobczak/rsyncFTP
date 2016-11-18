@@ -33,7 +33,7 @@
   <td id="projectlogo"><img alt="Logo" src="image.jpg"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">rsyncFTP
-   &#160;<span id="projectnumber">1.2</span>
+   &#160;<span id="projectnumber">1.3</span>
    </div>
    <div id="projectbrief">Programme qui synchronise un dossier local de notre machine vers un site miroir ftp distant</div>
   </td>
@@ -49,7 +49,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li class="current"><a href="namespaces.html"><span>Packages</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -128,6 +127,14 @@ Functions</h2></td></tr>
 <tr class="separator:a2f67d833c10d35ec09aab3185d4b92f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a137686a569213bca2d098b55ca5bb22e"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegestion_f_t_p.html#a137686a569213bca2d098b55ca5bb22e">listerElements</a> (ftp)</td></tr>
 <tr class="separator:a137686a569213bca2d098b55ca5bb22e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7024bab68d4f68d16ea5180b7054fa22"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegestion_f_t_p.html#a7024bab68d4f68d16ea5180b7054fa22">differenceEntreChemins</a> (chemin1, chemin2)</td></tr>
+<tr class="separator:a7024bab68d4f68d16ea5180b7054fa22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae007d8a9b886240c557295c74a73ffa0"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegestion_f_t_p.html#ae007d8a9b886240c557295c74a73ffa0">redirigeVers</a> (ftp, chemin_relatif)</td></tr>
+<tr class="separator:ae007d8a9b886240c557295c74a73ffa0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34bbbfb02bc44375b8d262b9e011b802"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegestion_f_t_p.html#a34bbbfb02bc44375b8d262b9e011b802">positionnementDansLeFTP</a> (ftp, chemin)</td></tr>
+<tr class="separator:a34bbbfb02bc44375b8d262b9e011b802"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f82e0f663073c6be5a4107e13d65b89"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegestion_f_t_p.html#a7f82e0f663073c6be5a4107e13d65b89">rePositionnementDansLeFTP</a> (ftp, chemin)</td></tr>
+<tr class="separator:a7f82e0f663073c6be5a4107e13d65b89"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae9eaad537c75d8beb4d50100f6b7eb53"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegestion_f_t_p.html#ae9eaad537c75d8beb4d50100f6b7eb53">envoyerUnFichier</a> (fichier_chemin, fichier_nom, ftp)</td></tr>
 <tr class="separator:ae9eaad537c75d8beb4d50100f6b7eb53"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9ed81ad37ebdebc0cdf8fe7d902ea3d6"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegestion_f_t_p.html#a9ed81ad37ebdebc0cdf8fe7d902ea3d6">supprimerFichier</a> (ftp, fichier_chemin, fichier_nom)</td></tr>
@@ -324,6 +331,41 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>monMain</b> ()</td></t
 </pre> 
 </div>
 </div>
+<a class="anchor" id="a7024bab68d4f68d16ea5180b7054fa22"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def gestionFTP.differenceEntreChemins </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>chemin1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>chemin2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">Fonction qui renvoie la difference chemin1-chemin2 (si chemin1 est plus haut que 2
+alors on retourne une liste contenant des '..')
+:param chemin1: chemin relatif (dont la racine correspond a celle du ftp)
+:type chemin1: str
+:param chemin2: chemin relatif (dont la racine correspond a celle du ftp)
+:type chemin2: str
+:return : liste contenant les dossiers a suivre pour se positionner
+            au meme endroit que chemin1 a partir de chemin2
+:rtype : list
+</pre> 
+</div>
+</div>
 <a class="anchor" id="ae9eaad537c75d8beb4d50100f6b7eb53"></a>
 <div class="memitem">
 <div class="memproto">
@@ -436,6 +478,99 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>monMain</b> ()</td></t
 <pre class="fragment">Fonction qui liste les fichiers presents dans le repertoire observe sur le ftp
 :param ftp: serveur ftp
 :type ftp: class 'ftplib.FTP'
+</pre> 
+</div>
+</div>
+<a class="anchor" id="a34bbbfb02bc44375b8d262b9e011b802"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def gestionFTP.positionnementDansLeFTP </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>ftp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>chemin</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">Fonction qui positionne dans le ftp en suivant le chemin relatif 'chemin' entre en parametre
+:param ftp: serveur ftp
+:type ftp: class 'ftplib.FTP'
+:param chemin: chemin relatif (dont la racine correspond a celle du ftp)
+:type chemin: str
+</pre> 
+</div>
+</div>
+<a class="anchor" id="ae007d8a9b886240c557295c74a73ffa0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def gestionFTP.redirigeVers </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>ftp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>chemin_relatif</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">Fonction qui positionne dans le ftp en suivant le chemin relatif 'chemin' entre en parametre
+:param ftp: serveur ftp
+:type ftp: class 'ftplib.FTP'
+:param chemin: chemin relatif (dont la racine correspond a celle du ftp)
+:type chemin: str
+</pre> 
+</div>
+</div>
+<a class="anchor" id="a7f82e0f663073c6be5a4107e13d65b89"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def gestionFTP.rePositionnementDansLeFTP </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>ftp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>chemin</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">Fonction qui fait le chemin inverse de la fonction positionnementDansLeFTP
+:param ftp: serveur ftp
+:type ftp: class 'ftplib.FTP'
+:param chemin: chemin relatif (dont la racine correspond a celle du ftp)
+:type chemin: str
 </pre> 
 </div>
 </div>

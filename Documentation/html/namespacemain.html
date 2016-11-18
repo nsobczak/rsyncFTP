@@ -33,7 +33,7 @@
   <td id="projectlogo"><img alt="Logo" src="image.jpg"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">rsyncFTP
-   &#160;<span id="projectnumber">1.2</span>
+   &#160;<span id="projectnumber">1.3</span>
    </div>
    <div id="projectbrief">Programme qui synchronise un dossier local de notre machine vers un site miroir ftp distant</div>
   </td>
@@ -49,7 +49,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li class="current"><a href="namespaces.html"><span>Packages</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -120,18 +119,19 @@ Functions</h2></td></tr>
 <tr class="separator:af2b805eecb08e493981427109e24bfb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a00446ed819ceb3ba2a2efc386436b91c"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemain.html#a00446ed819ceb3ba2a2efc386436b91c">donneCheminRelatif</a> (args, chemin_element)</td></tr>
 <tr class="separator:a00446ed819ceb3ba2a2efc386436b91c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a72891f9d649c2f0889626af662f224d9"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemain.html#a72891f9d649c2f0889626af662f224d9">updateFTP_M</a> (args, logger, connectFTP, M)</td></tr>
-<tr class="separator:a72891f9d649c2f0889626af662f224d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0ac30c71ac670b7676d8fcf2a2ee94d0"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemain.html#a0ac30c71ac670b7676d8fcf2a2ee94d0">updateFTP_A</a> (args, logger, connectFTP, A)</td></tr>
-<tr class="separator:a0ac30c71ac670b7676d8fcf2a2ee94d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a67671b5a8ef31c164a336616c31866c0"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemain.html#a67671b5a8ef31c164a336616c31866c0">updateFTP_D</a> (args, logger, connectFTP, D)</td></tr>
-<tr class="separator:a67671b5a8ef31c164a336616c31866c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a900cc8c3d9f9e1b8b986796482ae5323"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemain.html#a900cc8c3d9f9e1b8b986796482ae5323">updateFTP</a> (args, logger, connectFTP, M, A, D)</td></tr>
-<tr class="separator:a900cc8c3d9f9e1b8b986796482ae5323"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a94b514e853b8fc48d9c89f08326fe9b9"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemain.html#a94b514e853b8fc48d9c89f08326fe9b9">loop</a> (args, logger, arbrePrecedent, startingLevel, connectFTP)</td></tr>
-<tr class="separator:a94b514e853b8fc48d9c89f08326fe9b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc81a2bc9032239e47ace22a92fe0cc6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abc81a2bc9032239e47ace22a92fe0cc6"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>monMain</b> ()</td></tr>
+<tr class="memitem:a7521c189c12c457f31fb27b6f1b8054c"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemain.html#a7521c189c12c457f31fb27b6f1b8054c">isFileToBeIncluded</a> (includes, excludes, nom_fichier)</td></tr>
+<tr class="separator:a7521c189c12c457f31fb27b6f1b8054c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97bbb0b263cc3d0576c9d51867c02af6"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemain.html#a97bbb0b263cc3d0576c9d51867c02af6">updateFTP_M</a> (args, logger, connectFTP, includes, excludes, M)</td></tr>
+<tr class="separator:a97bbb0b263cc3d0576c9d51867c02af6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc47cfe67a92cb5fbd422ddb0a0c15a2"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemain.html#adc47cfe67a92cb5fbd422ddb0a0c15a2">updateFTP_A</a> (args, logger, connectFTP, includes, excludes, A)</td></tr>
+<tr class="separator:adc47cfe67a92cb5fbd422ddb0a0c15a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4964e4c5c1465407b8c22345fcc80819"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemain.html#a4964e4c5c1465407b8c22345fcc80819">updateFTP_D</a> (args, logger, connectFTP, includes, excludes, D)</td></tr>
+<tr class="separator:a4964e4c5c1465407b8c22345fcc80819"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa918b0ca63b511b11c02252a8622bc10"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemain.html#aa918b0ca63b511b11c02252a8622bc10">updateFTP</a> (args, logger, connectFTP, includes, excludes, M, A, D)</td></tr>
+<tr class="separator:aa918b0ca63b511b11c02252a8622bc10"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb8acded5eecc7be91fabc0f0b0f9090"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemain.html#acb8acded5eecc7be91fabc0f0b0f9090">loop</a> (args, logger, arbrePrecedent, startingLevel, connectFTP, includes, excludes)</td></tr>
+<tr class="separator:acb8acded5eecc7be91fabc0f0b0f9090"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc81a2bc9032239e47ace22a92fe0cc6"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemain.html#abc81a2bc9032239e47ace22a92fe0cc6">monMain</a> ()</td></tr>
 <tr class="separator:abc81a2bc9032239e47ace22a92fe0cc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -236,7 +236,46 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>monMain</b> ()</td></t
 </pre> 
 </div>
 </div>
-<a class="anchor" id="a94b514e853b8fc48d9c89f08326fe9b9"></a>
+<a class="anchor" id="a7521c189c12c457f31fb27b6f1b8054c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def main.isFileToBeIncluded </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>includes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>excludes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>nom_fichier</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">Fonction qui retourne vrai si le fichier a une extension que l'on souhaite copier
+:param includes: liste des fichiers a inclure
+:param excludes: liste des fichiers a exclure
+:param nom_fichier: nom du fichier avec son extension
+:type nom_fichier: str
+:return: result
+:rtype: bool
+</pre> 
+</div>
+</div>
+<a class="anchor" id="acb8acded5eecc7be91fabc0f0b0f9090"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -268,7 +307,19 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>monMain</b> ()</td></t
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>connectFTP</em>&#160;</td>
+          <td class="paramname"><em>connectFTP</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>includes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>excludes</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -282,17 +333,44 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>monMain</b> ()</td></t
 - Si modif, mettre a jour le serveur FTP
 :param args: parametres entres en lignes de commandes
 :param logger: fichier de log
+:param arbrePrecedent:
+:param startingLevel: niveau de profondeur de depart
+:param connectFTP: objet ftp
+:param includes: liste des fichiers a inclure
+:param excludes: liste des fichiers a exclure
 :type args: dict
 :type logger: log
-:param connectFTP: objet ftp
+:type arbrePrecedent:
+:type startingLevel: int
 :type connectFTP: class 'ftplib.FTP'
-
-
+:type includes: list
+:type excludes: list
 :return: 1
+:rtype: int
 </pre> 
 </div>
 </div>
-<a class="anchor" id="a900cc8c3d9f9e1b8b986796482ae5323"></a>
+<a class="anchor" id="abc81a2bc9032239e47ace22a92fe0cc6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def main.monMain </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">Tests Unitaires
+print(isFileToBeIncluded(['*'], ['.odt', ".docx"], "/home/nicolas/Documents/fichier.docx"))
+print(isFileToBeIncluded(['*'], ['.odt', ".docx"], "/home/nicolas/Documents/fichier.txt"))
+print(isFileToBeIncluded(['.odt', ".docx"], ['*'], "/home/nicolas/Documents/fichier.docx"))
+print(isFileToBeIncluded(['.odt', ".docx"], ['*'], "/home/nicolas/Documents/fichier.txt"))
+</pre> 
+</div>
+</div>
+<a class="anchor" id="aa918b0ca63b511b11c02252a8622bc10"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -313,6 +391,18 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>monMain</b> ()</td></t
           <td></td>
           <td class="paramtype">&#160;</td>
           <td class="paramname"><em>connectFTP</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>includes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>excludes</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -341,15 +431,27 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>monMain</b> ()</td></t
 </div><div class="memdoc">
 <pre class="fragment">Fonction qui gere la mise a jour du dossier distant
 :param args: parametres entres en lignes de commandes
-:param logger:
+:param logger: fichier de log
+:param connectFTP: objet ftp
+:param includes: liste des fichiers a inclure
+:param excludes: liste des fichiers a exclure
+:param M:
+:param A:
+:param D:
 :type args: dict
 :type logger: log
+:type connectFTP: class 'ftplib.FTP'
+:type includes: list
+:type excludes: list
+:type M: list
+:type A: list
+:type D: list
 :param connectFTP: objet ftp
 :type connectFTP: class 'ftplib.FTP'
 </pre> 
 </div>
 </div>
-<a class="anchor" id="a0ac30c71ac670b7676d8fcf2a2ee94d0"></a>
+<a class="anchor" id="adc47cfe67a92cb5fbd422ddb0a0c15a2"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -375,6 +477,18 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>monMain</b> ()</td></t
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>includes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>excludes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
           <td class="paramname"><em>A</em>&#160;</td>
         </tr>
         <tr>
@@ -388,15 +502,19 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>monMain</b> ()</td></t
 :param args: parametres entres en lignes de commandes
 :param logger: fichier de log
 :param connectFTP: objet ftp
+:param includes: liste des fichiers a inclure
+:param excludes: liste des fichiers a exclure
 :param A: liste des elements ajoutes
 :type args: dict
 :type logger: log
 :type connectFTP: class 'ftplib.FTP'
+:type includes: list
+:type excludes: list
 :type A: list
 </pre> 
 </div>
 </div>
-<a class="anchor" id="a67671b5a8ef31c164a336616c31866c0"></a>
+<a class="anchor" id="a4964e4c5c1465407b8c22345fcc80819"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -422,6 +540,18 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>monMain</b> ()</td></t
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>includes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>excludes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
           <td class="paramname"><em>D</em>&#160;</td>
         </tr>
         <tr>
@@ -435,15 +565,19 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>monMain</b> ()</td></t
 :param args: parametres entres en lignes de commandes
 :param logger: fichier de log
 :param connectFTP: objet ftp
+:param includes: liste des fichiers a inclure
+:param excludes: liste des fichiers a exclure
 :param D: liste des elements supprimes
 :type args: dict
 :type logger: log
 :type connectFTP: class 'ftplib.FTP'
+:type includes: list
+:type excludes: list
 :type D: list
 </pre> 
 </div>
 </div>
-<a class="anchor" id="a72891f9d649c2f0889626af662f224d9"></a>
+<a class="anchor" id="a97bbb0b263cc3d0576c9d51867c02af6"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -469,6 +603,18 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>monMain</b> ()</td></t
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>includes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>excludes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
           <td class="paramname"><em>M</em>&#160;</td>
         </tr>
         <tr>
@@ -482,10 +628,14 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>monMain</b> ()</td></t
 :param args: parametres entres en lignes de commandes
 :param logger: fichier de log
 :param connectFTP: objet ftp
+:param includes: liste des fichiers a inclure
+:param excludes: liste des fichiers a exclure
 :param M: liste des elements modifies
 :type args: dict
 :type logger: log
 :type connectFTP: class 'ftplib.FTP'
+:type includes: list
+:type excludes: list
 :type M: list
 </pre> 
 </div>
