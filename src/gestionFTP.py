@@ -97,7 +97,35 @@ def listerElements(ftp):
     """
     return listerFichiers(ftp) + listerDossiers(ftp)
 
+def differenceEntreLesChemin(chemin1,chemin2):
+    """
+    Fonction qui renvoie la difference chemin1-chemin2 (si chemin1 est plus haut que 2
+    alors on retourne une liste contenant des '..')
+    :param chemin1: chemin relatif (dont la racine correspond a celle du ftp)
+    :type chemin1: str
+    :param chemin2: chemin relatif (dont la racine correspond a celle du ftp)
+    :type chemin2: str
+    :return : liste contenant les dossiers a suivre pour se positionner
+                au meme endroit que chemin1 a partir de chemin2
+    :rtype : list
+    """
+    chemin_absolu, nom = os.path.split(args.dp)
+    longueur_chemin_absolu = len(chemin_absolu)
+    chemin_relatif = chemin_element[longueur_chemin_absolu:]
+    return chemin_relatif
 
+def positionnementDansLeFTP(ftp, chemin):
+    """
+    Fonction qui positionne dans le ftp en suivant le chemin relatif 'chemin' entre en parametre
+    :param ftp: serveur ftp
+    :type ftp: class 'ftplib.FTP'
+    :param chemin: chemin relatif (dont la racine correspond a celle du ftp)
+    :type chemin: str
+    """
+    ftp_chemin = ftp.pwd().split()
+    chemin_voulu = chemin.split()
+    differenceEntreChemins(chemin_voulu,ftp_chemin)
+    ftp.cwd()
 # %%__________________________________________________________________________________________________
 def envoyerUnFichier(fichier_chemin, fichier_nom, ftp):
     """
@@ -178,7 +206,7 @@ def supprimerDossier(ftp, dossier_chemin, dossier_nom):
             ftp.cwd('..')
             ftp.rmd(dossier_nom)
     except:
-        print("Warning: dossier inexistant sur le serveur FTP => il ne peut pas etre supprime")
+        return("Warning: dossier inexistant sur le serveur FTP => il ne peut pas etre supprime")
 
 
 def copierContenuDossier(ftp, chemin_ftp, chemin_local, nom_dossier, profondeure_copie_autorisee):
@@ -232,7 +260,7 @@ def monMain():
     ### Variables
     host = "localhost"  # adresse du serveur FTP
     user = "root"  # votre identifiant
-    password = "tomtom"  # votre mot de passe
+    password = "0000"  # votre mot de passe
 
     directory = "C:\\Users\\ISEN\\Desktop\\COURS\\M1\\Python\\PycharmProjects\\Projects\\rsync"
     # "/home/nicolas/Documents/Git/rsyncFTP"

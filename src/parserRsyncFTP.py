@@ -51,14 +51,14 @@ def initVariables():
                         help="chemin ou generer le fichier log")
     PARSER.add_argument("-lc", "--logConf", default="rsyncFTP.conf",
                         help="chemin vers le fichier conf du log (gestion des handler)")
-    PARSER.add_argument("-p", "--profondeur", default=2,
+    PARSER.add_argument("-p", "--profondeur", default=5,
                         help="profondeur de la supervision du dossier, default = 2")
     PARSER.add_argument("-sf", "--sizeFile", default=500,
                         help="taille maximale des fichiers transferes en Mo, default = 500 Mo")
     PARSER.add_argument("-f", "--frequence", default=1,
                         help="frequence de supervision en s, default = 1 s")
-    PARSER.add_argument("-st", "--supervisionTime", default=60,
-                        help="temps de supervision en s, default = 60 sec")
+    PARSER.add_argument("-st", "--supervisionTime", default=-1,
+                        help="temps de supervision en s, default = infinite")
 
     # affichage des arguments rentres dans le log
     ARGS = PARSER.parse_args()

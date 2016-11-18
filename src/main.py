@@ -58,8 +58,12 @@ def initialisationDossierFTP(args, logger, connectFTP):
     :type connectFTP: class 'ftplib.FTP'
     """
     dossier_chemin_absolu, dossier_nom = os.path.split(args.dp)
-    dossier_chemin_relatif = os.path.realpath(dossier_chemin_absolu)
-    gestionFTP.supprimerDossier(ftp=connectFTP, dossier_chemin="", dossier_nom=dossier_nom)
+    dossier_chemin_relatif = dossier_nom
+    suppression = gestionFTP.supprimerDossier(ftp=connectFTP, dossier_chemin="", dossier_nom=dossier_nom)
+    if not suppression :
+        logger.debug('Le dossier est bien supprime.')
+    else :
+        logger.debug("Le dossier n'a pas pu etre supprime car il n'existe pas." )
     gestionFTP.copierContenuDossier(ftp=connectFTP, chemin_ftp="", chemin_local=args.dp, nom_dossier=dossier_nom,
                                     profondeure_copie_autorisee=args.profondeur)
     logger.info("initialisation du dossier")
@@ -79,7 +83,7 @@ def donneCheminRelatif(args, chemin_element):
     """
     chemin_absolu, nom = os.path.split(args.dp)
     longueur_chemin_absolu = len(chemin_absolu)
-    chemin_relatif = os.path.join(nom, chemin_element[longueur_chemin_absolu:])
+    chemin_relatif = chemin_element[longueur_chemin_absolu:]
     return chemin_relatif
 
 
@@ -126,6 +130,7 @@ def updateFTP_A(args, logger, connectFTP, A):
         # Si ajout d'un fichier
         if os.path.isfile(path):
             fichier_chemin_absolu, fichier_nom = os.path.split(path)
+            gestionFTP.positionnementDansLeFTP(connectFTP, chemin_relatif)
             gestionFTP.envoyerUnFichier(fichier_chemin=path, ftp=connectFTP, fichier_nom=fichier_nom)
         # Si ajout d'un dossier
         elif os.path.isdir(path):
